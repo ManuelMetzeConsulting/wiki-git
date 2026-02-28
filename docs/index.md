@@ -29,7 +29,7 @@ hide:
 
 <div style="margin-left: 15px" markdown>
 
-![](assets/logo.png)
+![](assets/bfz_logo.png)
 
 Hier können weitere Inhalte rein.
 
@@ -44,7 +44,5 @@ Hier können weitere Inhalte rein.
     ++n++ oder ++period++ : Zur nächsten Seite gehen (**N**ext)
     
 </div>
-[Subscribe to our newsletter](#){ .md-button }
 
-[Subscribe to our newsletter](#){ .md-button .md-button--primary }
 </div>
