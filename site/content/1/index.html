@@ -1,0 +1,1405 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="../..">
+      
+      
+        <link rel="next" href="../2/">
+      
+      
+      <link rel="icon" href="../../assets/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.18">
+    
+    
+      
+        <title>1 Einführung - Einführung in die Versionsverwaltung mit Git</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.7e37652d.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../stylesheets/logo.css">
+    
+      <link rel="stylesheet" href="../../stylesheets/grid.css">
+    
+      <link rel="stylesheet" href="../../stylesheets/video_admonition.css">
+    
+      <link rel="stylesheet" href="../../stylesheets/python_tutor_admonition.css">
+    
+      <link rel="stylesheet" href="../../stylesheets/mermaid.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="amber" data-md-color-accent="deep-orange">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#1-einfuhrung-in-die-versionsverwaltung-mit-git" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="Einführung in die Versionsverwaltung mit Git" class="md-header__button md-logo" aria-label="Einführung in die Versionsverwaltung mit Git" data-md-component="logo">
+      
+  <img src="../../assets/logo.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Einführung in die Versionsverwaltung mit Git
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              1 Einführung
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+    
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+  
+
+<nav class="md-nav md-nav--primary md-nav--integrated" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Einführung in die Versionsverwaltung mit Git" class="md-nav__button md-logo" aria-label="Einführung in die Versionsverwaltung mit Git" data-md-component="logo">
+      
+  <img src="../../assets/logo.png" alt="logo">
+
+    </a>
+    Einführung in die Versionsverwaltung mit Git
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Übersicht
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    1 Einführung
+    
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    1 Einführung
+    
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#willkommen-zum-kurs" class="md-nav__link">
+    <span class="md-ellipsis">
+      Willkommen zum Kurs
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Willkommen zum Kurs">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#lernziele-dieses-kapitels" class="md-nav__link">
+    <span class="md-ellipsis">
+      Lernziele dieses Kapitels
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#struktur-dieses-kapitels" class="md-nav__link">
+    <span class="md-ellipsis">
+      Struktur dieses Kapitels
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#was-ist-versionskontrolle" class="md-nav__link">
+    <span class="md-ellipsis">
+      Was ist Versionskontrolle?
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Was ist Versionskontrolle?">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#analogie-dokumentenverwaltung" class="md-nav__link">
+    <span class="md-ellipsis">
+      Analogie: Dokumentenverwaltung
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mermaid-diagramm-evolution-der-versionskontrolle" class="md-nav__link">
+    <span class="md-ellipsis">
+      Mermaid Diagramm: Evolution der Versionskontrolle
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#warum-brauchen-wir-versionskontrolle" class="md-nav__link">
+    <span class="md-ellipsis">
+      Warum brauchen wir Versionskontrolle?
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Warum brauchen wir Versionskontrolle?">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#die-probleme-ohne-versionskontrolle" class="md-nav__link">
+    <span class="md-ellipsis">
+      Die Probleme ohne Versionskontrolle
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Die Probleme ohne Versionskontrolle">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-verlust-von-anderungen" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. Verlust von Änderungen
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-kollisionsprobleme" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. Kollisionsprobleme
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-keine-dokumentation" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. Keine Dokumentation
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-keine-sicherheit" class="md-nav__link">
+    <span class="md-ellipsis">
+      4. Keine Sicherheit
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#beispiel-softwareentwicklung-ohne-versionskontrolle" class="md-nav__link">
+    <span class="md-ellipsis">
+      Beispiel: Softwareentwicklung ohne Versionskontrolle
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#die-evolution-der-versionskontrolle" class="md-nav__link">
+    <span class="md-ellipsis">
+      Die Evolution der Versionskontrolle
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Die Evolution der Versionskontrolle">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#phase-1-manuelle-verwaltung-1970er" class="md-nav__link">
+    <span class="md-ellipsis">
+      Phase 1: Manuelle Verwaltung (1970er)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#phase-2-zentrale-systeme-1980er-2000er" class="md-nav__link">
+    <span class="md-ellipsis">
+      Phase 2: Zentrale Systeme (1980er-2000er)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#phase-3-verteilte-systeme-2000er-heute" class="md-nav__link">
+    <span class="md-ellipsis">
+      Phase 3: Verteilte Systeme (2000er-Heute)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mermaid-diagramm-zentral-vs-verteilt" class="md-nav__link">
+    <span class="md-ellipsis">
+      Mermaid Diagramm: Zentral vs. Verteilt
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#einfuhrung-in-git" class="md-nav__link">
+    <span class="md-ellipsis">
+      Einführung in Git
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Einführung in Git">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#was-ist-git" class="md-nav__link">
+    <span class="md-ellipsis">
+      Was ist Git?
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#die-drei-zustande-in-git" class="md-nav__link">
+    <span class="md-ellipsis">
+      Die drei Zustände in Git
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#git-vs-andere-systeme" class="md-nav__link">
+    <span class="md-ellipsis">
+      Git vs. Andere Systeme
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#vorteile-von-git" class="md-nav__link">
+    <span class="md-ellipsis">
+      Vorteile von Git
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Vorteile von Git">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-schnelligkeit" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. Schnelligkeit
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-flexibilitat" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. Flexibilität
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-sicherheit" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. Sicherheit
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-kollaboration" class="md-nav__link">
+    <span class="md-ellipsis">
+      4. Kollaboration
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5-okosystem" class="md-nav__link">
+    <span class="md-ellipsis">
+      5. Ökosystem
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mermaid-diagramm-git-workflow" class="md-nav__link">
+    <span class="md-ellipsis">
+      Mermaid Diagramm: Git-Workflow
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#zusammenfassung" class="md-nav__link">
+    <span class="md-ellipsis">
+      Zusammenfassung
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Zusammenfassung">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#was-haben-wir-gelernt" class="md-nav__link">
+    <span class="md-ellipsis">
+      Was haben wir gelernt?
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#warum-git" class="md-nav__link">
+    <span class="md-ellipsis">
+      Warum Git?
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#nachste-schritte" class="md-nav__link">
+    <span class="md-ellipsis">
+      Nächste Schritte
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#praktische-ubung" class="md-nav__link">
+    <span class="md-ellipsis">
+      Praktische Übung
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ressourcen" class="md-nav__link">
+    <span class="md-ellipsis">
+      Ressourcen
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#nachster-schritt" class="md-nav__link">
+    <span class="md-ellipsis">
+      Nächster Schritt
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../2/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    2 Kursübersicht
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../3/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    3.1 Historische Entwicklung
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../4/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    3.2 Grundlegende Konzepte
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../5/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    3.3 Installation und erste Schritte
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../6/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    4.1 Remote-Repositories
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../7/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    4.2 GitHub/GitLab Integration
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../8/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    4.3 Projektdateien und .gitignore
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../9/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    5.1 Fortgeschrittene Features
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../10/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    5.2 Projektadministration
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="1-einfuhrung-in-die-versionsverwaltung-mit-git">1 Einführung in die Versionsverwaltung mit Git<a class="headerlink" href="#1-einfuhrung-in-die-versionsverwaltung-mit-git" title="Permanent link">&para;</a></h1>
+<h2 id="willkommen-zum-kurs">Willkommen zum Kurs<a class="headerlink" href="#willkommen-zum-kurs" title="Permanent link">&para;</a></h2>
+<p>Dieses Kapitel führt Sie in die Welt der Versionsverwaltung mit Git ein. Sie lernen, warum Versionskontrolle in der modernen Softwareentwicklung unverzichtbar ist und wie Git als das führende Werkzeug diese Herausforderungen löst.</p>
+<h3 id="lernziele-dieses-kapitels">Lernziele dieses Kapitels<a class="headerlink" href="#lernziele-dieses-kapitels" title="Permanent link">&para;</a></h3>
+<p>Nach Abschluss dieses Kapitels können Sie:</p>
+<ol>
+<li><strong>Verstehen</strong>, was Versionskontrolle ist und warum sie wichtig ist</li>
+<li><strong>Erklären</strong>, wie Git im Vergleich zu anderen Systemen funktioniert</li>
+<li><strong>Erkennen</strong>, die Vorteile von Git für Ihre Projekte</li>
+<li><strong>Vorbereitet</strong> sein für die praktischen Übungen in den folgenden Kapiteln</li>
+</ol>
+<h3 id="struktur-dieses-kapitels">Struktur dieses Kapitels<a class="headerlink" href="#struktur-dieses-kapitels" title="Permanent link">&para;</a></h3>
+<p>Dieses Kapitel ist in folgende Abschnitte unterteilt:</p>
+<ol>
+<li><strong>Was ist Versionskontrolle?</strong> - Grundlagen und Konzepte</li>
+<li><strong>Warum brauchen wir Versionskontrolle?</strong> - Probleme ohne Versionskontrolle</li>
+<li><strong>Die Evolution der Versionskontrolle</strong> - Von zentral zu verteilt</li>
+<li><strong>Einführung in Git</strong> - Was macht Git besonders?</li>
+<li><strong>Vorteile von Git</strong> - Warum Git die richtige Wahl ist</li>
+</ol>
+<hr />
+<h2 id="was-ist-versionskontrolle">Was ist Versionskontrolle?<a class="headerlink" href="#was-ist-versionskontrolle" title="Permanent link">&para;</a></h2>
+<p>Versionskontrolle ist ein System, das Änderungen an Dateien oder Dateisystemen im Zeitverlauf aufzeichnet. Es ermöglicht Ihnen:</p>
+<ul>
+<li><strong>Änderungshistorie</strong> zu verfolgen: Wer hat was wann geändert?</li>
+<li><strong>Zurückzugehen</strong> zu früheren Versionen: Fehler rückgängig machen</li>
+<li><strong>Parallel zu arbeiten</strong>: Mehrere Entwickler können gleichzeitig arbeiten</li>
+<li><strong>Zusammenzuarbeiten</strong>: Änderungen verschiedener Entwickler zusammenführen</li>
+</ul>
+<h3 id="analogie-dokumentenverwaltung">Analogie: Dokumentenverwaltung<a class="headerlink" href="#analogie-dokumentenverwaltung" title="Permanent link">&para;</a></h3>
+<p>Stellen Sie sich vor, Sie arbeiten an einem wichtigen Dokument:</p>
+<p><strong>Ohne Versionskontrolle:</strong>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span></pre></div></td><td class="code"><div><pre><span></span><code>Dokument_v1.doc
+Dokument_v2.doc
+Dokument_final.doc
+Dokument_final_final.doc
+Dokument_final_final_v2.doc
+</code></pre></div></td></tr></table></div></p>
+<p><strong>Mit Versionskontrolle:</strong>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span></pre></div></td><td class="code"><div><pre><span></span><code>Dokument (mit vollständiger Historie)
+├── Version 1: Erste Idee
+├── Version 2: Erweiterung um Kapitel 2
+├── Version 3: Korrekturen
+└── Aktuelle Version: Fertiges Dokument
+</code></pre></div></td></tr></table></div></p>
+<h3 id="mermaid-diagramm-evolution-der-versionskontrolle">Mermaid Diagramm: Evolution der Versionskontrolle<a class="headerlink" href="#mermaid-diagramm-evolution-der-versionskontrolle" title="Permanent link">&para;</a></h3>
+<pre class="mermaid"><code>flowchart TD
+    A[1970er: Manuelle Verwaltung] --&gt;|Problem: Chaos| B[1980er: Zentrale Systeme]
+    B --&gt;|CVS, SVN| C[2000er: Verteilte Systeme]
+    C --&gt;|Git, Mercurial| D[2020er: Cloud-Integration]
+
+    style A fill:#f9f,stroke:#333,stroke-width:2px
+    style B fill:#bbf,stroke:#333,stroke-width:2px
+    style C fill:#bfb,stroke:#333,stroke-width:2px
+    style D fill:#ffb,stroke:#333,stroke-width:2px</code></pre>
+<hr />
+<h2 id="warum-brauchen-wir-versionskontrolle">Warum brauchen wir Versionskontrolle?<a class="headerlink" href="#warum-brauchen-wir-versionskontrolle" title="Permanent link">&para;</a></h2>
+<h3 id="die-probleme-ohne-versionskontrolle">Die Probleme ohne Versionskontrolle<a class="headerlink" href="#die-probleme-ohne-versionskontrolle" title="Permanent link">&para;</a></h3>
+<h4 id="1-verlust-von-anderungen">1. <strong>Verlust von Änderungen</strong><a class="headerlink" href="#1-verlust-von-anderungen" title="Permanent link">&para;</a></h4>
+<ul>
+<li>Wer hat welche Änderung wann gemacht?</li>
+<li>Wie rollbackt man einen Fehler?</li>
+<li>Welche Version ist die aktuelle?</li>
+</ul>
+<h4 id="2-kollisionsprobleme">2. <strong>Kollisionsprobleme</strong><a class="headerlink" href="#2-kollisionsprobleme" title="Permanent link">&para;</a></h4>
+<ul>
+<li>Mehrere Entwickler arbeiten gleichzeitig</li>
+<li>Manuelle Zusammenführung ist fehleranfällig</li>
+<li>Konflikte sind schwer zu lösen</li>
+</ul>
+<h4 id="3-keine-dokumentation">3. <strong>Keine Dokumentation</strong><a class="headerlink" href="#3-keine-dokumentation" title="Permanent link">&para;</a></h4>
+<ul>
+<li>Keine automatische Änderungshistorie</li>
+<li>Keine Information über den "Warum"-Aspekt</li>
+<li>Schwierige Wissensweitergabe</li>
+</ul>
+<h4 id="4-keine-sicherheit">4. <strong>Keine Sicherheit</strong><a class="headerlink" href="#4-keine-sicherheit" title="Permanent link">&para;</a></h4>
+<ul>
+<li>Keine Backup-Möglichkeit</li>
+<li>Keine Wiederherstellung bei Katastrophen</li>
+<li>Keine Versionierung von Konfigurationen</li>
+</ul>
+<h3 id="beispiel-softwareentwicklung-ohne-versionskontrolle">Beispiel: Softwareentwicklung ohne Versionskontrolle<a class="headerlink" href="#beispiel-softwareentwicklung-ohne-versionskontrolle" title="Permanent link">&para;</a></h3>
+<pre class="mermaid"><code>graph TD
+    A[Entwickler A] --&gt;|Ändert Datei X| B[Datei X_v1]
+    C[Entwickler B] --&gt;|Ändert Datei X| D[Datei X_v2]
+    E[Entwickler C] --&gt;|Ändert Datei X| F[Datei X_v3]
+
+    B --&gt; G[Manuelle Zusammenführung]
+    D --&gt; G
+    F --&gt; G
+
+    G --&gt; H{Konflikte?}
+    H --&gt;|Ja| I[Manuelle Lösung]
+    H --&gt;|Nein| J[Weiterarbeiten]
+
+    style I fill:#f96,stroke:#333,stroke-width:2px
+    style J fill:#9f9,stroke:#333,stroke-width:2px</code></pre>
+<hr />
+<h2 id="die-evolution-der-versionskontrolle">Die Evolution der Versionskontrolle<a class="headerlink" href="#die-evolution-der-versionskontrolle" title="Permanent link">&para;</a></h2>
+<h3 id="phase-1-manuelle-verwaltung-1970er">Phase 1: Manuelle Verwaltung (1970er)<a class="headerlink" href="#phase-1-manuelle-verwaltung-1970er" title="Permanent link">&para;</a></h3>
+<p><strong>Methode:</strong> Dateien mit Versionsnummern benennen
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span></pre></div></td><td class="code"><div><pre><span></span><code>Projekt_v1/
+├── code_v1.c
+├── code_v2.c
+├── code_final.c
+└── code_final_final.c
+</code></pre></div></td></tr></table></div></p>
+<p><strong>Probleme:</strong>
+- Keine automatische Historie
+- Schwierige Zusammenführung
+- Keine Änderungsdokumentation</p>
+<h3 id="phase-2-zentrale-systeme-1980er-2000er">Phase 2: Zentrale Systeme (1980er-2000er)<a class="headerlink" href="#phase-2-zentrale-systeme-1980er-2000er" title="Permanent link">&para;</a></h3>
+<p><strong>Beispiele:</strong> CVS, SVN (Subversion)</p>
+<p><strong>Architektur:</strong>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span></pre></div></td><td class="code"><div><pre><span></span><code>Zentrales Server-Repository
+        ↑
+    Alle Entwickler arbeiten dagegen
+</code></pre></div></td></tr></table></div></p>
+<p><strong>Vorteile:</strong>
+- Zentrale Historie
+- Automatische Versionsverwaltung
+- Bessere Zusammenarbeit</p>
+<p><strong>Nachteile:</strong>
+- Single Point of Failure (Server-Ausfall)
+- Langsame Operationen über Netzwerk
+- Keine lokale Arbeit ohne Verbindung</p>
+<h3 id="phase-3-verteilte-systeme-2000er-heute">Phase 3: Verteilte Systeme (2000er-Heute)<a class="headerlink" href="#phase-3-verteilte-systeme-2000er-heute" title="Permanent link">&para;</a></h3>
+<p><strong>Beispiele:</strong> Git, Mercurial</p>
+<p><strong>Architektur:</strong>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span></pre></div></td><td class="code"><div><pre><span></span><code>Zentrales Repository (GitHub/GitLab)
+        ↑
+    Jeder Entwickler hat eigenes vollständiges Repository
+</code></pre></div></td></tr></table></div></p>
+<p><strong>Vorteile:</strong>
+- Kein Single Point of Failure
+- Schnelle lokale Operationen
+- Arbeit auch ohne Netzwerkverbindung
+- Flexible Arbeitsmodelle</p>
+<h3 id="mermaid-diagramm-zentral-vs-verteilt">Mermaid Diagramm: Zentral vs. Verteilt<a class="headerlink" href="#mermaid-diagramm-zentral-vs-verteilt" title="Permanent link">&para;</a></h3>
+<pre class="mermaid"><code>flowchart LR
+    subgraph Zentral [Zentrales System]
+        Z1[Server-Repository] --&gt; Z2[Entwickler A]
+        Z1 --&gt; Z3[Entwickler B]
+        Z1 --&gt; Z4[Entwickler C]
+    end
+
+    subgraph Verteilt [Verteiltes System]
+        V1[Zentrales Repository] --&gt; V2[Repo A]
+        V1 --&gt; V3[Repo B]
+        V1 --&gt; V4[Repo C]
+        V2 --&gt; V5[Lokale Arbeit]
+        V3 --&gt; V6[Lokale Arbeit]
+        V4 --&gt; V7[Lokale Arbeit]
+    end
+
+    style Z1 fill:#f96,stroke:#333,stroke-width:2px
+    style V1 fill:#9f9,stroke:#333,stroke-width:2px</code></pre>
+<hr />
+<h2 id="einfuhrung-in-git">Einführung in Git<a class="headerlink" href="#einfuhrung-in-git" title="Permanent link">&para;</a></h2>
+<h3 id="was-ist-git">Was ist Git?<a class="headerlink" href="#was-ist-git" title="Permanent link">&para;</a></h3>
+<p>Git ist ein <strong>verteiltes Versionskontrolssystem</strong> (DVCS), das 2005 von Linus Torvalds für die Linux-Kernel-Entwicklung erstellt wurde.</p>
+<p><strong>Kernmerkmale:</strong>
+- <strong>Schnell</strong>: Lokale Operationen sind extrem schnell
+- <strong>Dezentral</strong>: Jeder Entwickler hat ein vollständiges Repository
+- <strong>Flexible Arbeitsmodelle</strong>: Support für verschiedene Workflows
+- <strong>Robust</strong>: Starke Datenintegrität durch kryptografische Hashing
+- <strong>Open Source</strong>: Kostenlos und frei verfügbar</p>
+<h3 id="die-drei-zustande-in-git">Die drei Zustände in Git<a class="headerlink" href="#die-drei-zustande-in-git" title="Permanent link">&para;</a></h3>
+<p>Jede Datei in Git kann sich in einem von drei Zuständen befinden:</p>
+<pre class="mermaid"><code>stateDiagram-v2
+    [*] --&gt; WorkingDirectory: git init
+    WorkingDirectory --&gt; StagingArea: git add
+    StagingArea --&gt; Repository: git commit
+    Repository --&gt; WorkingDirectory: git checkout
+    StagingArea --&gt; WorkingDirectory: git reset
+    Repository --&gt; StagingArea: git reset HEAD~1</code></pre>
+<ol>
+<li><strong>Working Directory</strong>: Ihre lokalen Dateien</li>
+<li><strong>Staging Area</strong>: Vorbereitete Änderungen</li>
+<li><strong>Repository</strong>: Gespeicherte Versionen</li>
+</ol>
+<h3 id="git-vs-andere-systeme">Git vs. Andere Systeme<a class="headerlink" href="#git-vs-andere-systeme" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Feature</th>
+<th>Git</th>
+<th>SVN</th>
+<th>CVS</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Verteilt</td>
+<td>✅</td>
+<td>❌</td>
+<td>❌</td>
+</tr>
+<tr>
+<td>Geschwindigkeit</td>
+<td>⭐⭐⭐⭐⭐</td>
+<td>⭐⭐⭐</td>
+<td>⭐⭐</td>
+</tr>
+<tr>
+<td>Branching</td>
+<td>⭐⭐⭐⭐⭐</td>
+<td>⭐⭐</td>
+<td>⭐</td>
+</tr>
+<tr>
+<td>Offline-Arbeit</td>
+<td>✅</td>
+<td>❌</td>
+<td>❌</td>
+</tr>
+<tr>
+<td>Community</td>
+<td>⭐⭐⭐⭐⭐</td>
+<td>⭐⭐⭐</td>
+<td>⭐⭐</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="vorteile-von-git">Vorteile von Git<a class="headerlink" href="#vorteile-von-git" title="Permanent link">&para;</a></h2>
+<h3 id="1-schnelligkeit">1. <strong>Schnelligkeit</strong><a class="headerlink" href="#1-schnelligkeit" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Lokale Operationen sind sofort verfügbar</li>
+<li>Keine Wartezeiten für Netzwerkoperationen</li>
+<li>Effiziente Datenstrukturen</li>
+</ul>
+<h3 id="2-flexibilitat">2. <strong>Flexibilität</strong><a class="headerlink" href="#2-flexibilitat" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Verschiedene Arbeitsmodelle (GitFlow, GitHub Flow, Trunk-Based)</li>
+<li>Support für große Projekte</li>
+<li>Anpassbar an verschiedene Workflows</li>
+</ul>
+<h3 id="3-sicherheit">3. <strong>Sicherheit</strong><a class="headerlink" href="#3-sicherheit" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Kryptografische Integrität</li>
+<li>Keine Datenverluste durch lokale Kopien</li>
+<li>Vollständige Historie</li>
+</ul>
+<h3 id="4-kollaboration">4. <strong>Kollaboration</strong><a class="headerlink" href="#4-kollaboration" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Einfache Zusammenarbeit über Remote-Repositories</li>
+<li>Pull Requests für Code-Reviews</li>
+<li>Integration mit CI/CD-Pipelines</li>
+</ul>
+<h3 id="5-okosystem">5. <strong>Ökosystem</strong><a class="headerlink" href="#5-okosystem" title="Permanent link">&para;</a></h3>
+<ul>
+<li>GitHub, GitLab, Bitbucket</li>
+<li>Unzählige Tools und Integrationen</li>
+<li>Große Community und Support</li>
+</ul>
+<h3 id="mermaid-diagramm-git-workflow">Mermaid Diagramm: Git-Workflow<a class="headerlink" href="#mermaid-diagramm-git-workflow" title="Permanent link">&para;</a></h3>
+<pre class="mermaid"><code>flowchart TD
+    A[Entwickler] --&gt;|git clone| B[Lokales Repository]
+    B --&gt;|git branch| C[Feature Branch]
+    C --&gt;|git commit| D[Lokale Änderungen]
+    D --&gt;|git push| E[Remote Repository]
+    E --&gt;|Pull Request| F[Code Review]
+    F --&gt;|Merge| G[Main Branch]
+    G --&gt;|git pull| B
+
+    style A fill:#bbf,stroke:#333,stroke-width:2px
+    style E fill:#f96,stroke:#333,stroke-width:2px
+    style G fill:#9f9,stroke:#333,stroke-width:2px</code></pre>
+<hr />
+<h2 id="zusammenfassung">Zusammenfassung<a class="headerlink" href="#zusammenfassung" title="Permanent link">&para;</a></h2>
+<h3 id="was-haben-wir-gelernt">Was haben wir gelernt?<a class="headerlink" href="#was-haben-wir-gelernt" title="Permanent link">&para;</a></h3>
+<ol>
+<li><strong>Versionskontrolle</strong> ist essentiell für moderne Softwareentwicklung</li>
+<li><strong>Git</strong> ist das führende verteilte Versionskontrolssystem</li>
+<li><strong>Drei Zustände</strong>: Working Directory, Staging Area, Repository</li>
+<li><strong>Vorteile</strong>: Schnelligkeit, Flexibilität, Sicherheit, Kollaboration</li>
+</ol>
+<h3 id="warum-git">Warum Git?<a class="headerlink" href="#warum-git" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Industriestandard</strong>: Wird von den meisten Unternehmen verwendet</li>
+<li><strong>Open Source</strong>: Kostenlos und frei verfügbar</li>
+<li><strong>Große Community</strong>: Umfangreiche Unterstützung und Ressourcen</li>
+<li><strong>Zukunftssicher</strong>: Weiterentwicklung und Integration mit modernen Tools</li>
+</ul>
+<h3 id="nachste-schritte">Nächste Schritte<a class="headerlink" href="#nachste-schritte" title="Permanent link">&para;</a></h3>
+<p>In den folgenden Kapiteln werden wir:
+1. Die historische Entwicklung von Versionskontrolle vertiefen
+2. Die grundlegenden Konzepte von Git verstehen
+3. Git installieren und erste Schritte machen
+4. Praktische Übungen durchführen</p>
+<hr />
+<h2 id="praktische-ubung">Praktische Übung<a class="headerlink" href="#praktische-ubung" title="Permanent link">&para;</a></h2>
+<details class="question" open="open">
+<summary>🌶 Grundlagen der Versionskontrolle verstehen</summary>
+<p>Basierend auf der Einführung in die Versionsverwaltung mit Git:</p>
+<ol>
+<li>
+<p>Erklären Sie den Hauptunterschied zwischen zentralen (CVS/SVN) und verteilten (Git) Versionskontrollesystemen</p>
+</li>
+<li>
+<p>Nennen Sie drei konkrete Probleme, die durch manuelle Versionsverwaltung in den 1970er Jahren entstanden</p>
+</li>
+<li>
+<p>Beschreiben Sie ein Szenario aus einem anderen Bereich (z.B. Dokumentenerstellung, Design, Projektmanagement), wo ähnliche Probleme auftreten könnten</p>
+</li>
+</ol>
+<div class="arithmatex">\[\text{Beispiel: Ein Architektenteam arbeitet an Bauplänen...}\]</div>
+<details class="info">
+<summary>Tipp</summary>
+<p>Denken Sie an Ihre eigene Erfahrung: Haben Sie schon einmal Dateien mit Versionsnummern benannt?</p>
+</details>
+<details class="success">
+<summary>Lösung</summary>
+<details class="video">
+<summary>Lösungsvideo</summary>
+<p><div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
+    <iframe src="https://www.youtube.com/embed/4XpnKHJAok8?si=8z5X6V2L9YdRq0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;"></iframe>
+</div></p>
+</details>
+<p><strong>1. Zentral vs. Verteilt:</strong>
+- <strong>Zentral (CVS/SVN)</strong>: Ein zentrales Server-Repository, alle Entwickler arbeiten dagegen. Bei Server-Ausfall ist das Projekt blockiert.
+- <strong>Verteilt (Git)</strong>: Jeder Entwickler hat ein vollständiges Repository. Arbeit kann lokal erfolgen, Synchronisation ist optional.</p>
+<p><strong>2. Probleme manueller Verwaltung:</strong>
+- <strong>Versionierungschaos</strong>: Dateien werden mit "final", "final_final", "final_v2" benannt
+- <strong>Keine Änderungsdokumentation</strong>: Wer hat was wann geändert ist unbekannt
+- <strong>Keine automatische Zusammenführung</strong>: Manuelle Zusammenarbeit ist fehleranfällig und zeitaufwendig</p>
+<p><strong>3. Analogie in anderem Bereich:</strong>
+<strong>Dokumentenerstellung im Verlag</strong>:
+- <strong>Problem</strong>: Mehrere Autoren arbeiten an einem Manuskript
+- <strong>Manuelle Methode</strong>: Jeder speichert seine Version als "Manuskript_v1.doc", "Manuskript_v2.doc"
+- <strong>Konsequenzen</strong>: Keine Übersicht über Änderungen, schwierige Zusammenführung, keine Rückverfolgbarkeit
+- <strong>Lösung</strong>: Google Docs (zentral) oder Git für Dokumente (verteilt)</p>
+<p><strong>Weitere Beispiele</strong>:
+- <strong>Design-Projekte</strong>: Figma/Sketch mit Versionierung
+- <strong>Projektmanagement</strong>: Jira mit Änderungshistorie
+- <strong>Wissenschaftliche Arbeiten</strong>: Overleaf mit Versionskontrolle</p>
+</details>
+</details>
+<hr />
+<h2 id="ressourcen">Ressourcen<a class="headerlink" href="#ressourcen" title="Permanent link">&para;</a></h2>
+<ul>
+<li><strong>Offizielle Git-Dokumentation</strong>: https://git-scm.com/doc</li>
+<li><strong>Pro Git Buch</strong>: https://git-scm.com/book/de/v2</li>
+<li><strong>GitHub Learning Lab</strong>: https://lab.github.com/</li>
+</ul>
+<hr />
+<h2 id="nachster-schritt">Nächster Schritt<a class="headerlink" href="#nachster-schritt" title="Permanent link">&para;</a></h2>
+<p>Nachdem Sie die Grundlagen der Versionskontrolle verstanden haben, werden wir im nächsten Kapitel die <strong>Kursübersicht</strong> betrachten und den 2-tägigen Lernplan kennenlernen.</p>
+<p><a href="../2/">Weiter zu Kapitel 2: Kursübersicht</a></p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="Footer" >
+        
+          
+          <a href="../.." class="md-footer__link md-footer__link--prev" aria-label="Previous: Übersicht">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              <div class="md-ellipsis">
+                Übersicht
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="../2/" class="md-footer__link md-footer__link--next" aria-label="Next: 2 Kursübersicht">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              <div class="md-ellipsis">
+                2 Kursübersicht
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright &copy; 2026 Qualidy GmbH
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+        
+<div class="md-social">
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://www.kununu.com/de/qualidy" target="_blank" rel="noopener" title="www.kununu.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><!--! Font Awesome Free 7.0.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path fill="currentColor" d="M311 86.3c12.3-12.7 12-32.9-.7-45.2s-32.9-12-45.2.7C143.4 167.2 76.4 236.3 64 249V64c0-17.7-14.3-32-32-32S0 46.3 0 64v384c0 17.7 14.3 32 32 32s32-14.3 32-32V341l64.7-66.7 133 192c10.1 14.5 30 18.1 44.5 8.1s18.1-30 8.1-44.5L174.1 227.4z"/></svg>
+    </a>
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://de.linkedin.com/company/qualidy" target="_blank" rel="noopener" title="de.linkedin.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.0.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path fill="currentColor" d="M416 32H31.9C14.3 32 0 46.5 0 64.3v383.4C0 465.5 14.3 480 31.9 480H416c17.6 0 32-14.5 32-32.3V64.3c0-17.8-14.4-32.3-32-32.3M135.4 416H69V202.2h66.5V416zM102.2 96a38.5 38.5 0 1 1 0 77 38.5 38.5 0 1 1 0-77m282.1 320h-66.4V312c0-24.8-.5-56.7-34.5-56.7-34.6 0-39.9 27-39.9 54.9V416h-66.4V202.2h63.7v29.2h.9c8.9-16.8 30.6-34.5 62.9-34.5 67.2 0 79.7 44.3 79.7 101.9z"/></svg>
+    </a>
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://www.google.com/search?sca_esv=7e6ba2047fcb60f3&uds=AMwkrPtyB8MsmozA4Lwzqy2G2HCu-abqzc6moOG48q3gP5dtjTRzC2Ws0eSwcyLXDfZNuYCrZ7ByIreHLG9th3vKLekPoVeey0tumAbet4cVLQRLzdRFhUbOGbnyp3xo1V0hzzaNmkCN&si=AKbGX_rcuucMgom2rba1cdwsvM2SVoIkP2btyqGMV4t0GuHIs4sGV_1tpuqR0YHG4Rzd9SdJcL-lW6E-2aJA5azZLTKkIOrZ2j2aWwoBkVbdEJ0o0GPcQhs%3D&q=Qualidy+GmbH+Rezensionen&sa=X&ved=2ahUKEwibsbnSgcmFAxXNQvEDHaVYCiAQ3PALegQIRxAF" target="_blank" rel="noopener" title="www.google.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21.35 11.1h-9.17v2.73h6.51c-.33 3.81-3.5 5.44-6.5 5.44C8.36 19.27 5 16.25 5 12c0-4.1 3.2-7.27 7.2-7.27 3.09 0 4.9 1.97 4.9 1.97L19 4.72S16.56 2 12.1 2C6.42 2 2.03 6.8 2.03 12c0 5.05 4.13 10 10.22 10 5.35 0 9.25-3.67 9.25-9.09 0-1.15-.15-1.81-.15-1.81"/></svg>
+    </a>
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://qualidy.de" target="_blank" rel="noopener" title="qualidy.de" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.0.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path fill="currentColor" d="M351.9 280H161c2.9 64.5 17.2 123.9 37.5 167.4 11.4 24.5 23.7 41.8 35.1 52.4 11.2 10.5 18.9 12.2 22.9 12.2s11.7-1.7 22.9-12.2c11.4-10.6 23.7-28 35.1-52.4 20.3-43.5 34.6-102.9 37.5-167.4zm-191-48h190.9c-2.8-64.5-17.1-123.9-37.4-167.4-11.4-24.4-23.7-41.8-35.1-52.4C268.1 1.7 260.4 0 256.4 0s-11.7 1.7-22.9 12.2c-11.4 10.6-23.7 28-35.1 52.4-20.3 43.5-34.6 102.9-37.5 167.4m-48 0c3.5-85.6 25.6-165.1 57.9-217.3C78.7 47.3 10.9 131.2 1.5 232zM1.5 280c9.4 100.8 77.2 184.7 169.3 217.3-32.3-52.2-54.4-131.7-57.9-217.3zm398.4 0c-3.5 85.6-25.6 165.1-57.9 217.3 92.1-32.7 159.9-116.5 169.3-217.3zm111.4-48C501.9 131.2 434.1 47.3 342 14.7c32.3 52.2 54.4 131.7 57.9 217.3z"/></svg>
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.tracking", "navigation.path", "navigation.top", "navigation.footer", "toc.follow", "toc.integrate", "content.code.copy", "content.code.annotate"], "search": "../../assets/javascripts/workers/search.973d3a69.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.92b07e13.min.js"></script>
+      
+        <script src="../../javascripts/mathjax.js"></script>
+      
+        <script src="https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js"></script>
+      
+    
+  </body>
+</html>

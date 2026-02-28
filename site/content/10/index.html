@@ -1,0 +1,2358 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="../9/">
+      
+      
+      
+      <link rel="icon" href="../../assets/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.18">
+    
+    
+      
+        <title>5.2 Projektadministration - Einführung in die Versionsverwaltung mit Git</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.7e37652d.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../stylesheets/logo.css">
+    
+      <link rel="stylesheet" href="../../stylesheets/grid.css">
+    
+      <link rel="stylesheet" href="../../stylesheets/video_admonition.css">
+    
+      <link rel="stylesheet" href="../../stylesheets/python_tutor_admonition.css">
+    
+      <link rel="stylesheet" href="../../stylesheets/mermaid.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="amber" data-md-color-accent="deep-orange">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#52-projektadministration-und-best-practices" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="Einführung in die Versionsverwaltung mit Git" class="md-header__button md-logo" aria-label="Einführung in die Versionsverwaltung mit Git" data-md-component="logo">
+      
+  <img src="../../assets/logo.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Einführung in die Versionsverwaltung mit Git
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              5.2 Projektadministration
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+    
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+  
+
+<nav class="md-nav md-nav--primary md-nav--integrated" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Einführung in die Versionsverwaltung mit Git" class="md-nav__button md-logo" aria-label="Einführung in die Versionsverwaltung mit Git" data-md-component="logo">
+      
+  <img src="../../assets/logo.png" alt="logo">
+
+    </a>
+    Einführung in die Versionsverwaltung mit Git
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Übersicht
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../1/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    1 Einführung
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../2/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    2 Kursübersicht
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../3/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    3.1 Historische Entwicklung
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../4/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    3.2 Grundlegende Konzepte
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../5/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    3.3 Installation und erste Schritte
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../6/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    4.1 Remote-Repositories
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../7/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    4.2 GitHub/GitLab Integration
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../8/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    4.3 Projektdateien und .gitignore
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../9/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    5.1 Fortgeschrittene Features
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    5.2 Projektadministration
+    
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    5.2 Projektadministration
+    
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#einfuhrung" class="md-nav__link">
+    <span class="md-ellipsis">
+      Einführung
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#repository-struktur" class="md-nav__link">
+    <span class="md-ellipsis">
+      Repository-Struktur
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Repository-Struktur">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#standard-struktur-fur-projekte" class="md-nav__link">
+    <span class="md-ellipsis">
+      Standard-Struktur für Projekte
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#wichtige-dateien-im-detail" class="md-nav__link">
+    <span class="md-ellipsis">
+      Wichtige Dateien im Detail
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#verwendung" class="md-nav__link">
+    <span class="md-ellipsis">
+      Verwendung
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#contributing" class="md-nav__link">
+    <span class="md-ellipsis">
+      Contributing
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#license" class="md-nav__link">
+    <span class="md-ellipsis">
+      License
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#branching-strategien" class="md-nav__link">
+    <span class="md-ellipsis">
+      Branching-Strategien
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Branching-Strategien">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-gitflow" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. GitFlow
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-github-flow" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. GitHub Flow
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-trunk-based-development" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. Trunk-Based Development
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#commit-nachrichten" class="md-nav__link">
+    <span class="md-ellipsis">
+      Commit-Nachrichten
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Commit-Nachrichten">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#konventionelle-commits" class="md-nav__link">
+    <span class="md-ellipsis">
+      Konventionelle Commits
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#gute-commit-nachrichten" class="md-nav__link">
+    <span class="md-ellipsis">
+      Gute Commit-Nachrichten
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#code-review" class="md-nav__link">
+    <span class="md-ellipsis">
+      Code Review
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Code Review">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#checkliste-fur-code-review" class="md-nav__link">
+    <span class="md-ellipsis">
+      Checkliste für Code Review
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#pull-request-template" class="md-nav__link">
+    <span class="md-ellipsis">
+      Pull Request Template
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#cicd-pipelines" class="md-nav__link">
+    <span class="md-ellipsis">
+      CI/CD Pipelines
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="CI/CD Pipelines">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#github-actions" class="md-nav__link">
+    <span class="md-ellipsis">
+      GitHub Actions
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#gitlab-cicd" class="md-nav__link">
+    <span class="md-ellipsis">
+      GitLab CI/CD
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#repository-wartung" class="md-nav__link">
+    <span class="md-ellipsis">
+      Repository-Wartung
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Repository-Wartung">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-repository-aufraumen" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. Repository aufräumen
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-branches-aufraumen" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. Branches aufräumen
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-tags-verwalten" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. Tags verwalten
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#sicherheit" class="md-nav__link">
+    <span class="md-ellipsis">
+      Sicherheit
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Sicherheit">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-zugriffskontrolle" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. Zugriffskontrolle
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-secrets-management" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. Secrets Management
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-dependabot" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. Dependabot
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#monitoring-und-metriken" class="md-nav__link">
+    <span class="md-ellipsis">
+      Monitoring und Metriken
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Monitoring und Metriken">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-repository-statistiken" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. Repository-Statistiken
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-code-coverage" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. Code Coverage
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#best-practices-zusammenfassung" class="md-nav__link">
+    <span class="md-ellipsis">
+      Best Practices Zusammenfassung
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Best Practices Zusammenfassung">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-repository-management" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. Repository-Management
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-branching" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. Branching
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-commits" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. Commits
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-code-review" class="md-nav__link">
+    <span class="md-ellipsis">
+      4. Code Review
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5-cicd" class="md-nav__link">
+    <span class="md-ellipsis">
+      5. CI/CD
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#6-sicherheit" class="md-nav__link">
+    <span class="md-ellipsis">
+      6. Sicherheit
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#7-wartung" class="md-nav__link">
+    <span class="md-ellipsis">
+      7. Wartung
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#praktische-ubung" class="md-nav__link">
+    <span class="md-ellipsis">
+      Praktische Übung
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Praktische Übung">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#ubung-1-repository-struktur-erstellen" class="md-nav__link">
+    <span class="md-ellipsis">
+      Übung 1: Repository-Struktur erstellen
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ubung-2-branching-strategie-implementieren" class="md-nav__link">
+    <span class="md-ellipsis">
+      Übung 2: Branching-Strategie implementieren
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ubung-3-cicd-pipeline-testen" class="md-nav__link">
+    <span class="md-ellipsis">
+      Übung 3: CI/CD Pipeline testen
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#zusammenfassung" class="md-nav__link">
+    <span class="md-ellipsis">
+      Zusammenfassung
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="52-projektadministration-und-best-practices">5.2 Projektadministration und Best Practices<a class="headerlink" href="#52-projektadministration-und-best-practices" title="Permanent link">&para;</a></h1>
+<h2 id="einfuhrung">Einführung<a class="headerlink" href="#einfuhrung" title="Permanent link">&para;</a></h2>
+<p>In diesem Kapitel lernen Sie, wie Sie Git-Repositories professionell verwalten und Best Practices für die Projektadministration umsetzen.</p>
+<h2 id="repository-struktur">Repository-Struktur<a class="headerlink" href="#repository-struktur" title="Permanent link">&para;</a></h2>
+<pre class="mermaid"><code>graph TD
+    A[mein-projekt] --&gt; B[.git]
+    A --&gt; C[.gitignore]
+    A --&gt; D[README.md]
+    A --&gt; E[LICENSE]
+    A --&gt; F[CONTRIBUTING.md]
+    A --&gt; G[CODE_OF_CONDUCT.md]
+    A --&gt; H[.github]
+    A --&gt; I[docs]
+    A --&gt; J[src]
+    A --&gt; K[tests]
+    A --&gt; L[scripts]
+    A --&gt; M[docker]
+    A --&gt; N[.env.example]
+    A --&gt; O[requirements.txt]
+
+    H --&gt; H1[workflows]
+    H --&gt; H2[ISSUE_TEMPLATE]
+    H1 --&gt; H11[ci.yml]
+    H1 --&gt; H12[cd.yml]
+    H2 --&gt; H21[bug_report.md]
+    H2 --&gt; H22[feature_request.md]
+
+    I --&gt; I1[index.md]
+    I --&gt; I2[api.md]
+    I --&gt; I3[getting-started.md]
+
+    J --&gt; J1[main.py]
+    J --&gt; J2[utils.py]
+
+    K --&gt; K1[test_main.py]
+    K --&gt; K2[test_utils.py]
+
+    L --&gt; L1[setup.sh]
+    L --&gt; L2[deploy.sh]
+
+    M --&gt; M1[Dockerfile]
+    M --&gt; M2[docker-compose.yml]
+
+    style A fill:#f9f,stroke:#333,stroke-width:2px
+    style B fill:#bbf,stroke:#333,stroke-width:2px
+    style C fill:#bfb,stroke:#333,stroke-width:2px
+    style D fill:#fbb,stroke:#333,stroke-width:2px
+    style E fill:#bbf,stroke:#333,stroke-width:2px
+    style F fill:#bfb,stroke:#333,stroke-width:2px
+    style G fill:#fbb,stroke:#333,stroke-width:2px
+    style H fill:#bbf,stroke:#333,stroke-width:2px
+    style I fill:#bfb,stroke:#333,stroke-width:2px
+    style J fill:#fbb,stroke:#333,stroke-width:2px
+    style K fill:#bbf,stroke:#333,stroke-width:2px
+    style L fill:#bfb,stroke:#333,stroke-width:2px
+    style M fill:#fbb,stroke:#333,stroke-width:2px</code></pre>
+<h3 id="standard-struktur-fur-projekte">Standard-Struktur für Projekte<a class="headerlink" href="#standard-struktur-fur-projekte" title="Permanent link">&para;</a></h3>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span>
+<span class="normal">21</span>
+<span class="normal">22</span>
+<span class="normal">23</span>
+<span class="normal">24</span>
+<span class="normal">25</span>
+<span class="normal">26</span>
+<span class="normal">27</span>
+<span class="normal">28</span>
+<span class="normal">29</span>
+<span class="normal">30</span>
+<span class="normal">31</span>
+<span class="normal">32</span>
+<span class="normal">33</span>
+<span class="normal">34</span>
+<span class="normal">35</span>
+<span class="normal">36</span></pre></div></td><td class="code"><div><pre><span></span><code>mein-projekt/
+├── .git/
+├── .gitignore
+├── .gitattributes
+├── README.md
+├── LICENSE
+├── CHANGELOG.md
+├── CONTRIBUTING.md
+├── CODE_OF_CONDUCT.md
+├── .github/
+│   ├── workflows/
+│   │   ├── ci.yml
+│   │   └── cd.yml
+│   └── ISSUE_TEMPLATE/
+│       ├── bug_report.md
+│       └── feature_request.md
+├── docs/
+│   ├── index.md
+│   ├── api.md
+│   └── getting-started.md
+├── src/
+│   ├── main.py
+│   └── utils.py
+├── tests/
+│   ├── test_main.py
+│   └── test_utils.py
+├── scripts/
+│   ├── setup.sh
+│   └── deploy.sh
+├── docker/
+│   ├── Dockerfile
+│   └── docker-compose.yml
+├── .env.example
+├── requirements.txt
+├── package.json
+└── .editorconfig
+</code></pre></div></td></tr></table></div>
+<h3 id="wichtige-dateien-im-detail">Wichtige Dateien im Detail<a class="headerlink" href="#wichtige-dateien-im-detail" title="Permanent link">&para;</a></h3>
+<p><strong>1. README.md</strong>:
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="gh"># Projektname</span>
+
+Kurze Beschreibung des Projekts
+
+<span class="gu">## Installation</span>
+
+```bash
+git clone https://github.com/user/repo.git
+cd repo
+pip install -r requirements.txt
+</code></pre></div></td></tr></table></div></p>
+<h2 id="verwendung">Verwendung<a class="headerlink" href="#verwendung" title="Permanent link">&para;</a></h2>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>python<span class="w"> </span>main.py
+</code></pre></div></td></tr></table></div>
+<h2 id="contributing">Contributing<a class="headerlink" href="#contributing" title="Permanent link">&para;</a></h2>
+<p>Siehe <a href="CONTRIBUTING.md">CONTRIBUTING.md</a></p>
+<h2 id="license">License<a class="headerlink" href="#license" title="Permanent link">&para;</a></h2>
+<p>MIT
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span>
+<span class="normal">21</span>
+<span class="normal">22</span>
+<span class="normal">23</span></pre></div></td><td class="code"><div><pre><span></span><code>**2. CONTRIBUTING.md**:
+```markdown
+# Contributing Guidelines
+
+## Wie beizutragen
+
+1. Fork das Repository
+2. Erstelle einen Feature-Branch
+3. Commit Ihre Änderungen
+4. Push zum Branch
+5. Erstellen Sie einen Pull Request
+
+## Code Style
+
+- Verwende PEP 8 für Python
+- Verwende 2 Leerzeichen für Einrückungen
+- Schreibe Tests für neue Features
+
+## Pull Request Template
+
+- [ ] Code funktioniert
+- [ ] Tests sind geschrieben
+- [ ] Dokumentation ist aktualisiert
+</code></pre></div></td></tr></table></div></p>
+<p><strong>3. CODE_OF_CONDUCT.md</strong>:
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="gh"># Code of Conduct</span>
+
+<span class="gu">## Unsere Standards</span>
+
+<span class="k">-</span><span class="w"> </span>Respektvolle Kommunikation
+<span class="k">-</span><span class="w"> </span>Inklusive Umgebung
+<span class="k">-</span><span class="w"> </span>Konstruktives Feedback
+
+<span class="gu">## Enforcement</span>
+
+Verstöße werden gemeldet und behandelt.
+</code></pre></div></td></tr></table></div></p>
+<h2 id="branching-strategien">Branching-Strategien<a class="headerlink" href="#branching-strategien" title="Permanent link">&para;</a></h2>
+<h3 id="1-gitflow">1. GitFlow<a class="headerlink" href="#1-gitflow" title="Permanent link">&para;</a></h3>
+<p><strong>Struktur</strong>:
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span>
+<span class="normal">6</span>
+<span class="normal">7</span></pre></div></td><td class="code"><div><pre><span></span><code>main (master)
+├── develop
+│   ├── feature/login
+│   ├── feature/payment
+│   └── feature/api
+├── release/v1.0.0
+└── hotfix/security-issue
+</code></pre></div></td></tr></table></div></p>
+<p><strong>Regeln</strong>:
+- <code>main</code>: Produktionscode, immer deployable
+- <code>develop</code>: Entwicklungscode, Integration aller Features
+- <code>feature/*</code>: Neue Features
+- <code>release/*</code>: Release-Vorbereitung
+- <code>hotfix/*</code>: Kritische Bugfixes</p>
+<p><strong>Workflow</strong>:
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="c1"># Feature starten</span>
+git<span class="w"> </span>checkout<span class="w"> </span>develop
+git<span class="w"> </span>checkout<span class="w"> </span>-b<span class="w"> </span>feature/new-feature
+
+<span class="c1"># Feature abschließen</span>
+git<span class="w"> </span>checkout<span class="w"> </span>develop
+git<span class="w"> </span>merge<span class="w"> </span>feature/new-feature
+git<span class="w"> </span>branch<span class="w"> </span>-d<span class="w"> </span>feature/new-feature
+
+<span class="c1"># Release erstellen</span>
+git<span class="w"> </span>checkout<span class="w"> </span>-b<span class="w"> </span>release/v1.0.0<span class="w"> </span>develop
+<span class="c1"># ... Vorbereitung ...</span>
+git<span class="w"> </span>checkout<span class="w"> </span>main
+git<span class="w"> </span>merge<span class="w"> </span>release/v1.0.0
+git<span class="w"> </span>tag<span class="w"> </span>v1.0.0
+git<span class="w"> </span>checkout<span class="w"> </span>develop
+git<span class="w"> </span>merge<span class="w"> </span>release/v1.0.0
+git<span class="w"> </span>branch<span class="w"> </span>-d<span class="w"> </span>release/v1.0.0
+</code></pre></div></td></tr></table></div></p>
+<h3 id="2-github-flow">2. GitHub Flow<a class="headerlink" href="#2-github-flow" title="Permanent link">&para;</a></h3>
+<p><strong>Struktur</strong>:
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span></pre></div></td><td class="code"><div><pre><span></span><code>main
+├── feature/branch-1
+├── feature/branch-2
+└── feature/branch-3
+</code></pre></div></td></tr></table></div></p>
+<p><strong>Regeln</strong>:
+- <code>main</code> ist immer deployable
+- Jede Änderung in separatem Branch
+- Pull Request für jede Änderung
+- Merge nach Code Review</p>
+<p><strong>Workflow</strong>:
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="c1"># 1. Von main starten</span>
+git<span class="w"> </span>checkout<span class="w"> </span>main
+git<span class="w"> </span>pull<span class="w"> </span>origin<span class="w"> </span>main
+
+<span class="c1"># 2. Neuen Branch erstellen</span>
+git<span class="w"> </span>checkout<span class="w"> </span>-b<span class="w"> </span>feature/new-feature
+
+<span class="c1"># 3. Änderungen machen</span>
+<span class="c1"># ... Code ...</span>
+
+<span class="c1"># 4. Commit und push</span>
+git<span class="w"> </span>commit<span class="w"> </span>-m<span class="w"> </span><span class="s2">&quot;Add new feature&quot;</span>
+git<span class="w"> </span>push<span class="w"> </span>-u<span class="w"> </span>origin<span class="w"> </span>feature/new-feature
+
+<span class="c1"># 5. Pull Request erstellen</span>
+<span class="c1"># 6. Nach Review: Merge in main</span>
+</code></pre></div></td></tr></table></div></p>
+<h3 id="3-trunk-based-development">3. Trunk-Based Development<a class="headerlink" href="#3-trunk-based-development" title="Permanent link">&para;</a></h3>
+<p><strong>Struktur</strong>:
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span></pre></div></td><td class="code"><div><pre><span></span><code>main (trunk)
+├── short-lived-feature-1
+├── short-lived-feature-2
+└── short-lived-feature-3
+</code></pre></div></td></tr></table></div></p>
+<p><strong>Regeln</strong>:
+- Kurzlebige Branches (maximal 1-2 Tage)
+- Häufiges Merge in main
+- Feature Flags für in-flight Features
+- Automatisierte Tests</p>
+<h2 id="commit-nachrichten">Commit-Nachrichten<a class="headerlink" href="#commit-nachrichten" title="Permanent link">&para;</a></h2>
+<h3 id="konventionelle-commits">Konventionelle Commits<a class="headerlink" href="#konventionelle-commits" title="Permanent link">&para;</a></h3>
+<p><strong>Format</strong>:
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span></pre></div></td><td class="code"><div><pre><span></span><code>&lt;type&gt;(&lt;scope&gt;): &lt;description&gt;
+
+[optional body]
+
+[optional footer]
+</code></pre></div></td></tr></table></div></p>
+<p><strong>Types</strong>:
+- <code>feat</code>: Neues Feature
+- <code>fix</code>: Bugfix
+- <code>docs</code>: Dokumentation
+- <code>style</code>: Code-Style (keine Funktionsänderung)
+- <code>refactor</code>: Code-Refactoring
+- <code>test</code>: Tests
+- <code>chore</code>: Build-Prozess, Tools</p>
+<p><strong>Beispiele</strong>:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="c1"># Feature</span>
+git<span class="w"> </span>commit<span class="w"> </span>-m<span class="w"> </span><span class="s2">&quot;feat(auth): Add user authentication&quot;</span>
+
+<span class="c1"># Bugfix</span>
+git<span class="w"> </span>commit<span class="w"> </span>-m<span class="w"> </span><span class="s2">&quot;fix(api): Fix null pointer exception&quot;</span>
+
+<span class="c1"># Dokumentation</span>
+git<span class="w"> </span>commit<span class="w"> </span>-m<span class="w"> </span><span class="s2">&quot;docs(readme): Update installation instructions&quot;</span>
+
+<span class="c1"># Refactoring</span>
+git<span class="w"> </span>commit<span class="w"> </span>-m<span class="w"> </span><span class="s2">&quot;refactor(utils): Simplify validation logic&quot;</span>
+</code></pre></div></td></tr></table></div>
+<h3 id="gute-commit-nachrichten">Gute Commit-Nachrichten<a class="headerlink" href="#gute-commit-nachrichten" title="Permanent link">&para;</a></h3>
+<p><strong>Schlecht</strong>:
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span></pre></div></td><td class="code"><div><pre><span></span><code>fix stuff
+update
+</code></pre></div></td></tr></table></div></p>
+<p><strong>Gut</strong>:
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span>
+<span class="normal">6</span>
+<span class="normal">7</span></pre></div></td><td class="code"><div><pre><span></span><code>fix(login): Handle invalid credentials gracefully
+
+- Add proper error messages for wrong passwords
+- Implement rate limiting for failed attempts
+- Log security events for audit trail
+
+Closes #123
+</code></pre></div></td></tr></table></div></p>
+<h2 id="code-review">Code Review<a class="headerlink" href="#code-review" title="Permanent link">&para;</a></h2>
+<h3 id="checkliste-fur-code-review">Checkliste für Code Review<a class="headerlink" href="#checkliste-fur-code-review" title="Permanent link">&para;</a></h3>
+<p><strong>Funktionalität</strong>:
+- [ ] Code funktioniert wie erwartet
+- [ ] Alle Anforderungen sind erfüllt
+- [ ] Edge Cases sind berücksichtigt</p>
+<p><strong>Code Quality</strong>:
+- [ ] Code ist lesbar und verständlich
+- [ ] Keine Code-Duplizierung
+- [ ] Einhaltung der Code-Conventions
+- [ ] Sinnvolle Variablennamen</p>
+<p><strong>Tests</strong>:
+- [ ] Unit Tests sind geschrieben
+- [ ] Integration Tests sind geschrieben
+- [ ] Tests sind ausreichend
+- [ ] Tests sind lesbar</p>
+<p><strong>Dokumentation</strong>:
+- [ ] Code ist dokumentiert
+- [ ] README ist aktualisiert
+- [ ] API-Dokumentation ist aktuell</p>
+<p><strong>Sicherheit</strong>:
+- [ ] Keine Sicherheitslücken
+- [ ] Sensible Daten sind geschützt
+- [ ] Input-Validierung ist vorhanden</p>
+<h3 id="pull-request-template">Pull Request Template<a class="headerlink" href="#pull-request-template" title="Permanent link">&para;</a></h3>
+<p><strong>GitHub</strong> (<code>.github/pull_request_template.md</code>):
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span>
+<span class="normal">21</span>
+<span class="normal">22</span>
+<span class="normal">23</span>
+<span class="normal">24</span>
+<span class="normal">25</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="gu">## Description</span>
+
+Describe your changes here
+
+<span class="gu">## Type of Change</span>
+
+<span class="k">- [ ]</span> Bug fix (non-breaking change)
+<span class="k">- [ ]</span> New feature (non-breaking change)
+<span class="k">- [ ]</span> Breaking change
+<span class="k">- [ ]</span> Documentation update
+
+<span class="gu">## Checklist</span>
+
+<span class="k">- [ ]</span> Code follows project style guidelines
+<span class="k">- [ ]</span> Tests pass
+<span class="k">- [ ]</span> Documentation updated
+<span class="k">- [ ]</span> No new dependencies added
+
+<span class="gu">## Screenshots</span>
+
+[Add screenshots if applicable]
+
+<span class="gu">## Related Issues</span>
+
+Fixes <span class="ni">#123</span>
+</code></pre></div></td></tr></table></div></p>
+<h2 id="cicd-pipelines">CI/CD Pipelines<a class="headerlink" href="#cicd-pipelines" title="Permanent link">&para;</a></h2>
+<h3 id="github-actions">GitHub Actions<a class="headerlink" href="#github-actions" title="Permanent link">&para;</a></h3>
+<p><strong>1. Test-Pipeline</strong> (<code>.github/workflows/test.yml</code>):
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span>
+<span class="normal">21</span>
+<span class="normal">22</span>
+<span class="normal">23</span>
+<span class="normal">24</span>
+<span class="normal">25</span>
+<span class="normal">26</span>
+<span class="normal">27</span>
+<span class="normal">28</span>
+<span class="normal">29</span>
+<span class="normal">30</span>
+<span class="normal">31</span>
+<span class="normal">32</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Test</span>
+
+<span class="nt">on</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">push</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">branches</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="w"> </span><span class="nv">main</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="nv">develop</span><span class="w"> </span><span class="p p-Indicator">]</span>
+<span class="w">  </span><span class="nt">pull_request</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">branches</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="w"> </span><span class="nv">main</span><span class="w"> </span><span class="p p-Indicator">]</span>
+
+<span class="nt">jobs</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">test</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">runs-on</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ubuntu-latest</span>
+
+<span class="w">    </span><span class="nt">steps</span><span class="p">:</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">uses</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">actions/checkout@v4</span>
+
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Setup Python</span>
+<span class="w">      </span><span class="nt">uses</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">actions/setup-python@v5</span>
+<span class="w">      </span><span class="nt">with</span><span class="p">:</span>
+<span class="w">        </span><span class="nt">python-version</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;3.11&#39;</span>
+
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Install dependencies</span>
+<span class="w">      </span><span class="nt">run</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">|</span>
+<span class="w">        </span><span class="no">python -m pip install --upgrade pip</span>
+<span class="w">        </span><span class="no">pip install -r requirements.txt</span>
+
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Run tests</span>
+<span class="w">      </span><span class="nt">run</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">|</span>
+<span class="w">        </span><span class="no">python -m pytest</span>
+
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Run linting</span>
+<span class="w">      </span><span class="nt">run</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">|</span>
+<span class="w">        </span><span class="no">python -m flake8 src/</span>
+</code></pre></div></td></tr></table></div></p>
+<p><strong>2. Deploy-Pipeline</strong> (<code>.github/workflows/deploy.yml</code>):
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span>
+<span class="normal">21</span>
+<span class="normal">22</span>
+<span class="normal">23</span>
+<span class="normal">24</span>
+<span class="normal">25</span>
+<span class="normal">26</span>
+<span class="normal">27</span>
+<span class="normal">28</span>
+<span class="normal">29</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Deploy</span>
+
+<span class="nt">on</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">push</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">branches</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="w"> </span><span class="nv">main</span><span class="w"> </span><span class="p p-Indicator">]</span>
+
+<span class="nt">jobs</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">deploy</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">runs-on</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ubuntu-latest</span>
+
+<span class="w">    </span><span class="nt">steps</span><span class="p">:</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">uses</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">actions/checkout@v4</span>
+
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Setup Python</span>
+<span class="w">      </span><span class="nt">uses</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">actions/setup-python@v5</span>
+<span class="w">      </span><span class="nt">with</span><span class="p">:</span>
+<span class="w">        </span><span class="nt">python-version</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;3.11&#39;</span>
+
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Install dependencies</span>
+<span class="w">      </span><span class="nt">run</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">|</span>
+<span class="w">        </span><span class="no">pip install -r requirements.txt</span>
+
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Build</span>
+<span class="w">      </span><span class="nt">run</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">|</span>
+<span class="w">        </span><span class="no">python setup.py build</span>
+
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Deploy to server</span>
+<span class="w">      </span><span class="nt">run</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">|</span>
+<span class="w">        </span><span class="no"># Deploy commands</span>
+</code></pre></div></td></tr></table></div></p>
+<h3 id="gitlab-cicd">GitLab CI/CD<a class="headerlink" href="#gitlab-cicd" title="Permanent link">&para;</a></h3>
+<p><strong>.gitlab-ci.yml</strong>:
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span>
+<span class="normal">21</span>
+<span class="normal">22</span>
+<span class="normal">23</span>
+<span class="normal">24</span>
+<span class="normal">25</span>
+<span class="normal">26</span>
+<span class="normal">27</span>
+<span class="normal">28</span>
+<span class="normal">29</span>
+<span class="normal">30</span>
+<span class="normal">31</span>
+<span class="normal">32</span>
+<span class="normal">33</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nt">stages</span><span class="p">:</span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">test</span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">build</span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">deploy</span>
+
+<span class="nt">test</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">stage</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">test</span>
+<span class="w">  </span><span class="nt">image</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">python:3.11</span>
+<span class="w">  </span><span class="nt">script</span><span class="p">:</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">pip install -r requirements.txt</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">python -m pytest</span>
+<span class="w">  </span><span class="nt">only</span><span class="p">:</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">main</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">develop</span>
+
+<span class="nt">build</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">stage</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">build</span>
+<span class="w">  </span><span class="nt">image</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">python:3.11</span>
+<span class="w">  </span><span class="nt">script</span><span class="p">:</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">pip install -r requirements.txt</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">python setup.py build</span>
+<span class="w">  </span><span class="nt">artifacts</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">paths</span><span class="p">:</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">dist/</span>
+
+<span class="nt">deploy</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">stage</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">deploy</span>
+<span class="w">  </span><span class="nt">image</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">alpine:latest</span>
+<span class="w">  </span><span class="nt">script</span><span class="p">:</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">apk add --no-cache rsync openssh</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">rsync -avz dist/ user@server:/path/to/deploy</span>
+<span class="w">  </span><span class="nt">only</span><span class="p">:</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">main</span>
+</code></pre></div></td></tr></table></div></p>
+<h2 id="repository-wartung">Repository-Wartung<a class="headerlink" href="#repository-wartung" title="Permanent link">&para;</a></h2>
+<h3 id="1-repository-aufraumen">1. Repository aufräumen<a class="headerlink" href="#1-repository-aufraumen" title="Permanent link">&para;</a></h3>
+<p><strong>Unnötige Dateien entfernen</strong>:
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="c1"># Datei aus Historie entfernen (Vorsicht!)</span>
+git<span class="w"> </span>filter-branch<span class="w"> </span>--force<span class="w"> </span>--index-filter<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span><span class="s1">&#39;git rm --cached --ignore-unmatch sensibel.txt&#39;</span><span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>--prune-empty<span class="w"> </span>--tag-name-filter<span class="w"> </span>cat<span class="w"> </span>--<span class="w"> </span>--all
+</code></pre></div></td></tr></table></div></p>
+<p><strong>Große Dateien finden</strong>:
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span>
+<span class="normal">6</span>
+<span class="normal">7</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="c1"># Große Dateien im Repository finden</span>
+git<span class="w"> </span>rev-list<span class="w"> </span>--objects<span class="w"> </span>--all<span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>git<span class="w"> </span>cat-file<span class="w"> </span>--batch-check<span class="o">=</span><span class="s1">&#39;%(objecttype) %(objectname) %(objectsize) %(rest)&#39;</span><span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>sed<span class="w"> </span>-n<span class="w"> </span><span class="s1">&#39;s/^blob //p&#39;</span><span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>sort<span class="w"> </span>--numeric-sort<span class="w"> </span>--key<span class="o">=</span><span class="m">2</span><span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>cut<span class="w"> </span>-c<span class="w"> </span><span class="m">1</span>-12,41-<span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>numfmt<span class="w"> </span>--field<span class="o">=</span><span class="m">2</span><span class="w"> </span>--to<span class="o">=</span>iec-i<span class="w"> </span>--suffix<span class="o">=</span>B<span class="w"> </span>--padding<span class="o">=</span><span class="m">7</span><span class="w"> </span>--round<span class="o">=</span>nearest
+</code></pre></div></td></tr></table></div></p>
+<h3 id="2-branches-aufraumen">2. Branches aufräumen<a class="headerlink" href="#2-branches-aufraumen" title="Permanent link">&para;</a></h3>
+<p><strong>Alte Branches löschen</strong>:
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="c1"># Lokale Branches, die im Remote nicht mehr existieren</span>
+git<span class="w"> </span>fetch<span class="w"> </span>-p
+
+<span class="c1"># Alte Branches löschen (älter als 30 Tage)</span>
+git<span class="w"> </span>branch<span class="w"> </span>--merged<span class="w"> </span>main<span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span>-v<span class="w"> </span><span class="s2">&quot;main\|develop&quot;</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>xargs<span class="w"> </span>git<span class="w"> </span>branch<span class="w"> </span>-d
+</code></pre></div></td></tr></table></div></p>
+<h3 id="3-tags-verwalten">3. Tags verwalten<a class="headerlink" href="#3-tags-verwalten" title="Permanent link">&para;</a></h3>
+<p><strong>Tags erstellen</strong>:
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span>
+<span class="normal">6</span>
+<span class="normal">7</span>
+<span class="normal">8</span>
+<span class="normal">9</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="c1"># Leichtes Tag</span>
+git<span class="w"> </span>tag<span class="w"> </span>v1.0.0
+
+<span class="c1"># Annotiertes Tag</span>
+git<span class="w"> </span>tag<span class="w"> </span>-a<span class="w"> </span>v1.0.0<span class="w"> </span>-m<span class="w"> </span><span class="s2">&quot;Release version 1.0.0&quot;</span>
+
+<span class="c1"># Tag pushen</span>
+git<span class="w"> </span>push<span class="w"> </span>origin<span class="w"> </span>v1.0.0
+git<span class="w"> </span>push<span class="w"> </span>origin<span class="w"> </span>--tags
+</code></pre></div></td></tr></table></div></p>
+<p><strong>Tags löschen</strong>:
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="c1"># Lokal löschen</span>
+git<span class="w"> </span>tag<span class="w"> </span>-d<span class="w"> </span>v1.0.0
+
+<span class="c1"># Remote löschen</span>
+git<span class="w"> </span>push<span class="w"> </span>origin<span class="w"> </span>--delete<span class="w"> </span>v1.0.0
+</code></pre></div></td></tr></table></div></p>
+<h2 id="sicherheit">Sicherheit<a class="headerlink" href="#sicherheit" title="Permanent link">&para;</a></h2>
+<h3 id="1-zugriffskontrolle">1. Zugriffskontrolle<a class="headerlink" href="#1-zugriffskontrolle" title="Permanent link">&para;</a></h3>
+<p><strong>GitHub</strong>:
+- Repository-Visibility: Public/Private
+- Branch-Protection: Erfordert Pull Requests
+- Zugriffskontrolle: Wer kann pushen/mergen?</p>
+<p><strong>GitLab</strong>:
+- Projekt-Visibility
+- Protected Branches
+- Member-Rollen (Maintainer, Developer, etc.)</p>
+<h3 id="2-secrets-management">2. Secrets Management<a class="headerlink" href="#2-secrets-management" title="Permanent link">&para;</a></h3>
+<p><strong>Falsch</strong>:
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="c1"># config.py</span>
+<span class="n">API_KEY</span> <span class="o">=</span> <span class="s2">&quot;abc123xyz&quot;</span>  <span class="c1"># ❌ SICHERHEITSRISIKO!</span>
+</code></pre></div></td></tr></table></div></p>
+<p><strong>Richtig</strong>:
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="c1"># config.py</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">os</span>
+
+<span class="n">API_KEY</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">getenv</span><span class="p">(</span><span class="s1">&#39;API_KEY&#39;</span><span class="p">)</span>
+</code></pre></div></td></tr></table></div></p>
+<p><strong>GitHub Secrets</strong>:
+1. Settings → Secrets and variables → Actions
+2. New repository secret
+3. Name: <code>API_KEY</code>
+4. Value: <code>abc123xyz</code></p>
+<p><strong>Verwendung in Workflow</strong>:
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Use API Key</span>
+<span class="w">  </span><span class="nt">env</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">API_KEY</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">${{ secrets.API_KEY }}</span>
+<span class="w">  </span><span class="nt">run</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">|</span>
+<span class="w">    </span><span class="no">echo &quot;Using API key&quot;</span>
+</code></pre></div></td></tr></table></div></p>
+<h3 id="3-dependabot">3. Dependabot<a class="headerlink" href="#3-dependabot" title="Permanent link">&para;</a></h3>
+<p><strong>GitHub Dependabot</strong>:
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span>
+<span class="normal">6</span>
+<span class="normal">7</span>
+<span class="normal">8</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="c1"># .github/dependabot.yml</span>
+<span class="nt">version</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">2</span>
+<span class="nt">updates</span><span class="p">:</span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">package-ecosystem</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;pip&quot;</span>
+<span class="w">    </span><span class="nt">directory</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;/&quot;</span>
+<span class="w">    </span><span class="nt">schedule</span><span class="p">:</span>
+<span class="w">      </span><span class="nt">interval</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;weekly&quot;</span>
+<span class="w">    </span><span class="nt">open-pull-requests-limit</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">10</span>
+</code></pre></div></td></tr></table></div></p>
+<h2 id="monitoring-und-metriken">Monitoring und Metriken<a class="headerlink" href="#monitoring-und-metriken" title="Permanent link">&para;</a></h2>
+<h3 id="1-repository-statistiken">1. Repository-Statistiken<a class="headerlink" href="#1-repository-statistiken" title="Permanent link">&para;</a></h3>
+<p><strong>GitHub Insights</strong>:
+- Code frequency
+- Pull request statistics
+- Contributor statistics</p>
+<p><strong>GitLab Analytics</strong>:
+- Project analytics
+- CI/CD statistics
+- Merge request analytics</p>
+<h3 id="2-code-coverage">2. Code Coverage<a class="headerlink" href="#2-code-coverage" title="Permanent link">&para;</a></h3>
+<p><strong>Python mit pytest-cov</strong>:
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="c1"># Installation</span>
+pip<span class="w"> </span>install<span class="w"> </span>pytest-cov
+
+<span class="c1"># Ausführung</span>
+pytest<span class="w"> </span>--cov<span class="o">=</span>src/<span class="w"> </span>--cov-report<span class="o">=</span>html
+
+<span class="c1"># In CI/CD</span>
+-<span class="w"> </span>name:<span class="w"> </span>Run<span class="w"> </span>tests<span class="w"> </span>with<span class="w"> </span>coverage
+<span class="w">  </span>run:<span class="w"> </span><span class="p">|</span>
+<span class="w">    </span>pip<span class="w"> </span>install<span class="w"> </span>pytest-cov
+<span class="w">    </span>pytest<span class="w"> </span>--cov<span class="o">=</span>src/<span class="w"> </span>--cov-report<span class="o">=</span>xml
+</code></pre></div></td></tr></table></div></p>
+<p><strong>GitHub Actions Integration</strong>:
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Upload coverage to Codecov</span>
+<span class="w">  </span><span class="nt">uses</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">codecov/codecov-action@v3</span>
+<span class="w">  </span><span class="nt">with</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">file</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">./coverage.xml</span>
+</code></pre></div></td></tr></table></div></p>
+<h2 id="best-practices-zusammenfassung">Best Practices Zusammenfassung<a class="headerlink" href="#best-practices-zusammenfassung" title="Permanent link">&para;</a></h2>
+<h3 id="1-repository-management">1. Repository-Management<a class="headerlink" href="#1-repository-management" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Klare Struktur mit Standard-Verzeichnissen</li>
+<li>Wichtige Dateien: README, CONTRIBUTING, LICENSE</li>
+<li>.gitignore für alle unnötigen Dateien</li>
+</ul>
+<h3 id="2-branching">2. Branching<a class="headerlink" href="#2-branching" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Wähle passende Branching-Strategie</li>
+<li>Kurzlebige Branches bevorzugen</li>
+<li><code>main</code> immer deployable halten</li>
+</ul>
+<h3 id="3-commits">3. Commits<a class="headerlink" href="#3-commits" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Konventionelle Commits verwenden</li>
+<li>Kleine, logische Commits</li>
+<li>Gute Commit-Nachrichten</li>
+</ul>
+<h3 id="4-code-review">4. Code Review<a class="headerlink" href="#4-code-review" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Pull Requests für alle Änderungen</li>
+<li>Checkliste für Reviews</li>
+<li>Konstruktives Feedback</li>
+</ul>
+<h3 id="5-cicd">5. CI/CD<a class="headerlink" href="#5-cicd" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Automatisierte Tests</li>
+<li>Automatisches Deployment</li>
+<li>Code Coverage messen</li>
+</ul>
+<h3 id="6-sicherheit">6. Sicherheit<a class="headerlink" href="#6-sicherheit" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Secrets nie committen</li>
+<li>Zugriffskontrolle implementieren</li>
+<li>Abhängigkeiten aktualisieren</li>
+</ul>
+<h3 id="7-wartung">7. Wartung<a class="headerlink" href="#7-wartung" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Repository regelmäßig aufräumen</li>
+<li>Alte Branches löschen</li>
+<li>Tags für Releases verwenden</li>
+</ul>
+<h2 id="praktische-ubung">Praktische Übung<a class="headerlink" href="#praktische-ubung" title="Permanent link">&para;</a></h2>
+<h3 id="ubung-1-repository-struktur-erstellen">Übung 1: Repository-Struktur erstellen<a class="headerlink" href="#ubung-1-repository-struktur-erstellen" title="Permanent link">&para;</a></h3>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span>
+<span class="normal">21</span>
+<span class="normal">22</span>
+<span class="normal">23</span>
+<span class="normal">24</span>
+<span class="normal">25</span>
+<span class="normal">26</span>
+<span class="normal">27</span>
+<span class="normal">28</span>
+<span class="normal">29</span>
+<span class="normal">30</span>
+<span class="normal">31</span>
+<span class="normal">32</span>
+<span class="normal">33</span>
+<span class="normal">34</span>
+<span class="normal">35</span>
+<span class="normal">36</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="c1"># 1. Neues Projekt erstellen</span>
+mkdir<span class="w"> </span>professional-project
+<span class="nb">cd</span><span class="w"> </span>professional-project
+git<span class="w"> </span>init
+
+<span class="c1"># 2. Standard-Struktur erstellen</span>
+mkdir<span class="w"> </span>-p<span class="w"> </span>src<span class="w"> </span>tests<span class="w"> </span>docs<span class="w"> </span>.github/workflows<span class="w"> </span>scripts<span class="w"> </span>docker
+
+<span class="c1"># 3. Wichtige Dateien erstellen</span>
+touch<span class="w"> </span>README.md<span class="w"> </span>LICENSE<span class="w"> </span>CONTRIBUTING.md<span class="w"> </span>CODE_OF_CONDUCT.md
+touch<span class="w"> </span>.gitignore<span class="w"> </span>.editorconfig<span class="w"> </span>.env.example
+touch<span class="w"> </span>requirements.txt<span class="w"> </span>package.json
+
+<span class="c1"># 4. GitHub Actions erstellen</span>
+mkdir<span class="w"> </span>-p<span class="w"> </span>.github/workflows
+cat<span class="w"> </span>&gt;<span class="w"> </span>.github/workflows/ci.yml<span class="w"> </span><span class="s">&lt;&lt; &#39;EOF&#39;</span>
+<span class="s">name: CI</span>
+<span class="s">on: [push, pull_request]</span>
+<span class="s">jobs:</span>
+<span class="s">  test:</span>
+<span class="s">    runs-on: ubuntu-latest</span>
+<span class="s">    steps:</span>
+<span class="s">    - uses: actions/checkout@v4</span>
+<span class="s">    - name: Setup Python</span>
+<span class="s">      uses: actions/setup-python@v5</span>
+<span class="s">      with:</span>
+<span class="s">        python-version: &#39;3.11&#39;</span>
+<span class="s">    - name: Install dependencies</span>
+<span class="s">      run: pip install -r requirements.txt</span>
+<span class="s">    - name: Run tests</span>
+<span class="s">      run: python -m pytest</span>
+<span class="s">EOF</span>
+
+<span class="c1"># 5. Commit</span>
+git<span class="w"> </span>add<span class="w"> </span>.
+git<span class="w"> </span>commit<span class="w"> </span>-m<span class="w"> </span><span class="s2">&quot;Initial project structure&quot;</span>
+</code></pre></div></td></tr></table></div>
+<h3 id="ubung-2-branching-strategie-implementieren">Übung 2: Branching-Strategie implementieren<a class="headerlink" href="#ubung-2-branching-strategie-implementieren" title="Permanent link">&para;</a></h3>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="c1"># 1. Hauptbranch erstellen</span>
+git<span class="w"> </span>checkout<span class="w"> </span>-b<span class="w"> </span>main
+git<span class="w"> </span>push<span class="w"> </span>-u<span class="w"> </span>origin<span class="w"> </span>main
+
+<span class="c1"># 2. Feature-Branch erstellen</span>
+git<span class="w"> </span>checkout<span class="w"> </span>-b<span class="w"> </span>feature/user-auth
+<span class="c1"># ... Code schreiben ...</span>
+git<span class="w"> </span>commit<span class="w"> </span>-m<span class="w"> </span><span class="s2">&quot;feat(auth): Add user authentication&quot;</span>
+git<span class="w"> </span>push<span class="w"> </span>-u<span class="w"> </span>origin<span class="w"> </span>feature/user-auth
+
+<span class="c1"># 3. Pull Request erstellen (auf GitHub)</span>
+<span class="c1"># 4. Nach Review: Merge in main</span>
+git<span class="w"> </span>checkout<span class="w"> </span>main
+git<span class="w"> </span>merge<span class="w"> </span>feature/user-auth
+git<span class="w"> </span>push<span class="w"> </span>origin<span class="w"> </span>main
+git<span class="w"> </span>branch<span class="w"> </span>-d<span class="w"> </span>feature/user-auth
+</code></pre></div></td></tr></table></div>
+<h3 id="ubung-3-cicd-pipeline-testen">Übung 3: CI/CD Pipeline testen<a class="headerlink" href="#ubung-3-cicd-pipeline-testen" title="Permanent link">&para;</a></h3>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="c1"># 1. Test-Datei erstellen</span>
+cat<span class="w"> </span>&gt;<span class="w"> </span>tests/test_example.py<span class="w"> </span><span class="s">&lt;&lt; &#39;EOF&#39;</span>
+<span class="s">def test_example():</span>
+<span class="s">    assert 1 + 1 == 2</span>
+<span class="s">EOF</span>
+
+<span class="c1"># 2. Push auslösen CI/CD</span>
+git<span class="w"> </span>add<span class="w"> </span>.
+git<span class="w"> </span>commit<span class="w"> </span>-m<span class="w"> </span><span class="s2">&quot;Add test&quot;</span>
+git<span class="w"> </span>push<span class="w"> </span>origin<span class="w"> </span>main
+
+<span class="c1"># 3. GitHub Actions überprüfen</span>
+<span class="c1"># 4. Erfolgreichen Build anzeigen</span>
+</code></pre></div></td></tr></table></div>
+<h2 id="zusammenfassung">Zusammenfassung<a class="headerlink" href="#zusammenfassung" title="Permanent link">&para;</a></h2>
+<p><strong>Repository-Struktur</strong>:
+- Klare, standardisierte Verzeichnisse
+- Wichtige Dokumente (README, CONTRIBUTING, etc.)
+- CI/CD Integration</p>
+<p><strong>Branching-Strategien</strong>:
+- GitFlow für komplexe Projekte
+- GitHub Flow für einfache Projekte
+- Trunk-Based für schnelle Entwicklung</p>
+<p><strong>Commit-Nachrichten</strong>:
+- Konventionelle Commits
+- Klare, beschreibende Nachrichten
+- Referenzen zu Issues</p>
+<p><strong>Code Review</strong>:
+- Pull Requests für alle Änderungen
+- Checkliste für Qualität
+- Konstruktives Feedback</p>
+<p><strong>CI/CD</strong>:
+- Automatisierte Tests
+- Automatisches Deployment
+- Code Coverage</p>
+<p><strong>Sicherheit</strong>:
+- Secrets Management
+- Zugriffskontrolle
+- Dependabot für Updates</p>
+<details class="question" open="open">
+<summary>Projektadministration und Best Practices</summary>
+<p>Basierend auf Projektadministration und Best Practices:</p>
+<ol>
+<li>Erklären Sie, wie Sie eine professionelle Repository-Struktur für ein Python-Webprojekt mit Datenbank erstellen würden</li>
+<li>Beschreiben Sie den Unterschied zwischen GitFlow und GitHub Flow und geben Sie ein Beispiel, wann Sie welches verwenden würden</li>
+<li>Erklären Sie, wie Sie eine CI/CD-Pipeline für automatisiertes Testen und Deployment einrichten würden</li>
+</ol>
+<div class="arithmatex">\[\text{Beispiel: Ein Startup-Unternehmen plant ein neues SaaS-Produkt...}\]</div>
+<details class="info">
+<summary>Tipp</summary>
+<p>Stellen Sie sich vor, Sie müssten ein Projekt für 100 Entwickler und 10 verschiedene Umgebungen (Dev, Test, Staging, Production) verwalten. Welche Strategie würden Sie wählen?</p>
+</details>
+<details class="success">
+<summary>Lösung</summary>
+<details class="video">
+<summary>Lösungsvideo</summary>
+<p><div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
+    <iframe src="https://www.youtube.com/embed/4XpnKHJAok8?si=8z5X6V2L9YdRq0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;"></iframe>
+</div></p>
+</details>
+<p><strong>1. Professionelle Repository-Struktur:</strong>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span>
+<span class="normal">21</span>
+<span class="normal">22</span>
+<span class="normal">23</span>
+<span class="normal">24</span>
+<span class="normal">25</span>
+<span class="normal">26</span>
+<span class="normal">27</span>
+<span class="normal">28</span>
+<span class="normal">29</span>
+<span class="normal">30</span>
+<span class="normal">31</span>
+<span class="normal">32</span>
+<span class="normal">33</span>
+<span class="normal">34</span>
+<span class="normal">35</span>
+<span class="normal">36</span>
+<span class="normal">37</span>
+<span class="normal">38</span></pre></div></td><td class="code"><div><pre><span></span><code>saas-projekt/
+├── .git/
+├── .gitignore
+├── .env.example
+├── README.md
+├── LICENSE
+├── CONTRIBUTING.md
+├── CODE_OF_CONDUCT.md
+├── .github/
+│   ├── workflows/
+│   │   ├── ci.yml
+│   │   └── cd.yml
+│   └── ISSUE_TEMPLATE/
+├── docs/
+│   ├── index.md
+│   └── api.md
+├── src/
+│   ├── app/
+│   │   ├── __init__.py
+│   │   ├── models.py
+│   │   ├── routes.py
+│   │   └── utils.py
+│   ├── config.py
+│   └── main.py
+├── tests/
+│   ├── test_models.py
+│   ├── test_routes.py
+│   └── conftest.py
+├── migrations/
+│   └── versions/
+├── scripts/
+│   ├── setup.sh
+│   └── deploy.sh
+├── docker/
+│   ├── Dockerfile
+│   └── docker-compose.yml
+├── requirements.txt
+└── pyproject.toml
+</code></pre></div></td></tr></table></div></p>
+<p><strong>2. GitFlow vs. GitHub Flow:</strong>
+<strong>GitFlow</strong>:
+- <strong>Struktur</strong>: <code>main</code>, <code>develop</code>, <code>feature/*</code>, <code>release/*</code>, <code>hotfix/*</code>
+- <strong>Vorteile</strong>: Klare Trennung, gut für große Teams, Release-Management
+- <strong>Nachteile</strong>: Komplex, viele Branches, langsam
+- <strong>Anwendung</strong>: Enterprise-Projekte, komplexe Releases, große Teams</p>
+<p><strong>GitHub Flow</strong>:
+- <strong>Struktur</strong>: <code>main</code> + kurze Feature-Branches
+- <strong>Vorteile</strong>: Einfach, schnell, kontinuierliche Integration
+- <strong>Nachteile</strong>: Weniger Struktur für komplexe Projekte
+- <strong>Anwendung</strong>: Startups, agile Teams, kontinuierliche Deployment</p>
+<p><strong>Entscheidungshilfe</strong>:
+- <strong>GitFlow</strong>: Finanzprojekt mit quartalsweisen Releases
+- <strong>GitHub Flow</strong>: SaaS-Startup mit wöchentlichen Deployment</p>
+<p><strong>3. CI/CD-Pipeline:</strong>
+<strong>GitHub Actions</strong> (<code>.github/workflows/ci.yml</code>):
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">CI</span>
+<span class="nt">on</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="nv">push</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="nv">pull_request</span><span class="p p-Indicator">]</span>
+<span class="nt">jobs</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">test</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">runs-on</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ubuntu-latest</span>
+<span class="w">    </span><span class="nt">steps</span><span class="p">:</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">uses</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">actions/checkout@v4</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">uses</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">actions/setup-python@v5</span>
+<span class="w">      </span><span class="nt">with</span><span class="p">:</span>
+<span class="w">        </span><span class="nt">python-version</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;3.11&#39;</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Install dependencies</span>
+<span class="w">      </span><span class="nt">run</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">|</span>
+<span class="w">        </span><span class="no">pip install -r requirements.txt</span>
+<span class="w">        </span><span class="no">pip install pytest pytest-cov flake8</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Run linting</span>
+<span class="w">      </span><span class="nt">run</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">flake8 src/</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Run tests</span>
+<span class="w">      </span><span class="nt">run</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">pytest --cov=src/ --cov-report=xml</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Upload coverage</span>
+<span class="w">      </span><span class="nt">uses</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">codecov/codecov-action@v3</span>
+</code></pre></div></td></tr></table></div></p>
+<p><strong>CD-Pipeline</strong> (<code>.github/workflows/cd.yml</code>):
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">CD</span>
+<span class="nt">on</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">push</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">branches</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="nv">main</span><span class="p p-Indicator">]</span>
+<span class="nt">jobs</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">deploy</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">runs-on</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ubuntu-latest</span>
+<span class="w">    </span><span class="nt">steps</span><span class="p">:</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">uses</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">actions/checkout@v4</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Deploy to server</span>
+<span class="w">      </span><span class="nt">env</span><span class="p">:</span>
+<span class="w">        </span><span class="nt">SSH_PRIVATE_KEY</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">${{ secrets.SSH_PRIVATE_KEY }}</span>
+<span class="w">      </span><span class="nt">run</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">|</span>
+<span class="w">        </span><span class="no"># SSH-Verbindung und Deployment</span>
+<span class="w">        </span><span class="no">echo &quot;$SSH_PRIVATE_KEY&quot; &gt; key.pem</span>
+<span class="w">        </span><span class="no">chmod 600 key.pem</span>
+<span class="w">        </span><span class="no">rsync -avz -e &quot;ssh -i key.pem&quot; ./ user@server:/app/</span>
+</code></pre></div></td></tr></table></div></p>
+<p><strong>Vorteile</strong>:
+- Automatisches Testen bei jedem Push
+- Code Coverage messen
+- Automatisches Deployment nach main
+- Sicherheit durch Secrets</p>
+</details>
+</details>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="Footer" >
+        
+          
+          <a href="../9/" class="md-footer__link md-footer__link--prev" aria-label="Previous: 5.1 Fortgeschrittene Features">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              <div class="md-ellipsis">
+                5.1 Fortgeschrittene Features
+              </div>
+            </div>
+          </a>
+        
+        
+      </nav>
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright &copy; 2026 Qualidy GmbH
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+        
+<div class="md-social">
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://www.kununu.com/de/qualidy" target="_blank" rel="noopener" title="www.kununu.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><!--! Font Awesome Free 7.0.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path fill="currentColor" d="M311 86.3c12.3-12.7 12-32.9-.7-45.2s-32.9-12-45.2.7C143.4 167.2 76.4 236.3 64 249V64c0-17.7-14.3-32-32-32S0 46.3 0 64v384c0 17.7 14.3 32 32 32s32-14.3 32-32V341l64.7-66.7 133 192c10.1 14.5 30 18.1 44.5 8.1s18.1-30 8.1-44.5L174.1 227.4z"/></svg>
+    </a>
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://de.linkedin.com/company/qualidy" target="_blank" rel="noopener" title="de.linkedin.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.0.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path fill="currentColor" d="M416 32H31.9C14.3 32 0 46.5 0 64.3v383.4C0 465.5 14.3 480 31.9 480H416c17.6 0 32-14.5 32-32.3V64.3c0-17.8-14.4-32.3-32-32.3M135.4 416H69V202.2h66.5V416zM102.2 96a38.5 38.5 0 1 1 0 77 38.5 38.5 0 1 1 0-77m282.1 320h-66.4V312c0-24.8-.5-56.7-34.5-56.7-34.6 0-39.9 27-39.9 54.9V416h-66.4V202.2h63.7v29.2h.9c8.9-16.8 30.6-34.5 62.9-34.5 67.2 0 79.7 44.3 79.7 101.9z"/></svg>
+    </a>
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://www.google.com/search?sca_esv=7e6ba2047fcb60f3&uds=AMwkrPtyB8MsmozA4Lwzqy2G2HCu-abqzc6moOG48q3gP5dtjTRzC2Ws0eSwcyLXDfZNuYCrZ7ByIreHLG9th3vKLekPoVeey0tumAbet4cVLQRLzdRFhUbOGbnyp3xo1V0hzzaNmkCN&si=AKbGX_rcuucMgom2rba1cdwsvM2SVoIkP2btyqGMV4t0GuHIs4sGV_1tpuqR0YHG4Rzd9SdJcL-lW6E-2aJA5azZLTKkIOrZ2j2aWwoBkVbdEJ0o0GPcQhs%3D&q=Qualidy+GmbH+Rezensionen&sa=X&ved=2ahUKEwibsbnSgcmFAxXNQvEDHaVYCiAQ3PALegQIRxAF" target="_blank" rel="noopener" title="www.google.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21.35 11.1h-9.17v2.73h6.51c-.33 3.81-3.5 5.44-6.5 5.44C8.36 19.27 5 16.25 5 12c0-4.1 3.2-7.27 7.2-7.27 3.09 0 4.9 1.97 4.9 1.97L19 4.72S16.56 2 12.1 2C6.42 2 2.03 6.8 2.03 12c0 5.05 4.13 10 10.22 10 5.35 0 9.25-3.67 9.25-9.09 0-1.15-.15-1.81-.15-1.81"/></svg>
+    </a>
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://qualidy.de" target="_blank" rel="noopener" title="qualidy.de" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.0.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path fill="currentColor" d="M351.9 280H161c2.9 64.5 17.2 123.9 37.5 167.4 11.4 24.5 23.7 41.8 35.1 52.4 11.2 10.5 18.9 12.2 22.9 12.2s11.7-1.7 22.9-12.2c11.4-10.6 23.7-28 35.1-52.4 20.3-43.5 34.6-102.9 37.5-167.4zm-191-48h190.9c-2.8-64.5-17.1-123.9-37.4-167.4-11.4-24.4-23.7-41.8-35.1-52.4C268.1 1.7 260.4 0 256.4 0s-11.7 1.7-22.9 12.2c-11.4 10.6-23.7 28-35.1 52.4-20.3 43.5-34.6 102.9-37.5 167.4m-48 0c3.5-85.6 25.6-165.1 57.9-217.3C78.7 47.3 10.9 131.2 1.5 232zM1.5 280c9.4 100.8 77.2 184.7 169.3 217.3-32.3-52.2-54.4-131.7-57.9-217.3zm398.4 0c-3.5 85.6-25.6 165.1-57.9 217.3 92.1-32.7 159.9-116.5 169.3-217.3zm111.4-48C501.9 131.2 434.1 47.3 342 14.7c32.3 52.2 54.4 131.7 57.9 217.3z"/></svg>
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.tracking", "navigation.path", "navigation.top", "navigation.footer", "toc.follow", "toc.integrate", "content.code.copy", "content.code.annotate"], "search": "../../assets/javascripts/workers/search.973d3a69.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.92b07e13.min.js"></script>
+      
+        <script src="../../javascripts/mathjax.js"></script>
+      
+        <script src="https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js"></script>
+      
+    
+  </body>
+</html>

@@ -1,0 +1,1403 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="../4/">
+      
+      
+        <link rel="next" href="../6/">
+      
+      
+      <link rel="icon" href="../../assets/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.18">
+    
+    
+      
+        <title>3.3 Installation und erste Schritte - Einführung in die Versionsverwaltung mit Git</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.7e37652d.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../stylesheets/logo.css">
+    
+      <link rel="stylesheet" href="../../stylesheets/grid.css">
+    
+      <link rel="stylesheet" href="../../stylesheets/video_admonition.css">
+    
+      <link rel="stylesheet" href="../../stylesheets/python_tutor_admonition.css">
+    
+      <link rel="stylesheet" href="../../stylesheets/mermaid.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="amber" data-md-color-accent="deep-orange">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#33-installation-und-erste-schritte-mit-git" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="Einführung in die Versionsverwaltung mit Git" class="md-header__button md-logo" aria-label="Einführung in die Versionsverwaltung mit Git" data-md-component="logo">
+      
+  <img src="../../assets/logo.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Einführung in die Versionsverwaltung mit Git
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              3.3 Installation und erste Schritte
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+    
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+  
+
+<nav class="md-nav md-nav--primary md-nav--integrated" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Einführung in die Versionsverwaltung mit Git" class="md-nav__button md-logo" aria-label="Einführung in die Versionsverwaltung mit Git" data-md-component="logo">
+      
+  <img src="../../assets/logo.png" alt="logo">
+
+    </a>
+    Einführung in die Versionsverwaltung mit Git
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Übersicht
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../1/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    1 Einführung
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../2/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    2 Kursübersicht
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../3/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    3.1 Historische Entwicklung
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../4/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    3.2 Grundlegende Konzepte
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    3.3 Installation und erste Schritte
+    
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    3.3 Installation und erste Schritte
+    
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#einfuhrung" class="md-nav__link">
+    <span class="md-ellipsis">
+      Einführung
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#installation" class="md-nav__link">
+    <span class="md-ellipsis">
+      Installation
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Installation">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#windows" class="md-nav__link">
+    <span class="md-ellipsis">
+      Windows
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#macos" class="md-nav__link">
+    <span class="md-ellipsis">
+      macOS
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#linux-ubuntudebian" class="md-nav__link">
+    <span class="md-ellipsis">
+      Linux (Ubuntu/Debian)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#linux-fedorarhel" class="md-nav__link">
+    <span class="md-ellipsis">
+      Linux (Fedora/RHEL)
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#erste-konfiguration" class="md-nav__link">
+    <span class="md-ellipsis">
+      Erste Konfiguration
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Erste Konfiguration">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#globale-konfiguration" class="md-nav__link">
+    <span class="md-ellipsis">
+      Globale Konfiguration
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#projekt-spezifische-konfiguration" class="md-nav__link">
+    <span class="md-ellipsis">
+      Projekt-spezifische Konfiguration
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#erste-schritte-mit-git" class="md-nav__link">
+    <span class="md-ellipsis">
+      Erste Schritte mit Git
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Erste Schritte mit Git">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#schritt-1-neues-repository-erstellen" class="md-nav__link">
+    <span class="md-ellipsis">
+      Schritt 1: Neues Repository erstellen
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#schritt-2-erste-datei-erstellen-und-committen" class="md-nav__link">
+    <span class="md-ellipsis">
+      Schritt 2: Erste Datei erstellen und committen
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#schritt-3-anderungen-verwalten" class="md-nav__link">
+    <span class="md-ellipsis">
+      Schritt 3: Änderungen verwalten
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#schritt-4-projektstruktur-erstellen" class="md-nav__link">
+    <span class="md-ellipsis">
+      Schritt 4: Projektstruktur erstellen
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#wichtige-befehle-fur-den-anfang" class="md-nav__link">
+    <span class="md-ellipsis">
+      Wichtige Befehle für den Anfang
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Wichtige Befehle für den Anfang">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#status-ubersicht" class="md-nav__link">
+    <span class="md-ellipsis">
+      Status-Übersicht
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#anderungen-verwalten" class="md-nav__link">
+    <span class="md-ellipsis">
+      Änderungen verwalten
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#commits" class="md-nav__link">
+    <span class="md-ellipsis">
+      Commits
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#fehlerbehebung" class="md-nav__link">
+    <span class="md-ellipsis">
+      Fehlerbehebung
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#praktische-ubung" class="md-nav__link">
+    <span class="md-ellipsis">
+      Praktische Übung
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Praktische Übung">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#ubung-1-erstes-repository" class="md-nav__link">
+    <span class="md-ellipsis">
+      Übung 1: Erstes Repository
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ubung-2-anderungen-verfolgen" class="md-nav__link">
+    <span class="md-ellipsis">
+      Übung 2: Änderungen verfolgen
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#zusammenfassung" class="md-nav__link">
+    <span class="md-ellipsis">
+      Zusammenfassung
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../6/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    4.1 Remote-Repositories
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../7/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    4.2 GitHub/GitLab Integration
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../8/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    4.3 Projektdateien und .gitignore
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../9/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    5.1 Fortgeschrittene Features
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../10/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    5.2 Projektadministration
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="33-installation-und-erste-schritte-mit-git">3.3 Installation und erste Schritte mit Git<a class="headerlink" href="#33-installation-und-erste-schritte-mit-git" title="Permanent link">&para;</a></h1>
+<h2 id="einfuhrung">Einführung<a class="headerlink" href="#einfuhrung" title="Permanent link">&para;</a></h2>
+<p>In diesem Kapitel lernen Sie, wie Sie Git auf Ihrem System installieren und die ersten Schritte ausführen.</p>
+<h2 id="installation">Installation<a class="headerlink" href="#installation" title="Permanent link">&para;</a></h2>
+<h3 id="windows">Windows<a class="headerlink" href="#windows" title="Permanent link">&para;</a></h3>
+<p><strong>Methode 1: Git für Windows (empfohlen)</strong></p>
+<ol>
+<li><strong>Download</strong>: Besuchen Sie https://git-scm.com/download/win</li>
+<li><strong>Installation</strong>: Führen Sie den Installer aus</li>
+<li><strong>Konfiguration</strong>: Wählen Sie die gewünschten Optionen</li>
+<li><code>Git from the command line and also from 3rd-party software</code> (empfohlen)</li>
+<li><code>Use the OpenSSL library</code></li>
+<li><code>Checkout Windows-style, commit Unix-style line endings</code></li>
+<li><code>Use Windows' default console window</code></li>
+</ol>
+<p><strong>Methode 2: Chocolatey (für erfahrene Nutzer)</strong></p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="c"># Chocolatey installieren (falls nicht vorhanden)</span>
+<span class="nb">Set-ExecutionPolicy</span> <span class="n">Bypass</span> <span class="n">-Scope</span> <span class="k">Process</span> <span class="n">-Force</span><span class="p">;</span> <span class="no">[System.Net.ServicePointManager]</span><span class="p">::</span><span class="n">SecurityProtocol</span> <span class="p">=</span> <span class="no">[System.Net.ServicePointManager]</span><span class="p">::</span><span class="n">SecurityProtocol</span> <span class="o">-bor</span> <span class="n">3072</span><span class="p">;</span> <span class="nb">iex </span><span class="p">((</span><span class="nb">New-Object</span> <span class="n">System</span><span class="p">.</span><span class="n">Net</span><span class="p">.</span><span class="n">WebClient</span><span class="p">).</span><span class="n">DownloadString</span><span class="p">(</span><span class="s1">&#39;https://community.chocolatey.org/install.ps1&#39;</span><span class="p">))</span>
+
+<span class="c"># Git installieren</span>
+<span class="n">choco</span> <span class="n">install</span> <span class="n">git</span>
+</code></pre></div></td></tr></table></div>
+<h3 id="macos">macOS<a class="headerlink" href="#macos" title="Permanent link">&para;</a></h3>
+<p><strong>Methode 1: Git für macOS</strong></p>
+<ol>
+<li><strong>Download</strong>: Besuchen Sie https://git-scm.com/download/mac</li>
+<li><strong>Installation</strong>: Führen Sie den Installer aus</li>
+</ol>
+<p><strong>Methode 2: Homebrew (empfohlen)</strong></p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="c1"># Homebrew installieren (falls nicht vorhanden)</span>
+/bin/bash<span class="w"> </span>-c<span class="w"> </span><span class="s2">&quot;</span><span class="k">$(</span>curl<span class="w"> </span>-fsSL<span class="w"> </span>https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh<span class="k">)</span><span class="s2">&quot;</span>
+
+<span class="c1"># Git installieren</span>
+brew<span class="w"> </span>install<span class="w"> </span>git
+</code></pre></div></td></tr></table></div>
+<h3 id="linux-ubuntudebian">Linux (Ubuntu/Debian)<a class="headerlink" href="#linux-ubuntudebian" title="Permanent link">&para;</a></h3>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="c1"># Aktualisieren der Paketliste</span>
+sudo<span class="w"> </span>apt<span class="w"> </span>update
+
+<span class="c1"># Git installieren</span>
+sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>git
+</code></pre></div></td></tr></table></div>
+<h3 id="linux-fedorarhel">Linux (Fedora/RHEL)<a class="headerlink" href="#linux-fedorarhel" title="Permanent link">&para;</a></h3>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="c1"># Git installieren</span>
+sudo<span class="w"> </span>dnf<span class="w"> </span>install<span class="w"> </span>git
+</code></pre></div></td></tr></table></div>
+<h2 id="erste-konfiguration">Erste Konfiguration<a class="headerlink" href="#erste-konfiguration" title="Permanent link">&para;</a></h2>
+<h3 id="globale-konfiguration">Globale Konfiguration<a class="headerlink" href="#globale-konfiguration" title="Permanent link">&para;</a></h3>
+<p><strong>Warum konfigurieren?</strong>
+- Git benötigt Ihre Identität für Commits
+- Konfiguration wird für alle Projekte verwendet</p>
+<p><strong>Befehle</strong>:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="c1"># Name festlegen (wird in Commits angezeigt)</span>
+git<span class="w"> </span>config<span class="w"> </span>--global<span class="w"> </span>user.name<span class="w"> </span><span class="s2">&quot;Max Mustermann&quot;</span>
+
+<span class="c1"># E-Mail festlegen (wird in Commits verwendet)</span>
+git<span class="w"> </span>config<span class="w"> </span>--global<span class="w"> </span>user.email<span class="w"> </span><span class="s2">&quot;max.mustermann@example.com&quot;</span>
+
+<span class="c1"># Standard-Editor festlegen (für Commit-Nachrichten)</span>
+git<span class="w"> </span>config<span class="w"> </span>--global<span class="w"> </span>core.editor<span class="w"> </span><span class="s2">&quot;code --wait&quot;</span><span class="w">  </span><span class="c1"># VS Code</span>
+<span class="c1"># oder</span>
+git<span class="w"> </span>config<span class="w"> </span>--global<span class="w"> </span>core.editor<span class="w"> </span><span class="s2">&quot;vim&quot;</span><span class="w">          </span><span class="c1"># Vim</span>
+<span class="c1"># oder</span>
+git<span class="w"> </span>config<span class="w"> </span>--global<span class="w"> </span>core.editor<span class="w"> </span><span class="s2">&quot;nano&quot;</span><span class="w">         </span><span class="c1"># Nano</span>
+
+<span class="c1"># Standard-Branch-Name festlegen (main statt master)</span>
+git<span class="w"> </span>config<span class="w"> </span>--global<span class="w"> </span>init.defaultBranch<span class="w"> </span>main
+</code></pre></div></td></tr></table></div>
+<p><strong>Konfiguration überprüfen</strong>:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span>
+<span class="normal">6</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="c1"># Alle Konfigurationen anzeigen</span>
+git<span class="w"> </span>config<span class="w"> </span>--list
+
+<span class="c1"># Spezifische Konfiguration anzeigen</span>
+git<span class="w"> </span>config<span class="w"> </span>user.name
+git<span class="w"> </span>config<span class="w"> </span>user.email
+</code></pre></div></td></tr></table></div>
+<h3 id="projekt-spezifische-konfiguration">Projekt-spezifische Konfiguration<a class="headerlink" href="#projekt-spezifische-konfiguration" title="Permanent link">&para;</a></h3>
+<p><strong>Für einzelne Projekte</strong>:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span>
+<span class="normal">6</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="c1"># In das Projektverzeichnis wechseln</span>
+<span class="nb">cd</span><span class="w"> </span>/pfad/zum/projekt
+
+<span class="c1"># Projekt-spezifische Konfiguration</span>
+git<span class="w"> </span>config<span class="w"> </span>user.name<span class="w"> </span><span class="s2">&quot;Projekt-spezifischer Name&quot;</span>
+git<span class="w"> </span>config<span class="w"> </span>user.email<span class="w"> </span><span class="s2">&quot;projekt@example.com&quot;</span>
+</code></pre></div></td></tr></table></div>
+<h2 id="erste-schritte-mit-git">Erste Schritte mit Git<a class="headerlink" href="#erste-schritte-mit-git" title="Permanent link">&para;</a></h2>
+<h3 id="schritt-1-neues-repository-erstellen">Schritt 1: Neues Repository erstellen<a class="headerlink" href="#schritt-1-neues-repository-erstellen" title="Permanent link">&para;</a></h3>
+<p><strong>Methode 1: Neues Projekt</strong></p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span>
+<span class="normal">6</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="c1"># Projektverzeichnis erstellen</span>
+mkdir<span class="w"> </span>mein-projekt
+<span class="nb">cd</span><span class="w"> </span>mein-projekt
+
+<span class="c1"># Git Repository initialisieren</span>
+git<span class="w"> </span>init
+</code></pre></div></td></tr></table></div>
+<p><strong>Ausgabe</strong>:
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>Initialized empty Git repository in /pfad/zum/projekt/.git/
+</code></pre></div></td></tr></table></div></p>
+<p><strong>Methode 2: Bestehendes Projekt</strong></p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="c1"># In bestehendes Projektverzeichnis wechseln</span>
+<span class="nb">cd</span><span class="w"> </span>/pfad/zum/bestehenden-projekt
+
+<span class="c1"># Git Repository initialisieren</span>
+git<span class="w"> </span>init
+</code></pre></div></td></tr></table></div>
+<h3 id="schritt-2-erste-datei-erstellen-und-committen">Schritt 2: Erste Datei erstellen und committen<a class="headerlink" href="#schritt-2-erste-datei-erstellen-und-committen" title="Permanent link">&para;</a></h3>
+<p><strong>1. Datei erstellen</strong>:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span>
+<span class="normal">6</span>
+<span class="normal">7</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="c1"># Erstelle eine README-Datei</span>
+<span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;# Mein erstes Git Projekt&quot;</span><span class="w"> </span>&gt;<span class="w"> </span>README.md
+
+<span class="c1"># Oder mit einem Texteditor</span>
+code<span class="w"> </span>README.md<span class="w">  </span><span class="c1"># VS Code</span>
+<span class="c1"># oder</span>
+notepad<span class="w"> </span>README.md<span class="w">  </span><span class="c1"># Windows</span>
+</code></pre></div></td></tr></table></div>
+<p><strong>2. Status prüfen</strong>:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>git<span class="w"> </span>status
+</code></pre></div></td></tr></table></div>
+<p><strong>Ausgabe</strong>:
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span>
+<span class="normal">6</span>
+<span class="normal">7</span>
+<span class="normal">8</span>
+<span class="normal">9</span></pre></div></td><td class="code"><div><pre><span></span><code>On branch main
+
+No commits yet
+
+Untracked files:
+  (use &quot;git add &lt;file&gt;...&quot; to include in what will be committed)
+        README.md
+
+nothing added to commit but untracked files present (use &quot;git add&quot; to track)
+</code></pre></div></td></tr></table></div></p>
+<p><strong>3. Datei zur Staging Area hinzufügen</strong>:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="c1"># Einzelne Datei</span>
+git<span class="w"> </span>add<span class="w"> </span>README.md
+
+<span class="c1"># Oder alle Dateien</span>
+git<span class="w"> </span>add<span class="w"> </span>.
+</code></pre></div></td></tr></table></div>
+<p><strong>4. Status erneut prüfen</strong>:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>git<span class="w"> </span>status
+</code></pre></div></td></tr></table></div>
+<p><strong>Ausgabe</strong>:
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span>
+<span class="normal">6</span>
+<span class="normal">7</span></pre></div></td><td class="code"><div><pre><span></span><code>On branch main
+
+No commits yet
+
+Changes to be committed:
+  (use &quot;git rm --cached &lt;file&gt;...&quot; to unstage)
+        new file:   README.md
+</code></pre></div></td></tr></table></div></p>
+<p><strong>5. Commit erstellen</strong>:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>git<span class="w"> </span>commit<span class="w"> </span>-m<span class="w"> </span><span class="s2">&quot;Initial commit: Add README&quot;</span>
+</code></pre></div></td></tr></table></div>
+<p><strong>Ausgabe</strong>:
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span></pre></div></td><td class="code"><div><pre><span></span><code>[main (root-commit) abc1234] Initial commit: Add README
+ 1 file changed, 1 insertion(+)
+ create mode 100644 README.md
+</code></pre></div></td></tr></table></div></p>
+<h3 id="schritt-3-anderungen-verwalten">Schritt 3: Änderungen verwalten<a class="headerlink" href="#schritt-3-anderungen-verwalten" title="Permanent link">&para;</a></h3>
+<p><strong>1. Änderungen an README.md</strong>:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;## Projektbeschreibung&quot;</span><span class="w"> </span>&gt;&gt;<span class="w"> </span>README.md
+<span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;Dies ist ein Testprojekt für Git.&quot;</span><span class="w"> </span>&gt;&gt;<span class="w"> </span>README.md
+</code></pre></div></td></tr></table></div>
+<p><strong>2. Status prüfen</strong>:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>git<span class="w"> </span>status
+</code></pre></div></td></tr></table></div>
+<p><strong>Ausgabe</strong>:
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span>
+<span class="normal">6</span>
+<span class="normal">7</span></pre></div></td><td class="code"><div><pre><span></span><code>On branch main
+Changes not staged for commit:
+  (use &quot;git add &lt;file&gt;...&quot; to update what will be committed)
+  (use &quot;git restore &lt;file&gt;...&quot; to discard changes in working directory)
+        modified:   README.md
+
+no changes added to commit (use &quot;git add&quot; and/or &quot;git commit -a&quot;)
+</code></pre></div></td></tr></table></div></p>
+<p><strong>3. Änderungen anzeigen</strong>:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>git<span class="w"> </span>diff
+</code></pre></div></td></tr></table></div>
+<p><strong>Ausgabe</strong>:
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span>
+<span class="normal">6</span>
+<span class="normal">7</span></pre></div></td><td class="code"><div><pre><span></span><code>diff --git a/README.md b/README.md
+index e69de29..d95f3ad 100644
+--- a/README.md
++++ b/README.md
+@@ -0,0 +1,2 @@
++# Mein erstes Git Projekt
++## Projektbeschreibung
+</code></pre></div></td></tr></table></div></p>
+<p><strong>4. Änderungen hinzufügen und committen</strong>:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span></pre></div></td><td class="code"><div><pre><span></span><code>git<span class="w"> </span>add<span class="w"> </span>README.md
+git<span class="w"> </span>commit<span class="w"> </span>-m<span class="w"> </span><span class="s2">&quot;Add project description&quot;</span>
+</code></pre></div></td></tr></table></div>
+<h3 id="schritt-4-projektstruktur-erstellen">Schritt 4: Projektstruktur erstellen<a class="headerlink" href="#schritt-4-projektstruktur-erstellen" title="Permanent link">&para;</a></h3>
+<p><strong>1. Verzeichnisse erstellen</strong>:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>mkdir<span class="w"> </span>src<span class="w"> </span>docs<span class="w"> </span>tests
+</code></pre></div></td></tr></table></div>
+<p><strong>2. Dateien in Verzeichnissen</strong>:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;// JavaScript Code&quot;</span><span class="w"> </span>&gt;<span class="w"> </span>src/main.js
+<span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;# Dokumentation&quot;</span><span class="w"> </span>&gt;<span class="w"> </span>docs/README.md
+<span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;import unittest&quot;</span><span class="w"> </span>&gt;<span class="w"> </span>tests/test_main.py
+</code></pre></div></td></tr></table></div>
+<p><strong>3. Alle Änderungen hinzufügen</strong>:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>git<span class="w"> </span>add<span class="w"> </span>.
+</code></pre></div></td></tr></table></div>
+<p><strong>4. Commit erstellen</strong>:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>git<span class="w"> </span>commit<span class="w"> </span>-m<span class="w"> </span><span class="s2">&quot;Add project structure: src, docs, tests&quot;</span>
+</code></pre></div></td></tr></table></div>
+<h2 id="wichtige-befehle-fur-den-anfang">Wichtige Befehle für den Anfang<a class="headerlink" href="#wichtige-befehle-fur-den-anfang" title="Permanent link">&para;</a></h2>
+<h3 id="status-ubersicht">Status-Übersicht<a class="headerlink" href="#status-ubersicht" title="Permanent link">&para;</a></h3>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span></pre></div></td><td class="code"><div><pre><span></span><code>git<span class="w"> </span>status<span class="w">          </span><span class="c1"># Zeigt aktuellen Status</span>
+git<span class="w"> </span>log<span class="w">             </span><span class="c1"># Zeigt Commit-Historie</span>
+git<span class="w"> </span>log<span class="w"> </span>--oneline<span class="w">   </span><span class="c1"># Komprimierte Historie</span>
+</code></pre></div></td></tr></table></div>
+<h3 id="anderungen-verwalten">Änderungen verwalten<a class="headerlink" href="#anderungen-verwalten" title="Permanent link">&para;</a></h3>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span></pre></div></td><td class="code"><div><pre><span></span><code>git<span class="w"> </span>add<span class="w"> </span>&lt;file&gt;<span class="w">      </span><span class="c1"># Einzelne Datei hinzufügen</span>
+git<span class="w"> </span>add<span class="w"> </span>.<span class="w">           </span><span class="c1"># Alle Änderungen hinzufügen</span>
+git<span class="w"> </span>diff<span class="w">            </span><span class="c1"># Unterschiede anzeigen</span>
+git<span class="w"> </span>diff<span class="w"> </span>--staged<span class="w">   </span><span class="c1"># Unterschiede in Staging Area</span>
+</code></pre></div></td></tr></table></div>
+<h3 id="commits">Commits<a class="headerlink" href="#commits" title="Permanent link">&para;</a></h3>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span></pre></div></td><td class="code"><div><pre><span></span><code>git<span class="w"> </span>commit<span class="w"> </span>-m<span class="w"> </span><span class="s2">&quot;Nachricht&quot;</span><span class="w">          </span><span class="c1"># Commit mit Nachricht</span>
+git<span class="w"> </span>commit<span class="w"> </span>--amend<span class="w">                 </span><span class="c1"># Letzten Commit ändern</span>
+git<span class="w"> </span>commit<span class="w"> </span>--amend<span class="w"> </span>--no-edit<span class="w">       </span><span class="c1"># Letzten Commit ohne neue Nachricht</span>
+</code></pre></div></td></tr></table></div>
+<h3 id="fehlerbehebung">Fehlerbehebung<a class="headerlink" href="#fehlerbehebung" title="Permanent link">&para;</a></h3>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span></pre></div></td><td class="code"><div><pre><span></span><code>git<span class="w"> </span>restore<span class="w"> </span>&lt;file&gt;<span class="w">     </span><span class="c1"># Änderungen verwerfen (Working Directory)</span>
+git<span class="w"> </span>restore<span class="w"> </span>--staged<span class="w"> </span>&lt;file&gt;<span class="w">  </span><span class="c1"># Aus Staging Area entfernen</span>
+git<span class="w"> </span>reset<span class="w"> </span>--hard<span class="w">       </span><span class="c1"># Alle Änderungen verwerfen (Vorsicht!)</span>
+</code></pre></div></td></tr></table></div>
+<h2 id="praktische-ubung">Praktische Übung<a class="headerlink" href="#praktische-ubung" title="Permanent link">&para;</a></h2>
+<h3 id="ubung-1-erstes-repository">Übung 1: Erstes Repository<a class="headerlink" href="#ubung-1-erstes-repository" title="Permanent link">&para;</a></h3>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span>
+<span class="normal">21</span>
+<span class="normal">22</span>
+<span class="normal">23</span>
+<span class="normal">24</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="c1"># 1. Neues Projekt erstellen</span>
+mkdir<span class="w"> </span>git-uebung
+<span class="nb">cd</span><span class="w"> </span>git-uebung
+
+<span class="c1"># 2. Git initialisieren</span>
+git<span class="w"> </span>init
+
+<span class="c1"># 3. README erstellen</span>
+<span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;# Git Übungsprojekt&quot;</span><span class="w"> </span>&gt;<span class="w"> </span>README.md
+
+<span class="c1"># 4. Erster Commit</span>
+git<span class="w"> </span>add<span class="w"> </span>README.md
+git<span class="w"> </span>commit<span class="w"> </span>-m<span class="w"> </span><span class="s2">&quot;Initial commit&quot;</span>
+
+<span class="c1"># 5. Weitere Dateien erstellen</span>
+<span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;console.log(&#39;Hallo Welt&#39;);&quot;</span><span class="w"> </span>&gt;<span class="w"> </span>script.js
+<span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;body { color: blue; }&quot;</span><span class="w"> </span>&gt;<span class="w"> </span>style.css
+
+<span class="c1"># 6. Zweiter Commit</span>
+git<span class="w"> </span>add<span class="w"> </span>.
+git<span class="w"> </span>commit<span class="w"> </span>-m<span class="w"> </span><span class="s2">&quot;Add basic files&quot;</span>
+
+<span class="c1"># 7. Historie anzeigen</span>
+git<span class="w"> </span>log<span class="w"> </span>--oneline
+</code></pre></div></td></tr></table></div>
+<h3 id="ubung-2-anderungen-verfolgen">Übung 2: Änderungen verfolgen<a class="headerlink" href="#ubung-2-anderungen-verfolgen" title="Permanent link">&para;</a></h3>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="c1"># 1. README ändern</span>
+<span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;## Lernziele&quot;</span><span class="w"> </span>&gt;&gt;<span class="w"> </span>README.md
+<span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;- Git verstehen&quot;</span><span class="w"> </span>&gt;&gt;<span class="w"> </span>README.md
+
+<span class="c1"># 2. Status prüfen</span>
+git<span class="w"> </span>status
+
+<span class="c1"># 3. Diff anzeigen</span>
+git<span class="w"> </span>diff
+
+<span class="c1"># 4. Commit erstellen</span>
+git<span class="w"> </span>add<span class="w"> </span>README.md
+git<span class="w"> </span>commit<span class="w"> </span>-m<span class="w"> </span><span class="s2">&quot;Add learning objectives&quot;</span>
+
+<span class="c1"># 5. Historie prüfen</span>
+git<span class="w"> </span>log<span class="w"> </span>--oneline
+</code></pre></div></td></tr></table></div>
+<h2 id="zusammenfassung">Zusammenfassung<a class="headerlink" href="#zusammenfassung" title="Permanent link">&para;</a></h2>
+<p><strong>Installation</strong>:
+- Windows: Git für Windows oder Chocolatey
+- macOS: Git für macOS oder Homebrew
+- Linux: Paketmanager (apt, dnf)</p>
+<p><strong>Konfiguration</strong>:
+- Globale Konfiguration: <code>git config --global</code>
+- Name und E-Mail sind erforderlich
+- Editor kann konfiguriert werden</p>
+<p><strong>Erste Schritte</strong>:
+1. <code>git init</code> - Repository erstellen
+2. Datei erstellen
+3. <code>git add</code> - Zur Staging Area hinzufügen
+4. <code>git commit</code> - Commit erstellen
+5. <code>git status</code> / <code>git log</code> - Status prüfen</p>
+<p><strong>Wichtige Befehle</strong>:
+- <code>git status</code> - Status anzeigen
+- <code>git add</code> - Änderungen hinzufügen
+- <code>git commit</code> - Commit erstellen
+- <code>git diff</code> - Unterschiede anzeigen
+- <code>git log</code> - Historie anzeigen</p>
+<details class="question" open="open">
+<summary>Installation und erste Schritte</summary>
+<p>Basierend auf der Installation und ersten Schritten mit Git:</p>
+<ol>
+<li>Erklären Sie den Unterschied zwischen globaler und projekt-spezifischer Git-Konfiguration mit einem konkreten Beispiel</li>
+<li>Beschreiben Sie den Prozess von einer neuen Datei bis zum ersten Commit mit allen Befehlen</li>
+<li>Erklären Sie, warum man <code>git status</code> regelmäßig verwenden sollte und was die verschiedenen Statusmeldungen bedeuten</li>
+</ol>
+<div class="arithmatex">\[\text{Beispiel: Ein Entwickler arbeitet an zwei verschiedenen Projekten...}\]</div>
+<details class="info">
+<summary>Tipp</summary>
+<p>Erstellen Sie ein Skript, das <code>git status</code> automatisch nach jedem Befehl ausführt</p>
+</details>
+<details class="success">
+<summary>Lösung</summary>
+<details class="video">
+<summary>Lösungsvideo</summary>
+<p><div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
+    <iframe src="https://www.youtube.com/embed/4XpnKHJAok8?si=8z5X6V2L9YdRq0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;"></iframe>
+</div></p>
+</details>
+<p><strong>1. Globale vs. projekt-spezifische Konfiguration:</strong>
+<strong>Globale Konfiguration</strong> (<code>git config --global</code>):
+- Wird für alle Projekte auf dem Computer verwendet
+- Enthält typischerweise: Name, E-Mail, Standard-Editor
+- Beispiel: <code>git config --global user.name "Max Mustermann"</code></p>
+<p><strong>Projekt-spezifische Konfiguration</strong> (<code>git config</code> ohne --global):
+- Gilt nur für das aktuelle Projekt
+- Nützlich für: Projektspezifische E-Mail, spezielle Editor-Einstellungen
+- Beispiel: Ein Freelancer hat unterschiedliche E-Mails für verschiedene Kunden</p>
+<p><strong>Konkretes Beispiel</strong>:
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span>
+<span class="normal">6</span>
+<span class="normal">7</span>
+<span class="normal">8</span>
+<span class="normal">9</span></pre></div></td><td class="code"><div><pre><span></span><code>Globale Konfiguration:
+user.name = Max Mustermann
+user.email = max@privat.de
+
+Projekt-spezifisch (in Kundenprojekt):
+user.email = max@kunde1.de
+
+Projekt-spezifisch (in Firmenprojekt):
+user.email = max@firma.de
+</code></pre></div></td></tr></table></div></p>
+<p><strong>2. Prozess bis zum ersten Commit:</strong>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span>
+<span class="normal">6</span></pre></div></td><td class="code"><div><pre><span></span><code>1. Datei erstellen: echo &quot;Inhalt&quot; &gt; datei.txt
+2. Status prüfen: git status → &quot;Untracked files&quot;
+3. Zur Staging Area hinzufügen: git add datei.txt
+4. Status prüfen: git status → &quot;Changes to be committed&quot;
+5. Commit erstellen: git commit -m &quot;Erste Nachricht&quot;
+6. Historie prüfen: git log
+</code></pre></div></td></tr></table></div></p>
+<p><strong>3. Warum <code>git status</code> regelmäßig verwenden:</strong>
+- <strong>Übersicht</strong>: Zeigt aktuellen Zustand des Projekts
+- <strong>Fehlervermeidung</strong>: Verhindert falsche Commits
+- <strong>Statusmeldungen</strong>:
+  - <code>Untracked files</code>: Neue Dateien, noch nicht versioniert
+  - <code>Changes not staged for commit</code>: Geänderte Dateien, nicht bereitgestellt
+  - <code>Changes to be committed</code>: Bereitgestellte Änderungen, bereit für Commit
+  - <code>nothing to commit</code>: Alle Änderungen sind committet</p>
+<p><strong>Analogie</strong>: <code>git status</code> ist wie ein Spiegel vor dem Verlassen des Hauses - prüft, ob alles korrekt ist.</p>
+</details>
+</details>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="Footer" >
+        
+          
+          <a href="../4/" class="md-footer__link md-footer__link--prev" aria-label="Previous: 3.2 Grundlegende Konzepte">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              <div class="md-ellipsis">
+                3.2 Grundlegende Konzepte
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="../6/" class="md-footer__link md-footer__link--next" aria-label="Next: 4.1 Remote-Repositories">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              <div class="md-ellipsis">
+                4.1 Remote-Repositories
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright &copy; 2026 Qualidy GmbH
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+        
+<div class="md-social">
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://www.kununu.com/de/qualidy" target="_blank" rel="noopener" title="www.kununu.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><!--! Font Awesome Free 7.0.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path fill="currentColor" d="M311 86.3c12.3-12.7 12-32.9-.7-45.2s-32.9-12-45.2.7C143.4 167.2 76.4 236.3 64 249V64c0-17.7-14.3-32-32-32S0 46.3 0 64v384c0 17.7 14.3 32 32 32s32-14.3 32-32V341l64.7-66.7 133 192c10.1 14.5 30 18.1 44.5 8.1s18.1-30 8.1-44.5L174.1 227.4z"/></svg>
+    </a>
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://de.linkedin.com/company/qualidy" target="_blank" rel="noopener" title="de.linkedin.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.0.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path fill="currentColor" d="M416 32H31.9C14.3 32 0 46.5 0 64.3v383.4C0 465.5 14.3 480 31.9 480H416c17.6 0 32-14.5 32-32.3V64.3c0-17.8-14.4-32.3-32-32.3M135.4 416H69V202.2h66.5V416zM102.2 96a38.5 38.5 0 1 1 0 77 38.5 38.5 0 1 1 0-77m282.1 320h-66.4V312c0-24.8-.5-56.7-34.5-56.7-34.6 0-39.9 27-39.9 54.9V416h-66.4V202.2h63.7v29.2h.9c8.9-16.8 30.6-34.5 62.9-34.5 67.2 0 79.7 44.3 79.7 101.9z"/></svg>
+    </a>
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://www.google.com/search?sca_esv=7e6ba2047fcb60f3&uds=AMwkrPtyB8MsmozA4Lwzqy2G2HCu-abqzc6moOG48q3gP5dtjTRzC2Ws0eSwcyLXDfZNuYCrZ7ByIreHLG9th3vKLekPoVeey0tumAbet4cVLQRLzdRFhUbOGbnyp3xo1V0hzzaNmkCN&si=AKbGX_rcuucMgom2rba1cdwsvM2SVoIkP2btyqGMV4t0GuHIs4sGV_1tpuqR0YHG4Rzd9SdJcL-lW6E-2aJA5azZLTKkIOrZ2j2aWwoBkVbdEJ0o0GPcQhs%3D&q=Qualidy+GmbH+Rezensionen&sa=X&ved=2ahUKEwibsbnSgcmFAxXNQvEDHaVYCiAQ3PALegQIRxAF" target="_blank" rel="noopener" title="www.google.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21.35 11.1h-9.17v2.73h6.51c-.33 3.81-3.5 5.44-6.5 5.44C8.36 19.27 5 16.25 5 12c0-4.1 3.2-7.27 7.2-7.27 3.09 0 4.9 1.97 4.9 1.97L19 4.72S16.56 2 12.1 2C6.42 2 2.03 6.8 2.03 12c0 5.05 4.13 10 10.22 10 5.35 0 9.25-3.67 9.25-9.09 0-1.15-.15-1.81-.15-1.81"/></svg>
+    </a>
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://qualidy.de" target="_blank" rel="noopener" title="qualidy.de" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.0.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path fill="currentColor" d="M351.9 280H161c2.9 64.5 17.2 123.9 37.5 167.4 11.4 24.5 23.7 41.8 35.1 52.4 11.2 10.5 18.9 12.2 22.9 12.2s11.7-1.7 22.9-12.2c11.4-10.6 23.7-28 35.1-52.4 20.3-43.5 34.6-102.9 37.5-167.4zm-191-48h190.9c-2.8-64.5-17.1-123.9-37.4-167.4-11.4-24.4-23.7-41.8-35.1-52.4C268.1 1.7 260.4 0 256.4 0s-11.7 1.7-22.9 12.2c-11.4 10.6-23.7 28-35.1 52.4-20.3 43.5-34.6 102.9-37.5 167.4m-48 0c3.5-85.6 25.6-165.1 57.9-217.3C78.7 47.3 10.9 131.2 1.5 232zM1.5 280c9.4 100.8 77.2 184.7 169.3 217.3-32.3-52.2-54.4-131.7-57.9-217.3zm398.4 0c-3.5 85.6-25.6 165.1-57.9 217.3 92.1-32.7 159.9-116.5 169.3-217.3zm111.4-48C501.9 131.2 434.1 47.3 342 14.7c32.3 52.2 54.4 131.7 57.9 217.3z"/></svg>
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.tracking", "navigation.path", "navigation.top", "navigation.footer", "toc.follow", "toc.integrate", "content.code.copy", "content.code.annotate"], "search": "../../assets/javascripts/workers/search.973d3a69.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.92b07e13.min.js"></script>
+      
+        <script src="../../javascripts/mathjax.js"></script>
+      
+        <script src="https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js"></script>
+      
+    
+  </body>
+</html>

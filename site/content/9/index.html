@@ -1,0 +1,1813 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="../8/">
+      
+      
+        <link rel="next" href="../10/">
+      
+      
+      <link rel="icon" href="../../assets/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.18">
+    
+    
+      
+        <title>5.1 Fortgeschrittene Features - Einführung in die Versionsverwaltung mit Git</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.7e37652d.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../stylesheets/logo.css">
+    
+      <link rel="stylesheet" href="../../stylesheets/grid.css">
+    
+      <link rel="stylesheet" href="../../stylesheets/video_admonition.css">
+    
+      <link rel="stylesheet" href="../../stylesheets/python_tutor_admonition.css">
+    
+      <link rel="stylesheet" href="../../stylesheets/mermaid.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="amber" data-md-color-accent="deep-orange">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#51-fortgeschrittene-git-features" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="Einführung in die Versionsverwaltung mit Git" class="md-header__button md-logo" aria-label="Einführung in die Versionsverwaltung mit Git" data-md-component="logo">
+      
+  <img src="../../assets/logo.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Einführung in die Versionsverwaltung mit Git
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              5.1 Fortgeschrittene Features
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+    
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+  
+
+<nav class="md-nav md-nav--primary md-nav--integrated" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Einführung in die Versionsverwaltung mit Git" class="md-nav__button md-logo" aria-label="Einführung in die Versionsverwaltung mit Git" data-md-component="logo">
+      
+  <img src="../../assets/logo.png" alt="logo">
+
+    </a>
+    Einführung in die Versionsverwaltung mit Git
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Übersicht
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../1/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    1 Einführung
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../2/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    2 Kursübersicht
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../3/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    3.1 Historische Entwicklung
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../4/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    3.2 Grundlegende Konzepte
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../5/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    3.3 Installation und erste Schritte
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../6/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    4.1 Remote-Repositories
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../7/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    4.2 GitHub/GitLab Integration
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../8/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    4.3 Projektdateien und .gitignore
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    5.1 Fortgeschrittene Features
+    
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    5.1 Fortgeschrittene Features
+    
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#einfuhrung" class="md-nav__link">
+    <span class="md-ellipsis">
+      Einführung
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#git-rebase" class="md-nav__link">
+    <span class="md-ellipsis">
+      Git Rebase
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Git Rebase">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#was-ist-rebase" class="md-nav__link">
+    <span class="md-ellipsis">
+      Was ist Rebase?
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#wann-rebase-verwenden" class="md-nav__link">
+    <span class="md-ellipsis">
+      Wann Rebase verwenden?
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#rebase-durchfuhren" class="md-nav__link">
+    <span class="md-ellipsis">
+      Rebase durchführen
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#rebase-vs-merge-vergleich" class="md-nav__link">
+    <span class="md-ellipsis">
+      Rebase vs. Merge: Vergleich
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#git-stash" class="md-nav__link">
+    <span class="md-ellipsis">
+      Git Stash
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Git Stash">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#was-ist-stash" class="md-nav__link">
+    <span class="md-ellipsis">
+      Was ist Stash?
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#stash-verwenden" class="md-nav__link">
+    <span class="md-ellipsis">
+      Stash verwenden
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#praktische-beispiele" class="md-nav__link">
+    <span class="md-ellipsis">
+      Praktische Beispiele
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#git-cherry-pick" class="md-nav__link">
+    <span class="md-ellipsis">
+      Git Cherry-Pick
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Git Cherry-Pick">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#was-ist-cherry-pick" class="md-nav__link">
+    <span class="md-ellipsis">
+      Was ist Cherry-Pick?
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cherry-pick-durchfuhren" class="md-nav__link">
+    <span class="md-ellipsis">
+      Cherry-Pick durchführen
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cherry-pick-vs-merge" class="md-nav__link">
+    <span class="md-ellipsis">
+      Cherry-Pick vs. Merge
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#git-reset" class="md-nav__link">
+    <span class="md-ellipsis">
+      Git Reset
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Git Reset">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#was-ist-reset" class="md-nav__link">
+    <span class="md-ellipsis">
+      Was ist Reset?
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#reset-durchfuhren" class="md-nav__link">
+    <span class="md-ellipsis">
+      Reset durchführen
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#reset-vs-revert" class="md-nav__link">
+    <span class="md-ellipsis">
+      Reset vs. Revert
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#git-reflog" class="md-nav__link">
+    <span class="md-ellipsis">
+      Git Reflog
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Git Reflog">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#was-ist-reflog" class="md-nav__link">
+    <span class="md-ellipsis">
+      Was ist Reflog?
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#reflog-verwenden" class="md-nav__link">
+    <span class="md-ellipsis">
+      Reflog verwenden
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#git-bisect" class="md-nav__link">
+    <span class="md-ellipsis">
+      Git Bisect
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Git Bisect">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#was-ist-bisect" class="md-nav__link">
+    <span class="md-ellipsis">
+      Was ist Bisect?
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#bisect-durchfuhren" class="md-nav__link">
+    <span class="md-ellipsis">
+      Bisect durchführen
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#git-worktree" class="md-nav__link">
+    <span class="md-ellipsis">
+      Git Worktree
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Git Worktree">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#was-ist-worktree" class="md-nav__link">
+    <span class="md-ellipsis">
+      Was ist Worktree?
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#worktree-verwenden" class="md-nav__link">
+    <span class="md-ellipsis">
+      Worktree verwenden
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#praktische-ubung" class="md-nav__link">
+    <span class="md-ellipsis">
+      Praktische Übung
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Praktische Übung">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#ubung-1-rebase" class="md-nav__link">
+    <span class="md-ellipsis">
+      Übung 1: Rebase
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ubung-2-stash" class="md-nav__link">
+    <span class="md-ellipsis">
+      Übung 2: Stash
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ubung-3-cherry-pick" class="md-nav__link">
+    <span class="md-ellipsis">
+      Übung 3: Cherry-Pick
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#zusammenfassung" class="md-nav__link">
+    <span class="md-ellipsis">
+      Zusammenfassung
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../10/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    5.2 Projektadministration
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="51-fortgeschrittene-git-features">5.1 Fortgeschrittene Git-Features<a class="headerlink" href="#51-fortgeschrittene-git-features" title="Permanent link">&para;</a></h1>
+<h2 id="einfuhrung">Einführung<a class="headerlink" href="#einfuhrung" title="Permanent link">&para;</a></h2>
+<p>In diesem Kapitel lernen Sie fortgeschrittene Git-Features kennen, die für professionelle Entwicklung unerlässlich sind.</p>
+<h2 id="git-rebase">Git Rebase<a class="headerlink" href="#git-rebase" title="Permanent link">&para;</a></h2>
+<h3 id="was-ist-rebase">Was ist Rebase?<a class="headerlink" href="#was-ist-rebase" title="Permanent link">&para;</a></h3>
+<p><strong>Definition</strong>: Rebase ist eine Alternative zum Merge, die die Commit-Historie "neu schreibt"</p>
+<p><strong>Unterschied zu Merge</strong>:
+- <strong>Merge</strong>: Erstellt einen neuen Merge-Commit, der beide Branches verbindet
+- <strong>Rebase</strong>: Bewegt Commits auf einen anderen Branch, erstellt neue Commits</p>
+<p><strong>Visualisierung</strong>:</p>
+<pre class="mermaid"><code>graph TD
+    subgraph "Vor Rebase"
+        A1[A] --&gt; B1[B]
+        B1 --&gt; C1[C]
+        D1[D] --&gt; E1[E]
+    end
+
+    subgraph "Nach Rebase"
+        A2[A] --&gt; B2[B]
+        B2 --&gt; C2[C]
+        D2[D'] --&gt; E2[E']
+        C2 --&gt; D2
+    end
+
+    style A1 fill:#f9f,stroke:#333,stroke-width:2px
+    style B1 fill:#f9f,stroke:#333,stroke-width:2px
+    style C1 fill:#f9f,stroke:#333,stroke-width:2px
+    style D1 fill:#bbf,stroke:#333,stroke-width:2px
+    style E1 fill:#bbf,stroke:#333,stroke-width:2px
+    style A2 fill:#f9f,stroke:#333,stroke-width:2px
+    style B2 fill:#f9f,stroke:#333,stroke-width:2px
+    style C2 fill:#f9f,stroke:#333,stroke-width:2px
+    style D2 fill:#bbf,stroke:#333,stroke-width:2px
+    style E2 fill:#bbf,stroke:#333,stroke-width:2px</code></pre>
+<pre class="mermaid"><code>graph TD
+    subgraph "Merge"
+        A3[A] --&gt; B3[B]
+        B3 --&gt; C3[C]
+        D3[D] --&gt; E3[E]
+        C3 --&gt; M3[Merge Commit]
+        E3 --&gt; M3
+    end
+
+    subgraph "Rebase"
+        A4[A] --&gt; B4[B]
+        B4 --&gt; C4[C]
+        D4[D'] --&gt; E4[E']
+        C4 --&gt; D4
+    end
+
+    style A3 fill:#f9f,stroke:#333,stroke-width:2px
+    style B3 fill:#f9f,stroke:#333,stroke-width:2px
+    style C3 fill:#f9f,stroke:#333,stroke-width:2px
+    style D3 fill:#bbf,stroke:#333,stroke-width:2px
+    style E3 fill:#bbf,stroke:#333,stroke-width:2px
+    style M3 fill:#fbb,stroke:#333,stroke-width:2px
+    style A4 fill:#f9f,stroke:#333,stroke-width:2px
+    style B4 fill:#f9f,stroke:#333,stroke-width:2px
+    style C4 fill:#f9f,stroke:#333,stroke-width:2px
+    style D4 fill:#bbf,stroke:#333,stroke-width:2px
+    style E4 fill:#bbf,stroke:#333,stroke-width:2px</code></pre>
+<h3 id="wann-rebase-verwenden">Wann Rebase verwenden?<a class="headerlink" href="#wann-rebase-verwenden" title="Permanent link">&para;</a></h3>
+<p><strong>Gute Anwendungsfälle</strong>:
+- Lokale Branches bereinigen vor dem Push
+- Feature-Branch auf aktuellen main Branch bringen
+- Commit-Historie sauber halten</p>
+<p><strong>Schlechte Anwendungsfälle</strong>:
+- Öffentliche Branches (andere Entwickler haben sie bereits)
+- Komplexe Branches mit vielen Commits</p>
+<h3 id="rebase-durchfuhren">Rebase durchführen<a class="headerlink" href="#rebase-durchfuhren" title="Permanent link">&para;</a></h3>
+<p><strong>1. Rebase auf main</strong>:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="c1"># 1. Zum Feature-Branch wechseln</span>
+git<span class="w"> </span>checkout<span class="w"> </span>feature/branch
+
+<span class="c1"># 2. Rebase auf main</span>
+git<span class="w"> </span>rebase<span class="w"> </span>main
+
+<span class="c1"># 3. Konflikte lösen (falls nötig)</span>
+<span class="c1"># ... Konflikte lösen ...</span>
+git<span class="w"> </span>add<span class="w"> </span>.
+git<span class="w"> </span>rebase<span class="w"> </span>--continue
+
+<span class="c1"># 4. Push (force push nötig, da Historie geändert)</span>
+git<span class="w"> </span>push<span class="w"> </span>--force-with-lease<span class="w"> </span>origin<span class="w"> </span>feature/branch
+</code></pre></div></td></tr></table></div>
+<p><strong>2. Interaktives Rebase</strong>:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="c1"># Letzte 3 Commits bearbeiten</span>
+git<span class="w"> </span>rebase<span class="w"> </span>-i<span class="w"> </span>HEAD~3
+</code></pre></div></td></tr></table></div>
+<p><strong>Optionen im interaktiven Rebase</strong>:
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span></pre></div></td><td class="code"><div><pre><span></span><code>pick abc123 Commit 1
+pick def456 Commit 2
+pick ghi789 Commit 3
+
+# Aktionen:
+# pick = Commit behalten
+# reword = Commit-Nachricht ändern
+# edit = Commit bearbeiten
+# squash = Mit vorherigem Commit zusammenführen
+# fixup = Wie squash, aber ohne Commit-Nachricht
+# drop = Commit löschen
+</code></pre></div></td></tr></table></div></p>
+<h3 id="rebase-vs-merge-vergleich">Rebase vs. Merge: Vergleich<a class="headerlink" href="#rebase-vs-merge-vergleich" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Aspekt</th>
+<th>Rebase</th>
+<th>Merge</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Historie</strong></td>
+<td>Linear, sauber</td>
+<td>Verzweigt, komplex</td>
+</tr>
+<tr>
+<td><strong>Commit-IDs</strong></td>
+<td>Neue IDs (Commit-Historie ändert sich)</td>
+<td>Alte IDs bleiben erhalten</td>
+</tr>
+<tr>
+<td><strong>Öffentliche Branches</strong></td>
+<td>Gefährlich</td>
+<td>Sicher</td>
+</tr>
+<tr>
+<td><strong>Lokale Branches</strong></td>
+<td>Empfohlen</td>
+<td>Möglich</td>
+</tr>
+<tr>
+<td><strong>Konflikte</strong></td>
+<td>Einmalig pro Commit</td>
+<td>Einmalig pro Merge</td>
+</tr>
+</tbody>
+</table>
+<h2 id="git-stash">Git Stash<a class="headerlink" href="#git-stash" title="Permanent link">&para;</a></h2>
+<h3 id="was-ist-stash">Was ist Stash?<a class="headerlink" href="#was-ist-stash" title="Permanent link">&para;</a></h3>
+<p><strong>Definition</strong>: Temporäres Speichern von nicht committeten Änderungen</p>
+<p><strong>Anwendungsfälle</strong>:
+- Schneller Branch-Wechsel ohne Commit
+- Temporäre Änderungen speichern
+- Notfall-Sicherung</p>
+<h3 id="stash-verwenden">Stash verwenden<a class="headerlink" href="#stash-verwenden" title="Permanent link">&para;</a></h3>
+<p><strong>1. Änderungen stashen</strong>:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span>
+<span class="normal">6</span>
+<span class="normal">7</span>
+<span class="normal">8</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="c1"># Aktuelle Änderungen stashen</span>
+git<span class="w"> </span>stash
+
+<span class="c1"># Mit Nachricht</span>
+git<span class="w"> </span>stash<span class="w"> </span>save<span class="w"> </span><span class="s2">&quot;WIP: Feature X in Arbeit&quot;</span>
+
+<span class="c1"># Nur bestimmte Dateien stashen</span>
+git<span class="w"> </span>stash<span class="w"> </span>push<span class="w"> </span>datei1.txt<span class="w"> </span>datei2.txt
+</code></pre></div></td></tr></table></div>
+<p><strong>2. Stash anzeigen</strong>:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span>
+<span class="normal">6</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="c1"># Alle Stashes anzeigen</span>
+git<span class="w"> </span>stash<span class="w"> </span>list
+
+<span class="c1"># Beispiel-Ausgabe:</span>
+stash@<span class="o">{</span><span class="m">0</span><span class="o">}</span>:<span class="w"> </span>WIP:<span class="w"> </span>Feature<span class="w"> </span>X<span class="w"> </span><span class="k">in</span><span class="w"> </span>Arbeit
+stash@<span class="o">{</span><span class="m">1</span><span class="o">}</span>:<span class="w"> </span>WIP:<span class="w"> </span>Bugfix<span class="w"> </span>Y
+</code></pre></div></td></tr></table></div>
+<p><strong>3. Stash wiederherstellen</strong>:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span>
+<span class="normal">6</span>
+<span class="normal">7</span>
+<span class="normal">8</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="c1"># Letzten Stash wiederherstellen (und entfernen)</span>
+git<span class="w"> </span>stash<span class="w"> </span>pop
+
+<span class="c1"># Spezifischen Stash wiederherstellen</span>
+git<span class="w"> </span>stash<span class="w"> </span>pop<span class="w"> </span>stash@<span class="o">{</span><span class="m">1</span><span class="o">}</span>
+
+<span class="c1"># Stash wiederherstellen (ohne zu entfernen)</span>
+git<span class="w"> </span>stash<span class="w"> </span>apply<span class="w"> </span>stash@<span class="o">{</span><span class="m">0</span><span class="o">}</span>
+</code></pre></div></td></tr></table></div>
+<p><strong>4. Stash löschen</strong>:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span>
+<span class="normal">6</span>
+<span class="normal">7</span>
+<span class="normal">8</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="c1"># Letzten Stash löschen</span>
+git<span class="w"> </span>stash<span class="w"> </span>drop
+
+<span class="c1"># Spezifischen Stash löschen</span>
+git<span class="w"> </span>stash<span class="w"> </span>drop<span class="w"> </span>stash@<span class="o">{</span><span class="m">1</span><span class="o">}</span>
+
+<span class="c1"># Alle Stashes löschen</span>
+git<span class="w"> </span>stash<span class="w"> </span>clear
+</code></pre></div></td></tr></table></div>
+<h3 id="praktische-beispiele">Praktische Beispiele<a class="headerlink" href="#praktische-beispiele" title="Permanent link">&para;</a></h3>
+<p><strong>Beispiel 1: Schneller Branch-Wechsel</strong>:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="c1"># 1. In main Branch arbeiten</span>
+git<span class="w"> </span>checkout<span class="w"> </span>main
+
+<span class="c1"># 2. Änderungen machen (nicht committet)</span>
+<span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;Test&quot;</span><span class="w"> </span>&gt;<span class="w"> </span>test.txt
+
+<span class="c1"># 3. Schnell zu Bugfix wechseln</span>
+git<span class="w"> </span>stash
+git<span class="w"> </span>checkout<span class="w"> </span>bugfix/branch
+<span class="c1"># ... Bugfix machen ...</span>
+git<span class="w"> </span>commit<span class="w"> </span>-m<span class="w"> </span><span class="s2">&quot;Fix bug&quot;</span>
+git<span class="w"> </span>checkout<span class="w"> </span>main
+
+<span class="c1"># 4. Änderungen wiederherstellen</span>
+git<span class="w"> </span>stash<span class="w"> </span>pop
+</code></pre></div></td></tr></table></div>
+<p><strong>Beispiel 2: Experimentelles Arbeiten</strong>:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="c1"># 1. Experimentelles Feature entwickeln</span>
+<span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;Experiment&quot;</span><span class="w"> </span>&gt;<span class="w"> </span>experiment.txt
+
+<span class="c1"># 2. Stashen für später</span>
+git<span class="w"> </span>stash<span class="w"> </span>save<span class="w"> </span><span class="s2">&quot;Experimentelles Feature&quot;</span>
+
+<span class="c1"># 3. Weiterarbeiten an Hauptfeature</span>
+<span class="c1"># ... Hauptfeature entwickeln ...</span>
+
+<span class="c1"># 4. Experiment wieder aufnehmen</span>
+git<span class="w"> </span>stash<span class="w"> </span>pop
+</code></pre></div></td></tr></table></div>
+<h2 id="git-cherry-pick">Git Cherry-Pick<a class="headerlink" href="#git-cherry-pick" title="Permanent link">&para;</a></h2>
+<h3 id="was-ist-cherry-pick">Was ist Cherry-Pick?<a class="headerlink" href="#was-ist-cherry-pick" title="Permanent link">&para;</a></h3>
+<p><strong>Definition</strong>: Einzelne Commits von einem Branch auf einen anderen übernehmen</p>
+<p><strong>Anwendungsfälle</strong>:
+- Bugfix von Feature-Branch zu main übernehmen
+- Wichtige Änderungen aus experimentellem Branch übernehmen
+- Hotfix verteilen</p>
+<h3 id="cherry-pick-durchfuhren">Cherry-Pick durchführen<a class="headerlink" href="#cherry-pick-durchfuhren" title="Permanent link">&para;</a></h3>
+<p><strong>1. Einfacher Cherry-Pick</strong>:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span>
+<span class="normal">6</span>
+<span class="normal">7</span>
+<span class="normal">8</span>
+<span class="normal">9</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="c1"># 1. Zum Ziel-Branch wechseln</span>
+git<span class="w"> </span>checkout<span class="w"> </span>main
+
+<span class="c1"># 2. Commit-ID des zu pickenden Commits finden</span>
+git<span class="w"> </span>log<span class="w"> </span>--oneline
+<span class="c1"># abc1234 Add user authentication</span>
+
+<span class="c1"># 3. Cherry-Pick ausführen</span>
+git<span class="w"> </span>cherry-pick<span class="w"> </span>abc1234
+</code></pre></div></td></tr></table></div>
+<p><strong>2. Cherry-Pick mit mehreren Commits</strong>:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="c1"># Mehrere Commits auf einmal</span>
+git<span class="w"> </span>cherry-pick<span class="w"> </span>abc1234<span class="w"> </span>def5678<span class="w"> </span>ghi9012
+
+<span class="c1"># Bereich von Commits</span>
+git<span class="w"> </span>cherry-pick<span class="w"> </span>abc1234..def5678
+</code></pre></div></td></tr></table></div>
+<p><strong>3. Cherry-Pick mit Konflikten</strong>:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="c1"># 1. Cherry-Pick starten</span>
+git<span class="w"> </span>cherry-pick<span class="w"> </span>abc1234
+
+<span class="c1"># 2. Bei Konflikt:</span>
+<span class="c1"># ... Konflikte lösen ...</span>
+git<span class="w"> </span>add<span class="w"> </span>.
+git<span class="w"> </span>cherry-pick<span class="w"> </span>--continue
+
+<span class="c1"># Oder abbrechen:</span>
+git<span class="w"> </span>cherry-pick<span class="w"> </span>--abort
+</code></pre></div></td></tr></table></div>
+<h3 id="cherry-pick-vs-merge">Cherry-Pick vs. Merge<a class="headerlink" href="#cherry-pick-vs-merge" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Aspekt</th>
+<th>Cherry-Pick</th>
+<th>Merge</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Commits</strong></td>
+<td>Einzelne Commits</td>
+<td>Alle Commits</td>
+</tr>
+<tr>
+<td><strong>Historie</strong></td>
+<td>Neue Commits im Ziel-Branch</td>
+<td>Verbindet Branches</td>
+</tr>
+<tr>
+<td><strong>Kontext</strong></td>
+<td>Gezielte Auswahl</td>
+<td>Vollständige Integration</td>
+</tr>
+<tr>
+<td><strong>Aufwand</strong></td>
+<td>Höher (pro Commit)</td>
+<td>Niedriger (einmalig)</td>
+</tr>
+</tbody>
+</table>
+<h2 id="git-reset">Git Reset<a class="headerlink" href="#git-reset" title="Permanent link">&para;</a></h2>
+<h3 id="was-ist-reset">Was ist Reset?<a class="headerlink" href="#was-ist-reset" title="Permanent link">&para;</a></h3>
+<p><strong>Definition</strong>: Zurücksetzen des HEAD-Zeigers und optional der Staging Area/Working Directory</p>
+<p><strong>Drei Modi</strong>:
+1. <code>--soft</code>: Nur HEAD zurücksetzen
+2. <code>--mixed</code>: HEAD und Staging Area zurücksetzen (Standard)
+3. <code>--hard</code>: HEAD, Staging Area und Working Directory zurücksetzen</p>
+<h3 id="reset-durchfuhren">Reset durchführen<a class="headerlink" href="#reset-durchfuhren" title="Permanent link">&para;</a></h3>
+<p><strong>1. Soft Reset</strong>:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="c1"># Letzten Commit zurücksetzen (aber Änderungen behalten)</span>
+git<span class="w"> </span>reset<span class="w"> </span>--soft<span class="w"> </span>HEAD~1
+
+<span class="c1"># Mehrere Commits zurücksetzen</span>
+git<span class="w"> </span>reset<span class="w"> </span>--soft<span class="w"> </span>HEAD~3
+</code></pre></div></td></tr></table></div>
+<p><strong>2. Mixed Reset (Standard)</strong>:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="c1"># Letzten Commit zurücksetzen (Änderungen in Staging Area)</span>
+git<span class="w"> </span>reset<span class="w"> </span>HEAD~1
+
+<span class="c1"># Zu spezifischem Commit zurücksetzen</span>
+git<span class="w"> </span>reset<span class="w"> </span>abc1234
+</code></pre></div></td></tr></table></div>
+<p><strong>3. Hard Reset</strong>:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="c1"># Letzten Commit zurücksetzen (Änderungen verwerfen)</span>
+git<span class="w"> </span>reset<span class="w"> </span>--hard<span class="w"> </span>HEAD~1
+
+<span class="c1"># WARNUNG: Verwirft alle uncommitteten Änderungen!</span>
+git<span class="w"> </span>reset<span class="w"> </span>--hard<span class="w"> </span>abc1234
+</code></pre></div></td></tr></table></div>
+<h3 id="reset-vs-revert">Reset vs. Revert<a class="headerlink" href="#reset-vs-revert" title="Permanent link">&para;</a></h3>
+<p><strong>Reset</strong>:
+- Ändert die Historie
+- Kann bereits gepushte Commits betreffen
+- Gefährlich für öffentliche Branches</p>
+<p><strong>Revert</strong>:
+- Erstellt neuen Commit, der Änderungen rückgängig macht
+- Ändert die Historie nicht
+- Sicher für öffentliche Branches</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="c1"># Revert (sicher für öffentliche Branches)</span>
+git<span class="w"> </span>revert<span class="w"> </span>abc1234
+</code></pre></div></td></tr></table></div>
+<h2 id="git-reflog">Git Reflog<a class="headerlink" href="#git-reflog" title="Permanent link">&para;</a></h2>
+<h3 id="was-ist-reflog">Was ist Reflog?<a class="headerlink" href="#was-ist-reflog" title="Permanent link">&para;</a></h3>
+<p><strong>Definition</strong>: Protokoll aller HEAD-Änderungen (auch gelöschte Commits)</p>
+<p><strong>Anwendungsfälle</strong>:
+- Verlorene Commits wiederherstellen
+- Fehlende Branches finden
+- Experimente rückgängig machen</p>
+<h3 id="reflog-verwenden">Reflog verwenden<a class="headerlink" href="#reflog-verwenden" title="Permanent link">&para;</a></h3>
+<p><strong>1. Reflog anzeigen</strong>:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span>
+<span class="normal">6</span></pre></div></td><td class="code"><div><pre><span></span><code>git<span class="w"> </span>reflog
+
+<span class="c1"># Beispiel-Ausgabe:</span>
+abc1234<span class="w"> </span>HEAD@<span class="o">{</span><span class="m">0</span><span class="o">}</span>:<span class="w"> </span>commit:<span class="w"> </span>Add<span class="w"> </span>feature
+def5678<span class="w"> </span>HEAD@<span class="o">{</span><span class="m">1</span><span class="o">}</span>:<span class="w"> </span>commit:<span class="w"> </span>Fix<span class="w"> </span>bug
+ghi9012<span class="w"> </span>HEAD@<span class="o">{</span><span class="m">2</span><span class="o">}</span>:<span class="w"> </span>commit:<span class="w"> </span>Initial<span class="w"> </span>commit
+</code></pre></div></td></tr></table></div>
+<p><strong>2. Zu früherem Zustand zurückkehren</strong>:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="c1"># Zu HEAD@{1} zurückkehren</span>
+git<span class="w"> </span>reset<span class="w"> </span>--hard<span class="w"> </span>HEAD@<span class="o">{</span><span class="m">1</span><span class="o">}</span>
+
+<span class="c1"># Zu spezifischem Commit zurückkehren</span>
+git<span class="w"> </span>reset<span class="w"> </span>--hard<span class="w"> </span>abc1234
+</code></pre></div></td></tr></table></div>
+<p><strong>3. Verlorene Commits finden</strong>:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="c1"># Alle Reflog-Einträge anzeigen</span>
+git<span class="w"> </span>reflog<span class="w"> </span>show<span class="w"> </span>--all
+
+<span class="c1"># Nach spezifischem Commit suchen</span>
+git<span class="w"> </span>reflog<span class="w"> </span>--grep<span class="o">=</span><span class="s2">&quot;feature&quot;</span>
+</code></pre></div></td></tr></table></div>
+<h2 id="git-bisect">Git Bisect<a class="headerlink" href="#git-bisect" title="Permanent link">&para;</a></h2>
+<h3 id="was-ist-bisect">Was ist Bisect?<a class="headerlink" href="#was-ist-bisect" title="Permanent link">&para;</a></h3>
+<p><strong>Definition</strong>: Binäre Suche durch Commit-Historie, um Bug zu finden</p>
+<p><strong>Anwendungsfälle</strong>:
+- Finde Commit, der Bug eingeführt hat
+- Performance-Regressionen finden
+- Automatisierte Bug-Suche</p>
+<h3 id="bisect-durchfuhren">Bisect durchführen<a class="headerlink" href="#bisect-durchfuhren" title="Permanent link">&para;</a></h3>
+<p><strong>1. Manuelles Bisect</strong>:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="c1"># 1. Bisect starten</span>
+git<span class="w"> </span>bisect<span class="w"> </span>start
+
+<span class="c1"># 2. Aktueller Commit ist schlecht (hat Bug)</span>
+git<span class="w"> </span>bisect<span class="w"> </span>bad
+
+<span class="c1"># 3. Letzter guter Commit (ohne Bug)</span>
+git<span class="w"> </span>bisect<span class="w"> </span>good<span class="w"> </span>abc1234
+
+<span class="c1"># 4. Git teilt Ihnen den nächsten Commit mit</span>
+<span class="c1"># ... Testen ...</span>
+<span class="c1"># Wenn gut: git bisect good</span>
+<span class="c1"># Wenn schlecht: git bisect bad</span>
+
+<span class="c1"># 5. Bisect beenden</span>
+git<span class="w"> </span>bisect<span class="w"> </span>reset
+</code></pre></div></td></tr></table></div>
+<p><strong>2. Automatisiertes Bisect</strong>:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="c1"># 1. Test-Skript erstellen</span>
+cat<span class="w"> </span>&gt;<span class="w"> </span>test.sh<span class="w"> </span><span class="s">&lt;&lt; &#39;EOF&#39;</span>
+<span class="s">#!/bin/bash</span>
+<span class="s"># Test, ob Bug existiert</span>
+<span class="s">python -m pytest tests/ --tb=short</span>
+<span class="s">EOF</span>
+chmod<span class="w"> </span>+x<span class="w"> </span>test.sh
+
+<span class="c1"># 2. Automatisches Bisect</span>
+git<span class="w"> </span>bisect<span class="w"> </span>start<span class="w"> </span>HEAD<span class="w"> </span>abc1234
+git<span class="w"> </span>bisect<span class="w"> </span>run<span class="w"> </span>./test.sh
+
+<span class="c1"># 3. Ergebnis anzeigen</span>
+git<span class="w"> </span>bisect<span class="w"> </span>reset
+</code></pre></div></td></tr></table></div>
+<h2 id="git-worktree">Git Worktree<a class="headerlink" href="#git-worktree" title="Permanent link">&para;</a></h2>
+<h3 id="was-ist-worktree">Was ist Worktree?<a class="headerlink" href="#was-ist-worktree" title="Permanent link">&para;</a></h3>
+<p><strong>Definition</strong>: Mehrere Arbeitsverzeichnisse für dasselbe Repository</p>
+<p><strong>Anwendungsfälle</strong>:
+- Parallel an mehreren Branches arbeiten
+- Schneller Branch-Wechsel ohne Checkout
+- Testen in verschiedenen Umgebungen</p>
+<h3 id="worktree-verwenden">Worktree verwenden<a class="headerlink" href="#worktree-verwenden" title="Permanent link">&para;</a></h3>
+<p><strong>1. Worktree erstellen</strong>:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="c1"># Neuen Worktree für Feature-Branch</span>
+git<span class="w"> </span>worktree<span class="w"> </span>add<span class="w"> </span>../project-feature<span class="w"> </span>feature/branch
+
+<span class="c1"># Worktree mit spezifischem Commit</span>
+git<span class="w"> </span>worktree<span class="w"> </span>add<span class="w"> </span>../project-commit<span class="w"> </span>abc1234
+</code></pre></div></td></tr></table></div>
+<p><strong>2. Worktree anzeigen</strong>:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span></pre></div></td><td class="code"><div><pre><span></span><code>git<span class="w"> </span>worktree<span class="w"> </span>list
+
+<span class="c1"># Beispiel-Ausgabe:</span>
+/pfad/zum/projekt<span class="w">  </span>abc1234<span class="w"> </span><span class="o">[</span>main<span class="o">]</span>
+/pfad/zum/projekt-feature<span class="w">  </span>def5678<span class="w"> </span><span class="o">[</span>feature/branch<span class="o">]</span>
+</code></pre></div></td></tr></table></div>
+<p><strong>3. Worktree löschen</strong>:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>git<span class="w"> </span>worktree<span class="w"> </span>remove<span class="w"> </span>../project-feature
+</code></pre></div></td></tr></table></div>
+<h2 id="praktische-ubung">Praktische Übung<a class="headerlink" href="#praktische-ubung" title="Permanent link">&para;</a></h2>
+<h3 id="ubung-1-rebase">Übung 1: Rebase<a class="headerlink" href="#ubung-1-rebase" title="Permanent link">&para;</a></h3>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span>
+<span class="normal">21</span>
+<span class="normal">22</span>
+<span class="normal">23</span>
+<span class="normal">24</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="c1"># 1. Feature-Branch erstellen</span>
+git<span class="w"> </span>checkout<span class="w"> </span>-b<span class="w"> </span>feature/rebase-test
+
+<span class="c1"># 2. Mehrere Commits erstellen</span>
+<span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;Commit 1&quot;</span><span class="w"> </span>&gt;<span class="w"> </span>file1.txt
+git<span class="w"> </span>add<span class="w"> </span>file1.txt
+git<span class="w"> </span>commit<span class="w"> </span>-m<span class="w"> </span><span class="s2">&quot;Commit 1&quot;</span>
+
+<span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;Commit 2&quot;</span><span class="w"> </span>&gt;<span class="w"> </span>file2.txt
+git<span class="w"> </span>add<span class="w"> </span>file2.txt
+git<span class="w"> </span>commit<span class="w"> </span>-m<span class="w"> </span><span class="s2">&quot;Commit 2&quot;</span>
+
+<span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;Commit 3&quot;</span><span class="w"> </span>&gt;<span class="w"> </span>file3.txt
+git<span class="w"> </span>add<span class="w"> </span>file3.txt
+git<span class="w"> </span>commit<span class="w"> </span>-m<span class="w"> </span><span class="s2">&quot;Commit 3&quot;</span>
+
+<span class="c1"># 3. Rebase auf main</span>
+git<span class="w"> </span>checkout<span class="w"> </span>main
+git<span class="w"> </span>merge<span class="w"> </span>feature/rebase-test
+
+<span class="c1"># 4. Interaktives Rebase</span>
+git<span class="w"> </span>checkout<span class="w"> </span>feature/rebase-test
+git<span class="w"> </span>rebase<span class="w"> </span>-i<span class="w"> </span>HEAD~3
+<span class="c1"># Bearbeite: squash, reword, etc.</span>
+</code></pre></div></td></tr></table></div>
+<h3 id="ubung-2-stash">Übung 2: Stash<a class="headerlink" href="#ubung-2-stash" title="Permanent link">&para;</a></h3>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span>
+<span class="normal">6</span>
+<span class="normal">7</span>
+<span class="normal">8</span>
+<span class="normal">9</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="c1"># 1. Änderungen stashen</span>
+<span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;WIP&quot;</span><span class="w"> </span>&gt;<span class="w"> </span>wip.txt
+git<span class="w"> </span>stash<span class="w"> </span>save<span class="w"> </span><span class="s2">&quot;Work in progress&quot;</span>
+
+<span class="c1"># 2. Branch wechseln</span>
+git<span class="w"> </span>checkout<span class="w"> </span>main
+
+<span class="c1"># 3. Stash wiederherstellen</span>
+git<span class="w"> </span>stash<span class="w"> </span>pop
+</code></pre></div></td></tr></table></div>
+<h3 id="ubung-3-cherry-pick">Übung 3: Cherry-Pick<a class="headerlink" href="#ubung-3-cherry-pick" title="Permanent link">&para;</a></h3>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="c1"># 1. Erstelle zwei Branches</span>
+git<span class="w"> </span>checkout<span class="w"> </span>-b<span class="w"> </span>feature/a
+<span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;A&quot;</span><span class="w"> </span>&gt;<span class="w"> </span>a.txt
+git<span class="w"> </span>add<span class="w"> </span>a.txt
+git<span class="w"> </span>commit<span class="w"> </span>-m<span class="w"> </span><span class="s2">&quot;Add A&quot;</span>
+
+git<span class="w"> </span>checkout<span class="w"> </span>main
+git<span class="w"> </span>checkout<span class="w"> </span>-b<span class="w"> </span>feature/b
+<span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;B&quot;</span><span class="w"> </span>&gt;<span class="w"> </span>b.txt
+git<span class="w"> </span>add<span class="w"> </span>b.txt
+git<span class="w"> </span>commit<span class="w"> </span>-m<span class="w"> </span><span class="s2">&quot;Add B&quot;</span>
+
+<span class="c1"># 2. Cherry-Pick von feature/a zu feature/b</span>
+git<span class="w"> </span>checkout<span class="w"> </span>feature/b
+git<span class="w"> </span>cherry-pick<span class="w"> </span>feature/a
+</code></pre></div></td></tr></table></div>
+<h2 id="zusammenfassung">Zusammenfassung<a class="headerlink" href="#zusammenfassung" title="Permanent link">&para;</a></h2>
+<p><strong>Rebase</strong>:
+- Linearisiert Historie
+- Für lokale Branches geeignet
+- Vorsicht bei öffentlichen Branches</p>
+<p><strong>Stash</strong>:
+- Temporäres Speichern von Änderungen
+- Nützlich für schnelle Branch-Wechsel</p>
+<p><strong>Cherry-Pick</strong>:
+- Einzelne Commits übernehmen
+- Für gezielte Bugfixes</p>
+<p><strong>Reset</strong>:
+- Zurücksetzen der Historie
+- Drei Modi: soft, mixed, hard
+- Vorsicht mit --hard!</p>
+<p><strong>Reflog</strong>:
+- Verlorene Commits wiederherstellen
+- Sicherheitsnetz für Git</p>
+<details class="question" open="open">
+<summary>Fortgeschrittene Git-Features</summary>
+<p>Basierend auf fortgeschrittenen Git-Features:</p>
+<ol>
+<li>Erklären Sie den Unterschied zwischen Rebase und Merge mit konkreten Beispielen, wann Sie welches verwenden würden</li>
+<li>Beschreiben Sie, wie Sie Git Stash verwenden würden, um zwischen verschiedenen Aufgaben zu wechseln, ohne Ihre Arbeit zu verlieren</li>
+<li>Erklären Sie, wie Git Bisect funktioniert und geben Sie ein Beispiel für einen Anwendungsfall</li>
+</ol>
+<div class="arithmatex">\[\text{Beispiel: Sie arbeiten an einem komplexen Projekt mit mehreren parallelen Features...}\]</div>
+<details class="info">
+<summary>Tipp</summary>
+<p>Stellen Sie sich vor, Sie haben 1000 Commits und ein neuer Bug ist aufgetreten. Wie würden Sie systematisch den fehlerhaften Commit finden?</p>
+</details>
+<details class="success">
+<summary>Lösung</summary>
+<details class="video">
+<summary>Lösungsvideo</summary>
+<p><div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
+    <iframe src="https://www.youtube.com/embed/4XpnKHJAok8?si=8z5X6V2L9YdRq0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;"></iframe>
+</div></p>
+</details>
+<p><strong>1. Rebase vs. Merge:</strong>
+<strong>Rebase</strong>:
+- <strong>Vorteile</strong>: Lineare Historie, saubere Commits, leichter zu verstehen
+- <strong>Nachteile</strong>: Ändert Commit-IDs, riskant für öffentliche Branches
+- <strong>Anwendung</strong>: Lokale Feature-Branches vor dem Push bereinigen
+- <strong>Beispiel</strong>: <code>git rebase main</code> auf Ihrem Feature-Branch</p>
+<p><strong>Merge</strong>:
+- <strong>Vorteile</strong>: Behält Historie bei, sicher für öffentliche Branches
+- <strong>Nachteile</strong>: Komplexe Historie mit Merge-Commits
+- <strong>Anwendung</strong>: Öffentliche Branches, Zusammenarbeit im Team
+- <strong>Beispiel</strong>: <code>git merge feature/branch</code> auf main Branch</p>
+<p><strong>Entscheidungshilfe</strong>:
+- <strong>Rebase</strong>: Vor dem Push, für lokale Branches, für saubere Historie
+- <strong>Merge</strong>: Für öffentliche Branches, für Teamarbeit, für komplexe Branches</p>
+<p><strong>2. Git Stash für Task-Wechsel:</strong>
+<strong>Szenario</strong>: Sie arbeiten an Feature A, müssen aber schnell zu Bug B wechseln</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span></pre></div></td><td class="code"><div><pre><span></span><code>1. Aktuellen Stand stashen:
+   git stash save &quot;WIP: Feature A&quot;
+
+2. Zu Bugfix-Branch wechseln:
+   git checkout bugfix/B
+
+3. Bugfix machen und committen:
+   # ... Code schreiben ...
+   git commit -m &quot;Fix bug B&quot;
+
+4. Zurück zu Feature A:
+   git checkout feature/A
+
+5. Stash wiederherstellen:
+   git stash pop
+
+6. Weiterarbeiten an Feature A
+</code></pre></div></td></tr></table></div>
+<p><strong>Vorteile</strong>:
+- Kein Commit nötig für temporäre Änderungen
+- Schneller Branch-Wechsel
+- Mehrere Stashes möglich (für verschiedene Tasks)</p>
+<p><strong>3. Git Bisect für Bug-Suche:</strong>
+<strong>Funktionsweise</strong>:
+1. Start mit bekanntem schlechtem Commit (mit Bug)
+2. Ende mit bekanntem gutem Commit (ohne Bug)
+3. Git teilt Ihnen den mittleren Commit mit
+4. Sie testen und sagen "gut" oder "schlecht"
+5. Wiederholen bis Commit gefunden ist</p>
+<p><strong>Anwendungsbeispiel</strong>:
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span></pre></div></td><td class="code"><div><pre><span></span><code>Problem: Website zeigt Fehler seit 2 Wochen
+Bekannt: Vor 4 Wochen war alles OK
+Prozess:
+1. git bisect start
+2. git bisect bad (aktuell)
+3. git bisect good abc1234 (vor 4 Wochen)
+4. Git teilt Commit mit: &quot;Teste def5678&quot;
+5. Testen: Funktioniert nicht → git bisect bad
+6. Git teilt neuen Commit mit
+7. Wiederholen bis Bug gefunden
+8. git bisect reset
+</code></pre></div></td></tr></table></div></p>
+<p><strong>Automatisiert</strong>:
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span></pre></div></td><td class="code"><div><pre><span></span><code>git<span class="w"> </span>bisect<span class="w"> </span>start<span class="w"> </span>HEAD<span class="w"> </span>abc1234
+git<span class="w"> </span>bisect<span class="w"> </span>run<span class="w"> </span>./test-script.sh
+</code></pre></div></td></tr></table></div></p>
+<p><strong>Ergebnis</strong>: Genauer Commit, der Bug eingeführt hat</p>
+</details>
+</details>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="Footer" >
+        
+          
+          <a href="../8/" class="md-footer__link md-footer__link--prev" aria-label="Previous: 4.3 Projektdateien und .gitignore">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              <div class="md-ellipsis">
+                4.3 Projektdateien und .gitignore
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="../10/" class="md-footer__link md-footer__link--next" aria-label="Next: 5.2 Projektadministration">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              <div class="md-ellipsis">
+                5.2 Projektadministration
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright &copy; 2026 Qualidy GmbH
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+        
+<div class="md-social">
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://www.kununu.com/de/qualidy" target="_blank" rel="noopener" title="www.kununu.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><!--! Font Awesome Free 7.0.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path fill="currentColor" d="M311 86.3c12.3-12.7 12-32.9-.7-45.2s-32.9-12-45.2.7C143.4 167.2 76.4 236.3 64 249V64c0-17.7-14.3-32-32-32S0 46.3 0 64v384c0 17.7 14.3 32 32 32s32-14.3 32-32V341l64.7-66.7 133 192c10.1 14.5 30 18.1 44.5 8.1s18.1-30 8.1-44.5L174.1 227.4z"/></svg>
+    </a>
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://de.linkedin.com/company/qualidy" target="_blank" rel="noopener" title="de.linkedin.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.0.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path fill="currentColor" d="M416 32H31.9C14.3 32 0 46.5 0 64.3v383.4C0 465.5 14.3 480 31.9 480H416c17.6 0 32-14.5 32-32.3V64.3c0-17.8-14.4-32.3-32-32.3M135.4 416H69V202.2h66.5V416zM102.2 96a38.5 38.5 0 1 1 0 77 38.5 38.5 0 1 1 0-77m282.1 320h-66.4V312c0-24.8-.5-56.7-34.5-56.7-34.6 0-39.9 27-39.9 54.9V416h-66.4V202.2h63.7v29.2h.9c8.9-16.8 30.6-34.5 62.9-34.5 67.2 0 79.7 44.3 79.7 101.9z"/></svg>
+    </a>
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://www.google.com/search?sca_esv=7e6ba2047fcb60f3&uds=AMwkrPtyB8MsmozA4Lwzqy2G2HCu-abqzc6moOG48q3gP5dtjTRzC2Ws0eSwcyLXDfZNuYCrZ7ByIreHLG9th3vKLekPoVeey0tumAbet4cVLQRLzdRFhUbOGbnyp3xo1V0hzzaNmkCN&si=AKbGX_rcuucMgom2rba1cdwsvM2SVoIkP2btyqGMV4t0GuHIs4sGV_1tpuqR0YHG4Rzd9SdJcL-lW6E-2aJA5azZLTKkIOrZ2j2aWwoBkVbdEJ0o0GPcQhs%3D&q=Qualidy+GmbH+Rezensionen&sa=X&ved=2ahUKEwibsbnSgcmFAxXNQvEDHaVYCiAQ3PALegQIRxAF" target="_blank" rel="noopener" title="www.google.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21.35 11.1h-9.17v2.73h6.51c-.33 3.81-3.5 5.44-6.5 5.44C8.36 19.27 5 16.25 5 12c0-4.1 3.2-7.27 7.2-7.27 3.09 0 4.9 1.97 4.9 1.97L19 4.72S16.56 2 12.1 2C6.42 2 2.03 6.8 2.03 12c0 5.05 4.13 10 10.22 10 5.35 0 9.25-3.67 9.25-9.09 0-1.15-.15-1.81-.15-1.81"/></svg>
+    </a>
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://qualidy.de" target="_blank" rel="noopener" title="qualidy.de" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.0.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path fill="currentColor" d="M351.9 280H161c2.9 64.5 17.2 123.9 37.5 167.4 11.4 24.5 23.7 41.8 35.1 52.4 11.2 10.5 18.9 12.2 22.9 12.2s11.7-1.7 22.9-12.2c11.4-10.6 23.7-28 35.1-52.4 20.3-43.5 34.6-102.9 37.5-167.4zm-191-48h190.9c-2.8-64.5-17.1-123.9-37.4-167.4-11.4-24.4-23.7-41.8-35.1-52.4C268.1 1.7 260.4 0 256.4 0s-11.7 1.7-22.9 12.2c-11.4 10.6-23.7 28-35.1 52.4-20.3 43.5-34.6 102.9-37.5 167.4m-48 0c3.5-85.6 25.6-165.1 57.9-217.3C78.7 47.3 10.9 131.2 1.5 232zM1.5 280c9.4 100.8 77.2 184.7 169.3 217.3-32.3-52.2-54.4-131.7-57.9-217.3zm398.4 0c-3.5 85.6-25.6 165.1-57.9 217.3 92.1-32.7 159.9-116.5 169.3-217.3zm111.4-48C501.9 131.2 434.1 47.3 342 14.7c32.3 52.2 54.4 131.7 57.9 217.3z"/></svg>
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.tracking", "navigation.path", "navigation.top", "navigation.footer", "toc.follow", "toc.integrate", "content.code.copy", "content.code.annotate"], "search": "../../assets/javascripts/workers/search.973d3a69.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.92b07e13.min.js"></script>
+      
+        <script src="../../javascripts/mathjax.js"></script>
+      
+        <script src="https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js"></script>
+      
+    
+  </body>
+</html>

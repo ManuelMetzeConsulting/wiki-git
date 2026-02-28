@@ -1,0 +1,1958 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="../7/">
+      
+      
+        <link rel="next" href="../9/">
+      
+      
+      <link rel="icon" href="../../assets/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.18">
+    
+    
+      
+        <title>4.3 Projektdateien und .gitignore - Einführung in die Versionsverwaltung mit Git</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.7e37652d.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../stylesheets/logo.css">
+    
+      <link rel="stylesheet" href="../../stylesheets/grid.css">
+    
+      <link rel="stylesheet" href="../../stylesheets/video_admonition.css">
+    
+      <link rel="stylesheet" href="../../stylesheets/python_tutor_admonition.css">
+    
+      <link rel="stylesheet" href="../../stylesheets/mermaid.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="amber" data-md-color-accent="deep-orange">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#43-projektdateien-und-gitignore-konfiguration" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="Einführung in die Versionsverwaltung mit Git" class="md-header__button md-logo" aria-label="Einführung in die Versionsverwaltung mit Git" data-md-component="logo">
+      
+  <img src="../../assets/logo.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Einführung in die Versionsverwaltung mit Git
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              4.3 Projektdateien und .gitignore
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+    
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+  
+
+<nav class="md-nav md-nav--primary md-nav--integrated" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Einführung in die Versionsverwaltung mit Git" class="md-nav__button md-logo" aria-label="Einführung in die Versionsverwaltung mit Git" data-md-component="logo">
+      
+  <img src="../../assets/logo.png" alt="logo">
+
+    </a>
+    Einführung in die Versionsverwaltung mit Git
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Übersicht
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../1/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    1 Einführung
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../2/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    2 Kursübersicht
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../3/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    3.1 Historische Entwicklung
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../4/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    3.2 Grundlegende Konzepte
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../5/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    3.3 Installation und erste Schritte
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../6/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    4.1 Remote-Repositories
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../7/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    4.2 GitHub/GitLab Integration
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    4.3 Projektdateien und .gitignore
+    
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    4.3 Projektdateien und .gitignore
+    
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#einfuhrung" class="md-nav__link">
+    <span class="md-ellipsis">
+      Einführung
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#warum-gitignore-wichtig-ist" class="md-nav__link">
+    <span class="md-ellipsis">
+      Warum .gitignore wichtig ist
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Warum .gitignore wichtig ist">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#problemstellung" class="md-nav__link">
+    <span class="md-ellipsis">
+      Problemstellung
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#was-sollte-versioniert-werden" class="md-nav__link">
+    <span class="md-ellipsis">
+      Was sollte versioniert werden?
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Was sollte versioniert werden?">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-quellcode" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. Quellcode
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-projekt-konfiguration" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. Projekt-Konfiguration
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-build-konfiguration" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. Build-Konfiguration
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-dokumentation" class="md-nav__link">
+    <span class="md-ellipsis">
+      4. Dokumentation
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#was-sollte-nicht-versioniert-werden" class="md-nav__link">
+    <span class="md-ellipsis">
+      Was sollte NICHT versioniert werden?
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Was sollte NICHT versioniert werden?">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-abhangigkeiten" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. Abhängigkeiten
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-build-artefakte" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. Build-Artefakte
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-konfigurationsdateien-mit-sensiblen-daten" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. Konfigurationsdateien mit sensiblen Daten
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-log-dateien-und-temporare-dateien" class="md-nav__link">
+    <span class="md-ellipsis">
+      4. Log-Dateien und temporäre Dateien
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5-ide-spezifische-dateien" class="md-nav__link">
+    <span class="md-ellipsis">
+      5. IDE-spezifische Dateien
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#gitignore-erstellen" class="md-nav__link">
+    <span class="md-ellipsis">
+      .gitignore erstellen
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label=".gitignore erstellen">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#grundlegende-struktur" class="md-nav__link">
+    <span class="md-ellipsis">
+      Grundlegende Struktur
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#muster-syntax" class="md-nav__link">
+    <span class="md-ellipsis">
+      Muster-Syntax
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#vorlagen-fur-verschiedene-sprachen" class="md-nav__link">
+    <span class="md-ellipsis">
+      Vorlagen für verschiedene Sprachen
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#globale-gitignore" class="md-nav__link">
+    <span class="md-ellipsis">
+      Globale .gitignore
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#umgebungsvariablen-verwalten" class="md-nav__link">
+    <span class="md-ellipsis">
+      Umgebungsvariablen verwalten
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Umgebungsvariablen verwalten">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#problem-sensible-daten" class="md-nav__link">
+    <span class="md-ellipsis">
+      Problem: Sensible Daten
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#env-dateien" class="md-nav__link">
+    <span class="md-ellipsis">
+      .env-Dateien
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#laden-von-umgebungsvariablen" class="md-nav__link">
+    <span class="md-ellipsis">
+      Laden von Umgebungsvariablen
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#projektstruktur-best-practices" class="md-nav__link">
+    <span class="md-ellipsis">
+      Projektstruktur best practices
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Projektstruktur best practices">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#standard-struktur" class="md-nav__link">
+    <span class="md-ellipsis">
+      Standard-Struktur
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#dateien-und-ihre-zwecke" class="md-nav__link">
+    <span class="md-ellipsis">
+      Dateien und ihre Zwecke
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#praktische-ubung" class="md-nav__link">
+    <span class="md-ellipsis">
+      Praktische Übung
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Praktische Übung">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#ubung-1-gitignore-erstellen" class="md-nav__link">
+    <span class="md-ellipsis">
+      Übung 1: .gitignore erstellen
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ubung-2-umgebungsvariablen-verwalten" class="md-nav__link">
+    <span class="md-ellipsis">
+      Übung 2: Umgebungsvariablen verwalten
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ubung-3-globale-gitignore" class="md-nav__link">
+    <span class="md-ellipsis">
+      Übung 3: Globale .gitignore
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#zusammenfassung" class="md-nav__link">
+    <span class="md-ellipsis">
+      Zusammenfassung
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../9/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    5.1 Fortgeschrittene Features
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../10/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    5.2 Projektadministration
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="43-projektdateien-und-gitignore-konfiguration">4.3 Projektdateien und .gitignore Konfiguration<a class="headerlink" href="#43-projektdateien-und-gitignore-konfiguration" title="Permanent link">&para;</a></h1>
+<h2 id="einfuhrung">Einführung<a class="headerlink" href="#einfuhrung" title="Permanent link">&para;</a></h2>
+<p>Die richtige Verwaltung von Projektdateien ist entscheidend für die Effizienz und Sicherheit Ihrer Projekte. In diesem Kapitel lernen Sie, welche Dateien versioniert werden sollten und welche nicht.</p>
+<h2 id="warum-gitignore-wichtig-ist">Warum .gitignore wichtig ist<a class="headerlink" href="#warum-gitignore-wichtig-ist" title="Permanent link">&para;</a></h2>
+<h3 id="problemstellung">Problemstellung<a class="headerlink" href="#problemstellung" title="Permanent link">&para;</a></h3>
+<p><strong>Ohne .gitignore</strong>:
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span>
+<span class="normal">6</span>
+<span class="normal">7</span></pre></div></td><td class="code"><div><pre><span></span><code>Repository enthält:
+- Quellcode (✓)
+- Konfigurationsdateien (✓)
+- Abhängigkeiten (✗)
+- Build-Dateien (✗)
+- Log-Dateien (✗)
+- Sensible Daten (✗✗✗)
+</code></pre></div></td></tr></table></div></p>
+<p><strong>Folgen</strong>:
+- <strong>Repository-Größe</strong>: Unnötige Dateien vergrößern das Repository
+- <strong>Sicherheitsrisiken</strong>: Sensible Daten werden öffentlich
+- <strong>Konflikte</strong>: Unterschiedliche Entwickler haben unterschiedliche Konfigurationen
+- <strong>Performance</strong>: Langsames Klonen und Arbeiten</p>
+<h2 id="was-sollte-versioniert-werden">Was sollte versioniert werden?<a class="headerlink" href="#was-sollte-versioniert-werden" title="Permanent link">&para;</a></h2>
+<h3 id="1-quellcode">1. Quellcode<a class="headerlink" href="#1-quellcode" title="Permanent link">&para;</a></h3>
+<p><strong>Ja</strong>:
+- <code>.py</code>, <code>.java</code>, <code>.cs</code>, <code>.js</code>, <code>.ts</code>, <code>.html</code>, <code>.css</code>, etc.
+- Skripte und Konfigurationssprachen
+- Dokumentationsdateien (<code>.md</code>, <code>.rst</code>)</p>
+<p><strong>Beispiel</strong>:
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span></pre></div></td><td class="code"><div><pre><span></span><code>src/
+├──<span class="w"> </span>main.py
+├──<span class="w"> </span>utils.py
+├──<span class="w"> </span>config.yaml
+└──<span class="w"> </span>README.md
+</code></pre></div></td></tr></table></div></p>
+<h3 id="2-projekt-konfiguration">2. Projekt-Konfiguration<a class="headerlink" href="#2-projekt-konfiguration" title="Permanent link">&para;</a></h3>
+<p><strong>Ja</strong>:
+- <code>package.json</code> (Node.js)
+- <code>requirements.txt</code> (Python)
+- <code>pom.xml</code> (Java Maven)
+- <code>csproj</code> (C#)
+- <code>.editorconfig</code> (Editor-Einstellungen)
+- <code>tsconfig.json</code> (TypeScript)</p>
+<p><strong>Beispiel</strong>:
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span></pre></div></td><td class="code"><div><pre><span></span><code>project/
+├──<span class="w"> </span>package.json<span class="w">          </span><span class="c1"># Node.js Abhängigkeiten</span>
+├──<span class="w"> </span>requirements.txt<span class="w">      </span><span class="c1"># Python Abhängigkeiten</span>
+├──<span class="w"> </span>.editorconfig<span class="w">         </span><span class="c1"># Editor-Einstellungen</span>
+└──<span class="w"> </span>README.md<span class="w">             </span><span class="c1"># Projekt-Dokumentation</span>
+</code></pre></div></td></tr></table></div></p>
+<h3 id="3-build-konfiguration">3. Build-Konfiguration<a class="headerlink" href="#3-build-konfiguration" title="Permanent link">&para;</a></h3>
+<p><strong>Ja</strong>:
+- <code>Dockerfile</code>
+- <code>docker-compose.yml</code>
+- <code>.github/workflows/</code> (GitHub Actions)
+- <code>.gitlab-ci.yml</code> (GitLab CI)
+- <code>Jenkinsfile</code></p>
+<p><strong>Beispiel</strong>:
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span>
+<span class="normal">6</span></pre></div></td><td class="code"><div><pre><span></span><code>project/
+├──<span class="w"> </span>Dockerfile
+├──<span class="w"> </span>docker-compose.yml
+└──<span class="w"> </span>.github/
+<span class="w">    </span>└──<span class="w"> </span>workflows/
+<span class="w">        </span>└──<span class="w"> </span>ci.yml
+</code></pre></div></td></tr></table></div></p>
+<h3 id="4-dokumentation">4. Dokumentation<a class="headerlink" href="#4-dokumentation" title="Permanent link">&para;</a></h3>
+<p><strong>Ja</strong>:
+- <code>docs/</code> Ordner
+- <code>CHANGELOG.md</code>
+- <code>CONTRIBUTING.md</code>
+- <code>LICENSE</code></p>
+<h2 id="was-sollte-nicht-versioniert-werden">Was sollte NICHT versioniert werden?<a class="headerlink" href="#was-sollte-nicht-versioniert-werden" title="Permanent link">&para;</a></h2>
+<h3 id="1-abhangigkeiten">1. Abhängigkeiten<a class="headerlink" href="#1-abhangigkeiten" title="Permanent link">&para;</a></h3>
+<p><strong>Nein</strong>:
+- <code>node_modules/</code> (Node.js)
+- <code>venv/</code> (Python Virtual Environment)
+- <code>__pycache__/</code> (Python Bytecode)
+- <code>target/</code> (Java Maven Build)
+- <code>bin/</code> (C# Build Output)</p>
+<p><strong>Warum nicht?</strong>
+- Werden durch Konfigurationsdateien (<code>package.json</code>, <code>requirements.txt</code>) reproduziert
+- Können sehr groß sein (hunderte MB)
+- Plattformabhängig</p>
+<h3 id="2-build-artefakte">2. Build-Artefakte<a class="headerlink" href="#2-build-artefakte" title="Permanent link">&para;</a></h3>
+<p><strong>Nein</strong>:
+- <code>dist/</code>, <code>build/</code>, <code>out/</code>
+- <code>*.class</code>, <code>*.jar</code> (Java)
+- <code>*.exe</code>, <code>*.dll</code> (C#)
+- <code>*.pyc</code> (Python)</p>
+<p><strong>Warum nicht?</strong>
+- Werden bei jedem Build neu generiert
+- Können Konflikte verursachen
+- Vergrößern das Repository unnötig</p>
+<h3 id="3-konfigurationsdateien-mit-sensiblen-daten">3. Konfigurationsdateien mit sensiblen Daten<a class="headerlink" href="#3-konfigurationsdateien-mit-sensiblen-daten" title="Permanent link">&para;</a></h3>
+<p><strong>Nein</strong>:
+- <code>.env</code> (Umgebungsvariablen)
+- <code>config.json</code> mit Passwörtern
+- <code>database.yml</code> mit DB-Zugangsdaten
+- <code>secrets.yaml</code></p>
+<p><strong>Warum nicht?</strong>
+- Sicherheitsrisiko: Passwörter werden öffentlich
+- Compliance-Verletzung (GDPR, etc.)
+- Unterschiedliche Umgebungen benötigen unterschiedliche Konfigurationen</p>
+<h3 id="4-log-dateien-und-temporare-dateien">4. Log-Dateien und temporäre Dateien<a class="headerlink" href="#4-log-dateien-und-temporare-dateien" title="Permanent link">&para;</a></h3>
+<p><strong>Nein</strong>:
+- <code>*.log</code>
+- <code>*.tmp</code>
+- <code>.DS_Store</code> (macOS)
+- <code>Thumbs.db</code> (Windows)
+- <code>*.swp</code>, <code>*.swo</code> (Vim)</p>
+<h3 id="5-ide-spezifische-dateien">5. IDE-spezifische Dateien<a class="headerlink" href="#5-ide-spezifische-dateien" title="Permanent link">&para;</a></h3>
+<p><strong>Nein</strong>:
+- <code>.vscode/</code> (VS Code)
+- <code>.idea/</code> (IntelliJ)
+- <code>*.suo</code>, <code>*.user</code> (Visual Studio)</p>
+<h2 id="gitignore-erstellen">.gitignore erstellen<a class="headerlink" href="#gitignore-erstellen" title="Permanent link">&para;</a></h2>
+<h3 id="grundlegende-struktur">Grundlegende Struktur<a class="headerlink" href="#grundlegende-struktur" title="Permanent link">&para;</a></h3>
+<p><strong>Datei</strong>: <code>.gitignore</code> (im Root-Verzeichnis)</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span>
+<span class="normal">6</span></pre></div></td><td class="code"><div><pre><span></span><code># Kommentare beginnen mit #
+
+# Leerzeilen werden ignoriert
+# Muster mit * für Wildcards
+# Muster mit / für Verzeichnisse
+# Muster mit ! für Ausnahmen
+</code></pre></div></td></tr></table></div>
+<h3 id="muster-syntax">Muster-Syntax<a class="headerlink" href="#muster-syntax" title="Permanent link">&para;</a></h3>
+<p><strong>Beispiele</strong>:
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span></pre></div></td><td class="code"><div><pre><span></span><code># Alle .log Dateien ignorieren
+*.log
+
+# Alle .tmp Dateien ignorieren
+*.tmp
+
+# Spezifisches Verzeichnis ignorieren
+node_modules/
+
+# Alle .pyc Dateien ignorieren
+*.pyc
+
+# Ausnahme: Eine bestimmte .log Datei behalten
+!important.log
+
+# Verzeichnis mit Unterordnern ignorieren
+build/
+
+# Leerzeichen am Anfang einer Zeile = Kommentar
+ # Dies ist ein Kommentar
+</code></pre></div></td></tr></table></div></p>
+<h3 id="vorlagen-fur-verschiedene-sprachen">Vorlagen für verschiedene Sprachen<a class="headerlink" href="#vorlagen-fur-verschiedene-sprachen" title="Permanent link">&para;</a></h3>
+<p><strong>Python</strong>:
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span></pre></div></td><td class="code"><div><pre><span></span><code># Bytecode
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Virtuelle Umgebung
+venv/
+.env
+.env.local
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Build
+build/
+dist/
+*.egg-info/
+</code></pre></div></td></tr></table></div></p>
+<p><strong>JavaScript/Node.js</strong>:
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span>
+<span class="normal">21</span>
+<span class="normal">22</span>
+<span class="normal">23</span></pre></div></td><td class="code"><div><pre><span></span><code># Dependencies
+node_modules/
+
+# Build
+dist/
+build/
+out/
+
+# Logs
+logs/
+*.log
+npm-debug.log*
+
+# Environment
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# IDE
+.vscode/
+.idea/
+</code></pre></div></td></tr></table></div></p>
+<p><strong>Java</strong>:
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span></pre></div></td><td class="code"><div><pre><span></span><code># Build
+target/
+out/
+*.class
+*.jar
+
+# Logs
+*.log
+
+# IDE
+.idea/
+*.iml
+*.ipr
+*.iws
+
+# Maven
+.mvn/
+</code></pre></div></td></tr></table></div></p>
+<p><strong>C#</strong>:
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span></pre></div></td><td class="code"><div><pre><span></span><code># Build
+bin/
+obj/
+out/
+*.exe
+*.dll
+*.pdb
+
+# User-specific
+*.user
+*.userosscache
+*.suo
+
+# Visual Studio
+.vs/
+*.cache
+</code></pre></div></td></tr></table></div></p>
+<h3 id="globale-gitignore">Globale .gitignore<a class="headerlink" href="#globale-gitignore" title="Permanent link">&para;</a></h3>
+<p><strong>Warum globale .gitignore?</strong>
+- Für alle Projekte auf dem Computer
+- Persönliche Einstellungen
+- OS-spezifische Dateien</p>
+<p><strong>Erstellen</strong>:
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="c1"># Globale .gitignore erstellen</span>
+git<span class="w"> </span>config<span class="w"> </span>--global<span class="w"> </span>core.excludesfile<span class="w"> </span>~/.gitignore_global
+
+<span class="c1"># Datei bearbeiten</span>
+code<span class="w"> </span>~/.gitignore_global
+</code></pre></div></td></tr></table></div></p>
+<p><strong>Inhalt</strong>:
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span></pre></div></td><td class="code"><div><pre><span></span><code># OS-spezifisch
+.DS_Store
+Thumbs.db
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Temporär
+*.tmp
+*.temp
+</code></pre></div></td></tr></table></div></p>
+<h2 id="umgebungsvariablen-verwalten">Umgebungsvariablen verwalten<a class="headerlink" href="#umgebungsvariablen-verwalten" title="Permanent link">&para;</a></h2>
+<h3 id="problem-sensible-daten">Problem: Sensible Daten<a class="headerlink" href="#problem-sensible-daten" title="Permanent link">&para;</a></h3>
+<p><strong>Falsch</strong>:
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span>
+<span class="normal">6</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="c1"># config.yaml</span>
+<span class="nt">database</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">host</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">localhost</span>
+<span class="w">  </span><span class="nt">port</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">5432</span>
+<span class="w">  </span><span class="nt">username</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">admin</span>
+<span class="w">  </span><span class="nt">password</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">supersecretpassword</span><span class="w">  </span><span class="c1"># ❌ SICHERHEITSRISIKO!</span>
+</code></pre></div></td></tr></table></div></p>
+<p><strong>Richtig</strong>:
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span>
+<span class="normal">6</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="c1"># config.yaml</span>
+<span class="nt">database</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">host</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">localhost</span>
+<span class="w">  </span><span class="nt">port</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">5432</span>
+<span class="w">  </span><span class="nt">username</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">${DB_USER}</span>
+<span class="w">  </span><span class="nt">password</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">${DB_PASSWORD}</span>
+</code></pre></div></td></tr></table></div></p>
+<h3 id="env-dateien">.env-Dateien<a class="headerlink" href="#env-dateien" title="Permanent link">&para;</a></h3>
+<p><strong>Beispiel .env</strong>:
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span>
+<span class="normal">6</span>
+<span class="normal">7</span></pre></div></td><td class="code"><div><pre><span></span><code># .env (NIEMALS committen!)
+DB_HOST=localhost
+DB_PORT=5432
+DB_USER=admin
+DB_PASSWORD=supersecretpassword
+API_KEY=abc123xyz
+SECRET_KEY=mysecretkey
+</code></pre></div></td></tr></table></div></p>
+<p><strong>.env.example</strong> (committen):
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span>
+<span class="normal">6</span>
+<span class="normal">7</span></pre></div></td><td class="code"><div><pre><span></span><code># .env.example
+DB_HOST=localhost
+DB_PORT=5432
+DB_USER=your_username
+DB_PASSWORD=your_password
+API_KEY=your_api_key
+SECRET_KEY=your_secret_key
+</code></pre></div></td></tr></table></div></p>
+<p><strong>.gitignore</strong>:
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span></pre></div></td><td class="code"><div><pre><span></span><code># Umgebungsvariablen
+.env
+.env.local
+.env.*.local
+</code></pre></div></td></tr></table></div></p>
+<h3 id="laden-von-umgebungsvariablen">Laden von Umgebungsvariablen<a class="headerlink" href="#laden-von-umgebungsvariablen" title="Permanent link">&para;</a></h3>
+<p><strong>Python</strong>:
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span>
+<span class="normal">6</span>
+<span class="normal">7</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">dotenv</span><span class="w"> </span><span class="kn">import</span> <span class="n">load_dotenv</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">os</span>
+
+<span class="n">load_dotenv</span><span class="p">()</span>  <span class="c1"># Lädt .env Datei</span>
+
+<span class="n">db_host</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">getenv</span><span class="p">(</span><span class="s1">&#39;DB_HOST&#39;</span><span class="p">)</span>
+<span class="n">db_password</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">getenv</span><span class="p">(</span><span class="s1">&#39;DB_PASSWORD&#39;</span><span class="p">)</span>
+</code></pre></div></td></tr></table></div></p>
+<p><strong>Node.js</strong>:
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nx">require</span><span class="p">(</span><span class="s1">&#39;dotenv&#39;</span><span class="p">).</span><span class="nx">config</span><span class="p">();</span>
+
+<span class="kd">const</span><span class="w"> </span><span class="nx">dbHost</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">process</span><span class="p">.</span><span class="nx">env</span><span class="p">.</span><span class="nx">DB_HOST</span><span class="p">;</span>
+<span class="kd">const</span><span class="w"> </span><span class="nx">dbPassword</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">process</span><span class="p">.</span><span class="nx">env</span><span class="p">.</span><span class="nx">DB_PASSWORD</span><span class="p">;</span>
+</code></pre></div></td></tr></table></div></p>
+<p><strong>C#</strong>:
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span>
+<span class="normal">6</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">using</span><span class="w"> </span><span class="nn">DotNetEnv</span><span class="p">;</span>
+
+<span class="n">Env</span><span class="p">.</span><span class="n">Load</span><span class="p">();</span><span class="w"> </span><span class="c1">// Lädt .env Datei</span>
+
+<span class="kt">var</span><span class="w"> </span><span class="n">dbHost</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Environment</span><span class="p">.</span><span class="n">GetEnvironmentVariable</span><span class="p">(</span><span class="s">&quot;DB_HOST&quot;</span><span class="p">);</span>
+<span class="kt">var</span><span class="w"> </span><span class="n">dbPassword</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Environment</span><span class="p">.</span><span class="n">GetEnvironmentVariable</span><span class="p">(</span><span class="s">&quot;DB_PASSWORD&quot;</span><span class="p">);</span>
+</code></pre></div></td></tr></table></div></p>
+<h2 id="projektstruktur-best-practices">Projektstruktur best practices<a class="headerlink" href="#projektstruktur-best-practices" title="Permanent link">&para;</a></h2>
+<h3 id="standard-struktur">Standard-Struktur<a class="headerlink" href="#standard-struktur" title="Permanent link">&para;</a></h3>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span>
+<span class="normal">21</span>
+<span class="normal">22</span>
+<span class="normal">23</span>
+<span class="normal">24</span>
+<span class="normal">25</span>
+<span class="normal">26</span>
+<span class="normal">27</span></pre></div></td><td class="code"><div><pre><span></span><code>mein-projekt/
+├── .git/
+├── .gitignore
+├── README.md
+├── LICENSE
+├── CHANGELOG.md
+├── CONTRIBUTING.md
+├── .env.example
+├── .github/
+│   └── workflows/
+│       └── ci.yml
+├── docs/
+│   ├── index.md
+│   └── api.md
+├── src/
+│   ├── main.py
+│   └── utils.py
+├── tests/
+│   ├── test_main.py
+│   └── test_utils.py
+├── scripts/
+│   ├── setup.sh
+│   └── deploy.sh
+├── docker/
+│   ├── Dockerfile
+│   └── docker-compose.yml
+└── requirements.txt
+</code></pre></div></td></tr></table></div>
+<h3 id="dateien-und-ihre-zwecke">Dateien und ihre Zwecke<a class="headerlink" href="#dateien-und-ihre-zwecke" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Datei/Ordner</th>
+<th>Zweck</th>
+<th>Versionieren?</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>.gitignore</code></td>
+<td>Ignorierte Dateien</td>
+<td>✓ Ja</td>
+</tr>
+<tr>
+<td><code>README.md</code></td>
+<td>Projektbeschreibung</td>
+<td>✓ Ja</td>
+</tr>
+<tr>
+<td><code>LICENSE</code></td>
+<td>Software-Lizenz</td>
+<td>✓ Ja</td>
+</tr>
+<tr>
+<td><code>CHANGELOG.md</code></td>
+<td>Änderungshistorie</td>
+<td>✓ Ja</td>
+</tr>
+<tr>
+<td><code>CONTRIBUTING.md</code></td>
+<td>Contributing Guidelines</td>
+<td>✓ Ja</td>
+</tr>
+<tr>
+<td><code>.env.example</code></td>
+<td>Umgebungsvariablen-Vorlage</td>
+<td>✓ Ja</td>
+</tr>
+<tr>
+<td><code>.env</code></td>
+<td>Sensible Umgebungsvariablen</td>
+<td>✗ Nein</td>
+</tr>
+<tr>
+<td><code>src/</code></td>
+<td>Quellcode</td>
+<td>✓ Ja</td>
+</tr>
+<tr>
+<td><code>tests/</code></td>
+<td>Testcode</td>
+<td>✓ Ja</td>
+</tr>
+<tr>
+<td><code>node_modules/</code></td>
+<td>Abhängigkeiten</td>
+<td>✗ Nein</td>
+</tr>
+<tr>
+<td><code>venv/</code></td>
+<td>Virtuelle Umgebung</td>
+<td>✗ Nein</td>
+</tr>
+<tr>
+<td><code>dist/</code></td>
+<td>Build-Artefakte</td>
+<td>✗ Nein</td>
+</tr>
+<tr>
+<td><code>.vscode/</code></td>
+<td>IDE-Konfiguration</td>
+<td>✗ Nein</td>
+</tr>
+</tbody>
+</table>
+<h2 id="praktische-ubung">Praktische Übung<a class="headerlink" href="#praktische-ubung" title="Permanent link">&para;</a></h2>
+<h3 id="ubung-1-gitignore-erstellen">Übung 1: .gitignore erstellen<a class="headerlink" href="#ubung-1-gitignore-erstellen" title="Permanent link">&para;</a></h3>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span>
+<span class="normal">21</span>
+<span class="normal">22</span>
+<span class="normal">23</span>
+<span class="normal">24</span>
+<span class="normal">25</span>
+<span class="normal">26</span>
+<span class="normal">27</span>
+<span class="normal">28</span>
+<span class="normal">29</span>
+<span class="normal">30</span>
+<span class="normal">31</span>
+<span class="normal">32</span>
+<span class="normal">33</span>
+<span class="normal">34</span>
+<span class="normal">35</span>
+<span class="normal">36</span>
+<span class="normal">37</span>
+<span class="normal">38</span>
+<span class="normal">39</span>
+<span class="normal">40</span>
+<span class="normal">41</span>
+<span class="normal">42</span>
+<span class="normal">43</span>
+<span class="normal">44</span>
+<span class="normal">45</span>
+<span class="normal">46</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="c1"># 1. Projekt erstellen</span>
+mkdir<span class="w"> </span>gitignore-uebung
+<span class="nb">cd</span><span class="w"> </span>gitignore-uebung
+git<span class="w"> </span>init
+
+<span class="c1"># 2. .gitignore erstellen</span>
+cat<span class="w"> </span>&gt;<span class="w"> </span>.gitignore<span class="w"> </span><span class="s">&lt;&lt; &#39;EOF&#39;</span>
+<span class="s"># Python</span>
+<span class="s">__pycache__/</span>
+<span class="s">*.py[cod]</span>
+<span class="s">*$py.class</span>
+<span class="s">venv/</span>
+
+<span class="s"># Node.js</span>
+<span class="s">node_modules/</span>
+<span class="s">npm-debug.log</span>
+<span class="s">yarn-error.log</span>
+
+<span class="s"># IDE</span>
+<span class="s">.vscode/</span>
+<span class="s">.idea/</span>
+<span class="s">*.swp</span>
+<span class="s">*.swo</span>
+
+<span class="s"># OS</span>
+<span class="s">.DS_Store</span>
+<span class="s">Thumbs.db</span>
+
+<span class="s"># Build</span>
+<span class="s">dist/</span>
+<span class="s">build/</span>
+<span class="s">*.log</span>
+<span class="s">EOF</span>
+
+<span class="c1"># 3. Testdateien erstellen</span>
+mkdir<span class="w"> </span>src<span class="w"> </span>tests<span class="w"> </span>node_modules<span class="w"> </span>venv
+touch<span class="w"> </span>src/main.py
+touch<span class="w"> </span>tests/test_main.py
+touch<span class="w"> </span>node_modules/package.json
+touch<span class="w"> </span>venv/bin/activate
+touch<span class="w"> </span>debug.log
+touch<span class="w"> </span>.vscode/settings.json
+
+<span class="c1"># 4. Status prüfen</span>
+git<span class="w"> </span>status
+<span class="c1"># Nur src/ und tests/ sollten sichtbar sein</span>
+</code></pre></div></td></tr></table></div>
+<h3 id="ubung-2-umgebungsvariablen-verwalten">Übung 2: Umgebungsvariablen verwalten<a class="headerlink" href="#ubung-2-umgebungsvariablen-verwalten" title="Permanent link">&para;</a></h3>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span>
+<span class="normal">21</span>
+<span class="normal">22</span>
+<span class="normal">23</span>
+<span class="normal">24</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="c1"># 1. .env.example erstellen</span>
+cat<span class="w"> </span>&gt;<span class="w"> </span>.env.example<span class="w"> </span><span class="s">&lt;&lt; &#39;EOF&#39;</span>
+<span class="s">DB_HOST=localhost</span>
+<span class="s">DB_PORT=5432</span>
+<span class="s">DB_USER=your_username</span>
+<span class="s">DB_PASSWORD=your_password</span>
+<span class="s">API_KEY=your_api_key</span>
+<span class="s">EOF</span>
+
+<span class="c1"># 2. .env erstellen (nicht committen!)</span>
+cat<span class="w"> </span>&gt;<span class="w"> </span>.env<span class="w"> </span><span class="s">&lt;&lt; &#39;EOF&#39;</span>
+<span class="s">DB_HOST=localhost</span>
+<span class="s">DB_PORT=5432</span>
+<span class="s">DB_USER=admin</span>
+<span class="s">DB_PASSWORD=supersecret</span>
+<span class="s">API_KEY=abc123</span>
+<span class="s">EOF</span>
+
+<span class="c1"># 3. .gitignore aktualisieren</span>
+<span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;.env&quot;</span><span class="w"> </span>&gt;&gt;<span class="w"> </span>.gitignore
+
+<span class="c1"># 4. Commit</span>
+git<span class="w"> </span>add<span class="w"> </span>.
+git<span class="w"> </span>commit<span class="w"> </span>-m<span class="w"> </span><span class="s2">&quot;Add project structure and configuration&quot;</span>
+</code></pre></div></td></tr></table></div>
+<h3 id="ubung-3-globale-gitignore">Übung 3: Globale .gitignore<a class="headerlink" href="#ubung-3-globale-gitignore" title="Permanent link">&para;</a></h3>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span>
+<span class="normal">21</span>
+<span class="normal">22</span>
+<span class="normal">23</span>
+<span class="normal">24</span>
+<span class="normal">25</span>
+<span class="normal">26</span>
+<span class="normal">27</span>
+<span class="normal">28</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="c1"># 1. Globale .gitignore erstellen</span>
+git<span class="w"> </span>config<span class="w"> </span>--global<span class="w"> </span>core.excludesfile<span class="w"> </span>~/.gitignore_global
+
+<span class="c1"># 2. Datei bearbeiten</span>
+cat<span class="w"> </span>&gt;<span class="w"> </span>~/.gitignore_global<span class="w"> </span><span class="s">&lt;&lt; &#39;EOF&#39;</span>
+<span class="s"># OS</span>
+<span class="s">.DS_Store</span>
+<span class="s">Thumbs.db</span>
+
+<span class="s"># IDE</span>
+<span class="s">.vscode/</span>
+<span class="s">.idea/</span>
+<span class="s">*.swp</span>
+<span class="s">*.swo</span>
+
+<span class="s"># Temporär</span>
+<span class="s">*.tmp</span>
+<span class="s">*.temp</span>
+<span class="s">EOF</span>
+
+<span class="c1"># 3. Testen</span>
+mkdir<span class="w"> </span>test-project
+<span class="nb">cd</span><span class="w"> </span>test-project
+git<span class="w"> </span>init
+touch<span class="w"> </span>test.tmp
+touch<span class="w"> </span>.vscode/settings.json
+git<span class="w"> </span>status
+<span class="c1"># Diese Dateien sollten nicht angezeigt werden</span>
+</code></pre></div></td></tr></table></div>
+<h2 id="zusammenfassung">Zusammenfassung<a class="headerlink" href="#zusammenfassung" title="Permanent link">&para;</a></h2>
+<p><strong>Was versionieren</strong>:
+- Quellcode
+- Projekt-Konfiguration
+- Build-Konfiguration
+- Dokumentation</p>
+<p><strong>Was nicht versionieren</strong>:
+- Abhängigkeiten (node_modules, venv)
+- Build-Artefakte (dist, build)
+- Sensible Daten (.env, Passwörter)
+- Log-Dateien
+- IDE-Konfiguration</p>
+<p><strong>.gitignore Best Practices</strong>:
+- Verwende Vorlagen für Ihre Sprache
+- Erstelle globale .gitignore für OS/IDE
+- Verwende .env.example für Umgebungsvariablen
+- Halte .gitignore aktuell</p>
+<details class="question" open="open">
+<summary>Projektdateien und .gitignore</summary>
+<p>Basierend auf Projektdateien und .gitignore Konfiguration:</p>
+<ol>
+<li>Erklären Sie, warum Abhängigkeiten (node_modules, venv) nicht versioniert werden sollten und wie man sie trotzdem reproduzierbar macht</li>
+<li>Beschreiben Sie, wie Sie sensible Daten wie Passwörter in einem Git-Repository sicher verwalten würden</li>
+<li>Erstellen Sie ein .gitignore für ein Python-Projekt mit Webanwendung, das Datenbankzugriff und API-Schlüssel verwendet</li>
+</ol>
+<div class="arithmatex">\[\text{Beispiel: Ein Team entwickelt eine Webanwendung mit Datenbank und externen APIs...}\]</div>
+<details class="info">
+<summary>Tipp</summary>
+<p>Stellen Sie sich vor, Sie müssen ein Projekt für ein Finanzunternehmen erstellen. Welche zusätzlichen Sicherheitsmaßnahmen würden Sie ergreifen?</p>
+</details>
+<details class="success">
+<summary>Lösung</summary>
+<details class="video">
+<summary>Lösungsvideo</summary>
+<p><div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
+    <iframe src="https://www.youtube.com/embed/4XpnKHJAok8?si=8z5X6V2L9YdRq0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;"></iframe>
+</div></p>
+</details>
+<p><strong>1. Abhängigkeiten nicht versionieren:</strong>
+<strong>Warum nicht?</strong>
+- <strong>Größe</strong>: node_modules kann hunderte MB groß sein
+- <strong>Plattformabhängig</strong>: Unterschiedliche Systeme haben unterschiedliche Binärdateien
+- <strong>Redundanz</strong>: Werden durch Konfigurationsdateien reproduziert
+- <strong>Updates</strong>: Schwierig, Abhängigkeiten zu aktualisieren</p>
+<p><strong>Reproduzierbarkeit durch</strong>:
+- <code>package.json</code> (Node.js) oder <code>requirements.txt</code> (Python)
+- <code>package-lock.json</code> oder <code>Pipfile.lock</code> für exakte Versionen
+- CI/CD Pipeline installiert Abhängigkeiten automatisch</p>
+<p><strong>2. Sensible Daten verwalten:</strong>
+<strong>Falsch</strong>:
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="c1"># config.yaml (committed)</span>
+<span class="nt">database</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">password</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;mein_passwort&quot;</span><span class="w">  </span><span class="c1"># ❌ SICHERHEITSRISIKO!</span>
+</code></pre></div></td></tr></table></div></p>
+<p><strong>Richtig</strong>:
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span></pre></div></td><td class="code"><div><pre><span></span><code>1. .env Datei erstellen (NIEMALS committen!)
+2. .env.example als Vorlage committen
+3. .gitignore: .env, .env.local, .env.*.local
+4. Umgebungsvariablen in CI/CD setzen
+5. Passwort-Manager für Team verwenden
+</code></pre></div></td></tr></table></div></p>
+<p><strong>3. .gitignore für Python-Webanwendung</strong>:
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span>
+<span class="normal">21</span>
+<span class="normal">22</span>
+<span class="normal">23</span>
+<span class="normal">24</span>
+<span class="normal">25</span>
+<span class="normal">26</span>
+<span class="normal">27</span>
+<span class="normal">28</span>
+<span class="normal">29</span>
+<span class="normal">30</span>
+<span class="normal">31</span>
+<span class="normal">32</span>
+<span class="normal">33</span>
+<span class="normal">34</span>
+<span class="normal">35</span></pre></div></td><td class="code"><div><pre><span></span><code># Python
+__pycache__/
+*.py[cod]
+*$py.class
+venv/
+.env
+.env.local
+.env.*.local
+
+# Database
+*.db
+*.sqlite
+*.sqlite3
+
+# Logs
+*.log
+logs/
+
+# Build
+dist/
+build/
+*.egg-info/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS
+.DS_Store
+Thumbs.db
+
+# API Keys (example)
+# api_keys.json  # Falls Sie eine solche Datei haben
+</code></pre></div></td></tr></table></div></p>
+<p><strong>Zusätzliche Maßnahmen</strong>:
+- <code>.env.example</code> committen mit Platzhaltern
+- <code>config.py</code> mit Umgebungsvariablen-Ladung
+- Dokumentation für Team-Mitglieder</p>
+</details>
+</details>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="Footer" >
+        
+          
+          <a href="../7/" class="md-footer__link md-footer__link--prev" aria-label="Previous: 4.2 GitHub/GitLab Integration">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              <div class="md-ellipsis">
+                4.2 GitHub/GitLab Integration
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="../9/" class="md-footer__link md-footer__link--next" aria-label="Next: 5.1 Fortgeschrittene Features">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              <div class="md-ellipsis">
+                5.1 Fortgeschrittene Features
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright &copy; 2026 Qualidy GmbH
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+        
+<div class="md-social">
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://www.kununu.com/de/qualidy" target="_blank" rel="noopener" title="www.kununu.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><!--! Font Awesome Free 7.0.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path fill="currentColor" d="M311 86.3c12.3-12.7 12-32.9-.7-45.2s-32.9-12-45.2.7C143.4 167.2 76.4 236.3 64 249V64c0-17.7-14.3-32-32-32S0 46.3 0 64v384c0 17.7 14.3 32 32 32s32-14.3 32-32V341l64.7-66.7 133 192c10.1 14.5 30 18.1 44.5 8.1s18.1-30 8.1-44.5L174.1 227.4z"/></svg>
+    </a>
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://de.linkedin.com/company/qualidy" target="_blank" rel="noopener" title="de.linkedin.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.0.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path fill="currentColor" d="M416 32H31.9C14.3 32 0 46.5 0 64.3v383.4C0 465.5 14.3 480 31.9 480H416c17.6 0 32-14.5 32-32.3V64.3c0-17.8-14.4-32.3-32-32.3M135.4 416H69V202.2h66.5V416zM102.2 96a38.5 38.5 0 1 1 0 77 38.5 38.5 0 1 1 0-77m282.1 320h-66.4V312c0-24.8-.5-56.7-34.5-56.7-34.6 0-39.9 27-39.9 54.9V416h-66.4V202.2h63.7v29.2h.9c8.9-16.8 30.6-34.5 62.9-34.5 67.2 0 79.7 44.3 79.7 101.9z"/></svg>
+    </a>
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://www.google.com/search?sca_esv=7e6ba2047fcb60f3&uds=AMwkrPtyB8MsmozA4Lwzqy2G2HCu-abqzc6moOG48q3gP5dtjTRzC2Ws0eSwcyLXDfZNuYCrZ7ByIreHLG9th3vKLekPoVeey0tumAbet4cVLQRLzdRFhUbOGbnyp3xo1V0hzzaNmkCN&si=AKbGX_rcuucMgom2rba1cdwsvM2SVoIkP2btyqGMV4t0GuHIs4sGV_1tpuqR0YHG4Rzd9SdJcL-lW6E-2aJA5azZLTKkIOrZ2j2aWwoBkVbdEJ0o0GPcQhs%3D&q=Qualidy+GmbH+Rezensionen&sa=X&ved=2ahUKEwibsbnSgcmFAxXNQvEDHaVYCiAQ3PALegQIRxAF" target="_blank" rel="noopener" title="www.google.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21.35 11.1h-9.17v2.73h6.51c-.33 3.81-3.5 5.44-6.5 5.44C8.36 19.27 5 16.25 5 12c0-4.1 3.2-7.27 7.2-7.27 3.09 0 4.9 1.97 4.9 1.97L19 4.72S16.56 2 12.1 2C6.42 2 2.03 6.8 2.03 12c0 5.05 4.13 10 10.22 10 5.35 0 9.25-3.67 9.25-9.09 0-1.15-.15-1.81-.15-1.81"/></svg>
+    </a>
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://qualidy.de" target="_blank" rel="noopener" title="qualidy.de" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.0.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path fill="currentColor" d="M351.9 280H161c2.9 64.5 17.2 123.9 37.5 167.4 11.4 24.5 23.7 41.8 35.1 52.4 11.2 10.5 18.9 12.2 22.9 12.2s11.7-1.7 22.9-12.2c11.4-10.6 23.7-28 35.1-52.4 20.3-43.5 34.6-102.9 37.5-167.4zm-191-48h190.9c-2.8-64.5-17.1-123.9-37.4-167.4-11.4-24.4-23.7-41.8-35.1-52.4C268.1 1.7 260.4 0 256.4 0s-11.7 1.7-22.9 12.2c-11.4 10.6-23.7 28-35.1 52.4-20.3 43.5-34.6 102.9-37.5 167.4m-48 0c3.5-85.6 25.6-165.1 57.9-217.3C78.7 47.3 10.9 131.2 1.5 232zM1.5 280c9.4 100.8 77.2 184.7 169.3 217.3-32.3-52.2-54.4-131.7-57.9-217.3zm398.4 0c-3.5 85.6-25.6 165.1-57.9 217.3 92.1-32.7 159.9-116.5 169.3-217.3zm111.4-48C501.9 131.2 434.1 47.3 342 14.7c32.3 52.2 54.4 131.7 57.9 217.3z"/></svg>
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.tracking", "navigation.path", "navigation.top", "navigation.footer", "toc.follow", "toc.integrate", "content.code.copy", "content.code.annotate"], "search": "../../assets/javascripts/workers/search.973d3a69.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.92b07e13.min.js"></script>
+      
+        <script src="../../javascripts/mathjax.js"></script>
+      
+        <script src="https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js"></script>
+      
+    
+  </body>
+</html>

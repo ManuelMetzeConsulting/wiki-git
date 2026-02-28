@@ -10,7 +10,7 @@ hide:
 
 <div markdown>
 
-# Basis Wiki
+# Einführung in die Versionsverwaltung mit Git
 
 <div class="grid cards fancy grid--cols-1" markdown >
 - [:material-call-split: **1 Einführung**](content/1.md)

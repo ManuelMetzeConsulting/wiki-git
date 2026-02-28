@@ -1,4 +1,4 @@
-site_name: Basis Wiki
+site_name: Einführung in die Versionsverwaltung mit Git
 
 nav:
   - Übersicht: index.md
