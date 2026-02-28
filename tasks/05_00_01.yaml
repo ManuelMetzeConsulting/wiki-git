@@ -1,0 +1,56 @@
+title: Installation und erste Schritte
+question: |
+  Basierend auf der Installation und ersten Schritten mit Git:
+
+  1. Erklären Sie den Unterschied zwischen globaler und projekt-spezifischer Git-Konfiguration mit einem konkreten Beispiel
+  2. Beschreiben Sie den Prozess von einer neuen Datei bis zum ersten Commit mit allen Befehlen
+  3. Erklären Sie, warum man `git status` regelmäßig verwenden sollte und was die verschiedenen Statusmeldungen bedeuten
+
+  $$\text{Beispiel: Ein Entwickler arbeitet an zwei verschiedenen Projekten...}$$
+solution: |
+  **1. Globale vs. projekt-spezifische Konfiguration:**
+  **Globale Konfiguration** (`git config --global`):
+  - Wird für alle Projekte auf dem Computer verwendet
+  - Enthält typischerweise: Name, E-Mail, Standard-Editor
+  - Beispiel: `git config --global user.name "Max Mustermann"`
+
+  **Projekt-spezifische Konfiguration** (`git config` ohne --global):
+  - Gilt nur für das aktuelle Projekt
+  - Nützlich für: Projektspezifische E-Mail, spezielle Editor-Einstellungen
+  - Beispiel: Ein Freelancer hat unterschiedliche E-Mails für verschiedene Kunden
+
+  **Konkretes Beispiel**:
+  ```
+  Globale Konfiguration:
+  user.name = Max Mustermann
+  user.email = max@privat.de
+
+  Projekt-spezifisch (in Kundenprojekt):
+  user.email = max@kunde1.de
+
+  Projekt-spezifisch (in Firmenprojekt):
+  user.email = max@firma.de
+  ```
+
+  **2. Prozess bis zum ersten Commit:**
+  ```
+  1. Datei erstellen: echo "Inhalt" > datei.txt
+  2. Status prüfen: git status → "Untracked files"
+  3. Zur Staging Area hinzufügen: git add datei.txt
+  4. Status prüfen: git status → "Changes to be committed"
+  5. Commit erstellen: git commit -m "Erste Nachricht"
+  6. Historie prüfen: git log
+  ```
+
+  **3. Warum `git status` regelmäßig verwenden:**
+  - **Übersicht**: Zeigt aktuellen Zustand des Projekts
+  - **Fehlervermeidung**: Verhindert falsche Commits
+  - **Statusmeldungen**:
+    - `Untracked files`: Neue Dateien, noch nicht versioniert
+    - `Changes not staged for commit`: Geänderte Dateien, nicht bereitgestellt
+    - `Changes to be committed`: Bereitgestellte Änderungen, bereit für Commit
+    - `nothing to commit`: Alle Änderungen sind committet
+
+  **Analogie**: `git status` ist wie ein Spiegel vor dem Verlassen des Hauses - prüft, ob alles korrekt ist.
+solution_video: https://www.youtube.com/embed/4XpnKHJAok8?si=8z5X6V2L9YdRq0
+tip: Erstellen Sie ein Skript, das `git status` automatisch nach jedem Befehl ausführt

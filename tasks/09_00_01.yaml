@@ -1,0 +1,87 @@
+title: Fortgeschrittene Git-Features
+question: |
+  Basierend auf fortgeschrittenen Git-Features:
+
+  1. Erklären Sie den Unterschied zwischen Rebase und Merge mit konkreten Beispielen, wann Sie welches verwenden würden
+  2. Beschreiben Sie, wie Sie Git Stash verwenden würden, um zwischen verschiedenen Aufgaben zu wechseln, ohne Ihre Arbeit zu verlieren
+  3. Erklären Sie, wie Git Bisect funktioniert und geben Sie ein Beispiel für einen Anwendungsfall
+
+  $$\text{Beispiel: Sie arbeiten an einem komplexen Projekt mit mehreren parallelen Features...}$$
+solution: |
+  **1. Rebase vs. Merge:**
+  **Rebase**:
+  - **Vorteile**: Lineare Historie, saubere Commits, leichter zu verstehen
+  - **Nachteile**: Ändert Commit-IDs, riskant für öffentliche Branches
+  - **Anwendung**: Lokale Feature-Branches vor dem Push bereinigen
+  - **Beispiel**: `git rebase main` auf Ihrem Feature-Branch
+
+  **Merge**:
+  - **Vorteile**: Behält Historie bei, sicher für öffentliche Branches
+  - **Nachteile**: Komplexe Historie mit Merge-Commits
+  - **Anwendung**: Öffentliche Branches, Zusammenarbeit im Team
+  - **Beispiel**: `git merge feature/branch` auf main Branch
+
+  **Entscheidungshilfe**:
+  - **Rebase**: Vor dem Push, für lokale Branches, für saubere Historie
+  - **Merge**: Für öffentliche Branches, für Teamarbeit, für komplexe Branches
+
+  **2. Git Stash für Task-Wechsel:**
+  **Szenario**: Sie arbeiten an Feature A, müssen aber schnell zu Bug B wechseln
+
+  ```
+  1. Aktuellen Stand stashen:
+     git stash save "WIP: Feature A"
+
+  2. Zu Bugfix-Branch wechseln:
+     git checkout bugfix/B
+
+  3. Bugfix machen und committen:
+     # ... Code schreiben ...
+     git commit -m "Fix bug B"
+
+  4. Zurück zu Feature A:
+     git checkout feature/A
+
+  5. Stash wiederherstellen:
+     git stash pop
+
+  6. Weiterarbeiten an Feature A
+  ```
+
+  **Vorteile**:
+  - Kein Commit nötig für temporäre Änderungen
+  - Schneller Branch-Wechsel
+  - Mehrere Stashes möglich (für verschiedene Tasks)
+
+  **3. Git Bisect für Bug-Suche:**
+  **Funktionsweise**:
+  1. Start mit bekanntem schlechtem Commit (mit Bug)
+  2. Ende mit bekanntem gutem Commit (ohne Bug)
+  3. Git teilt Ihnen den mittleren Commit mit
+  4. Sie testen und sagen "gut" oder "schlecht"
+  5. Wiederholen bis Commit gefunden ist
+
+  **Anwendungsbeispiel**:
+  ```
+  Problem: Website zeigt Fehler seit 2 Wochen
+  Bekannt: Vor 4 Wochen war alles OK
+  Prozess:
+  1. git bisect start
+  2. git bisect bad (aktuell)
+  3. git bisect good abc1234 (vor 4 Wochen)
+  4. Git teilt Commit mit: "Teste def5678"
+  5. Testen: Funktioniert nicht → git bisect bad
+  6. Git teilt neuen Commit mit
+  7. Wiederholen bis Bug gefunden
+  8. git bisect reset
+  ```
+
+  **Automatisiert**:
+  ```bash
+  git bisect start HEAD abc1234
+  git bisect run ./test-script.sh
+  ```
+
+  **Ergebnis**: Genauer Commit, der Bug eingeführt hat
+solution_video: https://www.youtube.com/embed/4XpnKHJAok8?si=8z5X6V2L9YdRq0
+tip: Stellen Sie sich vor, Sie haben 1000 Commits und ein neuer Bug ist aufgetreten. Wie würden Sie systematisch den fehlerhaften Commit finden?

@@ -1,0 +1,40 @@
+title: Git-Konzepte verstehen
+question: |
+  Basierend auf den grundlegenden Git-Konzepten:
+
+  1. Erklären Sie den Unterschied zwischen Working Directory, Staging Area und Repository mit einem konkreten Beispiel aus Ihrem Alltag
+  2. Beschreiben Sie, warum Git Blobs statt der gesamten Dateien speichert und welche Vorteile das hat
+  3. Erklären Sie den Unterschied zwischen einem Branch und einem Tag und wann Sie welches verwenden würden
+
+  $$\text{Beispiel: Ein Restaurant arbeitet mit Speisekarten...}$$
+solution: |
+  **1. Drei Zustände mit Alltagsbeispiel:**
+  **Beispiel: Schreiben eines Essays**
+  - **Working Directory**: Ihr Word-Dokument, das Sie gerade bearbeiten (alle Änderungen sichtbar)
+  - **Staging Area**: Der Entwurf, den Sie für den nächsten Speichervorgang vorbereiten (nur ausgewählte Änderungen)
+  - **Repository**: Die gespeicherten Versionen mit vollständiger Historie (alle vorherigen Entwürfe)
+
+  **2. Blobs vs. volle Dateien:**
+  - **Effizienz**: Identische Dateien werden nur einmal gespeichert (z.B. gleiche CSS-Datei in mehreren Branches)
+  - **Deduplizierung**: Gleiche Inhalte haben denselben Hash, sparen Speicherplatz
+  - **Integrität**: SHA-1 Hash garantiert, dass Inhalt nicht verändert wurde
+  - **Beispiel**: Wenn Sie eine Datei 100x committen, aber nur 1x ändern, werden nur 2 Blobs gespeichert
+
+  **3. Branch vs. Tag:**
+  **Branch**:
+  - **Zweck**: Parallele Entwicklung
+  - **Beweglich**: Zeiger ändert sich bei jedem Commit
+  - **Beispiel**: `feature/login` für neue Login-Funktion
+  - **Verwendung**: Während der Entwicklung, für Features, Bugfixes
+
+  **Tag**:
+  - **Zweck**: Stabile Referenz
+  - **Statisch**: Zeiger ändert sich nicht
+  - **Beispiel**: `v1.0.0` für Produktionsrelease
+  - **Verwendung**: Releases, Meilensteine, wichtige Versionen
+
+  **Analogie**:
+  - **Branch**: Wie ein Arbeitsordner, der sich ständig ändert
+  - **Tag**: Wie ein Archivordner mit festgehaltenem Stand
+solution_video: https://www.youtube.com/embed/4XpnKHJAok8?si=8z5X6V2L9YdRq0
+tip: Stellen Sie sich vor, Sie schreiben ein Buch. Wie würden Sie Branches und Tags verwenden?

@@ -1,0 +1,74 @@
+title: GitHub/GitLab Integration
+question: |
+  Basierend auf GitHub und GitLab Integration:
+
+  1. Erklären Sie den Unterschied zwischen GitHub und GitLab mit konkreten Anwendungsfällen für jedes
+  2. Beschreiben Sie, wie Sie SSH-Schlüssel für sichere Git-Operationen einrichten und warum das besser ist als HTTPS
+  3. Erklären Sie, wie eine CI/CD-Pipeline funktioniert und geben Sie ein Beispiel für einen einfachen Test-Workflow
+
+  $$\text{Beispiel: Ein Startup-Unternehmen muss entscheiden, welche Plattform es nutzt...}$$
+solution: |
+  **1. GitHub vs. GitLab:**
+  **GitHub**:
+  - **Stärken**: Große Community, Open Source Fokus, GitHub Actions, GitHub Pages
+  - **Anwendungsfälle**: Open Source Projekte, Community-Entwicklung, schnelle Prototypen
+  - **Beispiel**: Ein öffentliches JavaScript-Framework, das von der Community mitentwickelt wird
+
+  **GitLab**:
+  - **Stärken**: Selbst-Hosted möglich, integrierte CI/CD, Enterprise-Fokus, DevOps-Plattform
+  - **Anwendungsfälle**: Unternehmensprojekte, Sicherheitskritische Anwendungen, On-Premise-Lösungen
+  - **Beispiel**: Ein Finanzunternehmen, das seine Codebasis intern hosten muss
+
+  **Entscheidungshilfe**:
+  - Öffentliches Projekt → GitHub
+  - Unternehmensintern → GitLab
+  - Open Source Community → GitHub
+  - Compliance-Anforderungen → GitLab
+
+  **2. SSH vs. HTTPS:**
+  **SSH einrichten**:
+  ```
+  1. Schlüssel generieren: ssh-keygen -t ed25519 -C "email@beispiel.de"
+  2. Öffentlichen Schlüssel anzeigen: cat ~/.ssh/id_ed25519.pub
+  3. Zu GitHub/GitLab hinzufügen
+  4. Testen: ssh -T git@github.com
+  ```
+
+  **Vorteile von SSH**:
+  - **Sicherheit**: Keine Passwörter in Klartext
+  - **Komfort**: Kein Passwort bei jedem Push
+  - **Automatisierung**: Besser für CI/CD-Pipelines
+  - **Zugriffskontrolle**: Mehrere Schlüssel pro Konto möglich
+
+  **3. CI/CD-Pipeline:**
+  **Funktionsweise**:
+  1. **Trigger**: Push oder Pull Request
+  2. **Checkout**: Code vom Repository holen
+  3. **Setup**: Abhängigkeiten installieren
+  4. **Test**: Automatisierte Tests ausführen
+  5. **Build**: Code kompilieren/bauen
+  6. **Deploy**: Anwendung bereitstellen
+
+  **Beispiel Test-Workflow (GitHub Actions)**:
+  ```yaml
+  name: Test
+  on: [push, pull_request]
+
+  jobs:
+    test:
+      runs-on: ubuntu-latest
+      steps:
+      - uses: actions/checkout@v4
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '18'
+      - name: Install dependencies
+        run: npm install
+      - name: Run tests
+        run: npm test
+  ```
+
+  **Analogie**: CI/CD ist wie ein automatischer Qualitätssicherungsprozess im Fertigungsbetrieb
+solution_video: https://www.youtube.com/embed/4XpnKHJAok8?si=8z5X6V2L9YdRq0
+tip: Stellen Sie sich vor, Sie müssten eine Plattform für ein Unternehmen mit 500 Entwicklern wählen. Welche Faktoren würden Sie berücksichtigen?

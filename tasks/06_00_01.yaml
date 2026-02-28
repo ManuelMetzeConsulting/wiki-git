@@ -1,0 +1,77 @@
+title: Remote-Repositories und Collaboration
+question: |
+  Basierend auf Remote-Repositories und Collaboration:
+
+  1. Erklären Sie den Unterschied zwischen `git push`, `git pull` und `git fetch` mit einem konkreten Beispiel aus der Teamarbeit
+  2. Beschreiben Sie den Feature-Branch-Workflow und erklären Sie, warum er besser ist als direkt auf `main` zu arbeiten
+  3. Erklären Sie, wie ein Merge-Konflikt entsteht und wie Sie ihn systematisch lösen würden
+
+  $$\text{Beispiel: Ein Team von 3 Entwicklern arbeitet an einer Webanwendung...}$$
+solution: |
+  **1. Unterschied zwischen push, pull und fetch:**
+  **git push**:
+  - Sendet lokale Änderungen zum Remote-Repository
+  - Beispiel: Sie haben Code geschrieben und möchten ihn mit dem Team teilen
+  - Befehl: `git push origin main`
+
+  **git pull**:
+  - Holt Änderungen vom Remote und führt sie mit lokalem Code zusammen
+  - Beispiel: Sie möchten die neuesten Änderungen Ihres Kollegen haben
+  - Befehl: `git pull origin main`
+
+  **git fetch**:
+  - Holt Änderungen vom Remote, führt sie aber NICHT zusammen
+  - Beispiel: Sie möchten sehen, was geändert wurde, bevor Sie es übernehmen
+  - Befehl: `git fetch origin`
+
+  **Analogie**:
+  - `push`: E-Mail senden
+  - `pull`: E-Mail empfangen und öffnen
+  - `fetch`: E-Mail empfangen, aber noch nicht lesen
+
+  **2. Feature-Branch-Workflow:**
+  **Ablauf**:
+  1. Von `main` Branch starten
+  2. Neuen Feature-Branch erstellen
+  3. Feature entwickeln
+  4. Pull Request erstellen
+  5. Code Review
+  6. Merge in `main`
+
+  **Vorteile gegenüber direkter Arbeit auf `main`**:
+  - **Isolation**: Änderungen sind vom Hauptcode getrennt
+  - **Sicherheit**: `main` bleibt immer stabil
+  - **Parallelität**: Mehrere Features gleichzeitig entwickeln
+  - **Rückgängig machen**: Feature-Branch kann gelöscht werden, ohne `main` zu beeinträchtigen
+
+  **3. Merge-Konflikt entstehen und lösen:**
+  **Entstehung**:
+  ```
+  Zeitpunkt 1: Entwickler A ändert Zeile 10 in datei.txt
+  Zeitpunkt 2: Entwickler B ändert Zeile 10 in datei.txt (gleiche Zeile)
+  Zeitpunkt 3: Beide pushen ihre Änderungen
+  Zeitpunkt 4: Git kann nicht automatisch mergen → Konflikt
+  ```
+
+  **Systematisches Lösen**:
+  1. **Konflikt erkennen**: `git status` zeigt "both modified"
+  2. **Konflikt anzeigen**: `git diff` oder Datei öffnen
+  3. **Markierungen verstehen**:
+     ```
+     <<<<<<< HEAD (Ihre Änderung)
+     Ihre Zeile
+     =======
+     Andere Zeile (vom anderen Branch)
+     >>>>>>> feature/branch
+     ```
+  4. **Entscheidung treffen**: Welche Änderung ist besser? Oder kombinieren?
+  5. **Markierungen entfernen**: Nur die gewünschte Version behalten
+  6. **Als gelöst markieren**: `git add datei.txt`
+  7. **Commit erstellen**: `git commit -m "Resolve conflict"`
+
+  **Prävention**:
+  - Häufig synchronisieren (`git pull`)
+  - Kleine, häufige Commits
+  - Kommunikation im Team
+solution_video: https://www.youtube.com/embed/4XpnKHJAok8?si=8z5X6V2L9YdRq0
+tip: Stellen Sie sich vor, Sie schreiben ein Buch mit mehreren Autoren. Wie würden Sie Konflikte vermeiden?

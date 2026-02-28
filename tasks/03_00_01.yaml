@@ -1,0 +1,32 @@
+title: Historische Entwicklung verstehen
+question: |
+  Basierend auf der historischen Entwicklung der Versionskontrolle:
+
+  1. Erklären Sie den Hauptunterschied zwischen zentralen (CVS/SVN) und verteilten (Git) Versionskontrollesystemen
+  2. Nennen Sie drei konkrete Probleme, die durch manuelle Versionsverwaltung in den 1970er Jahren entstanden
+  3. Beschreiben Sie ein Szenario aus einem anderen Bereich (z.B. Dokumentenerstellung, Design, Projektmanagement), wo ähnliche Probleme auftreten könnten
+
+  $$\text{Beispiel: Ein Architektenteam arbeitet an Bauplänen...}$$
+solution: |
+  **1. Zentral vs. Verteilt:**
+  - **Zentral (CVS/SVN)**: Ein zentrales Server-Repository, alle Entwickler arbeiten dagegen. Bei Server-Ausfall ist das Projekt blockiert.
+  - **Verteilt (Git)**: Jeder Entwickler hat ein vollständiges Repository. Arbeit kann lokal erfolgen, Synchronisation ist optional.
+
+  **2. Probleme manueller Verwaltung:**
+  - **Versionierungschaos**: Dateien werden mit "final", "final_final", "final_v2" benannt
+  - **Keine Änderungsdokumentation**: Wer hat was wann geändert ist unbekannt
+  - **Keine automatische Zusammenführung**: Manuelle Zusammenarbeit ist fehleranfällig und zeitaufwendig
+
+  **3. Analogie in anderem Bereich:**
+  **Dokumentenerstellung im Verlag**:
+  - **Problem**: Mehrere Autoren arbeiten an einem Manuskript
+  - **Manuelle Methode**: Jeder speichert seine Version als "Manuskript_v1.doc", "Manuskript_v2.doc"
+  - **Konsequenzen**: Keine Übersicht über Änderungen, schwierige Zusammenführung, keine Rückverfolgbarkeit
+  - **Lösung**: Google Docs (zentral) oder Git für Dokumente (verteilt)
+
+  **Weitere Beispiele**:
+  - **Design-Projekte**: Figma/Sketch mit Versionierung
+  - **Projektmanagement**: Jira mit Änderungshistorie
+  - **Wissenschaftliche Arbeiten**: Overleaf mit Versionskontrolle
+solution_video: https://www.youtube.com/embed/4XpnKHJAok8?si=8z5X6V2L9YdRq0
+tip: "Denken Sie an Ihre eigene Erfahrung: Haben Sie schon einmal Dateien mit Versionsnummern benannt?"

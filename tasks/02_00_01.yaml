@@ -1,0 +1,28 @@
+title: Kursverständnis
+question: |
+  Basierend auf der Kursübersicht:
+
+  1. Nennen Sie drei Gründe, warum Versionskontrolle in der Softwareentwicklung unverzichtbar ist
+  2. Erklären Sie den Unterschied zwischen einem lokalen und einem Remote-Repository
+  3. Beschreiben Sie, warum Branching und Merging wichtig für Teamarbeit sind
+
+  $$\text{Beispiel: } \text{Wenn zwei Entwickler gleichzeitig an derselben Datei arbeiten...}$$
+solution: |
+  **1. Gründe für Versionskontrolle:**
+  - **Änderungsverfolgung**: Jede Änderung wird dokumentiert, wer, wann und warum sie gemacht wurde
+  - **Rückgängig machen**: Fehler können rückgängig gemacht werden, ohne den gesamten Code zu verlieren
+  - **Teamarbeit**: Mehrere Entwickler können gleichzeitig an einem Projekt arbeiten ohne Konflikte
+  - **Backup**: Code ist auf mehreren Rechnern gespeichert (lokale und Remote-Repositories)
+
+  **2. Lokales vs. Remote-Repository:**
+  - **Lokales Repository**: Befindet sich auf dem eigenen Computer, enthält die gesamte Projektgeschichte
+  - **Remote-Repository**: Befindet sich auf einem Server (z.B. GitHub), dient als zentrale Anlaufstelle für Teams
+
+  **3. Branching und Merging:**
+  - **Branching**: Ermöglicht parallele Entwicklung ohne Störung des Hauptcodes
+  - **Merging**: Integriert Änderungen aus verschiedenen Branches zurück in den Hauptcode
+  - **Vorteile**: Experimente ohne Risiko, Feature-Entwicklung parallel, Bugfixes isoliert
+
+  **Zusammenhang**: Bei gleichzeitiger Arbeit an derselben Datei entstehen Konflikte. Branching ermöglicht isolierte Entwicklung, Merging integriert die Änderungen kontrolliert.
+solution_video: https://www.youtube.com/embed/4XpnKHJAok8?si=8z5X6V2L9YdRq0
+tip: "Denken Sie an ein Beispiel aus Ihrem Alltag: Wie würden Sie ohne Versionskontrolle arbeiten?"

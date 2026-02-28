@@ -1,0 +1,122 @@
+title: Projektadministration und Best Practices
+question: |
+  Basierend auf Projektadministration und Best Practices:
+
+  1. Erklären Sie, wie Sie eine professionelle Repository-Struktur für ein Python-Webprojekt mit Datenbank erstellen würden
+  2. Beschreiben Sie den Unterschied zwischen GitFlow und GitHub Flow und geben Sie ein Beispiel, wann Sie welches verwenden würden
+  3. Erklären Sie, wie Sie eine CI/CD-Pipeline für automatisiertes Testen und Deployment einrichten würden
+
+  $$\text{Beispiel: Ein Startup-Unternehmen plant ein neues SaaS-Produkt...}$$
+solution: |
+  **1. Professionelle Repository-Struktur:**
+  ```
+  saas-projekt/
+  ├── .git/
+  ├── .gitignore
+  ├── .env.example
+  ├── README.md
+  ├── LICENSE
+  ├── CONTRIBUTING.md
+  ├── CODE_OF_CONDUCT.md
+  ├── .github/
+  │   ├── workflows/
+  │   │   ├── ci.yml
+  │   │   └── cd.yml
+  │   └── ISSUE_TEMPLATE/
+  ├── docs/
+  │   ├── index.md
+  │   └── api.md
+  ├── src/
+  │   ├── app/
+  │   │   ├── __init__.py
+  │   │   ├── models.py
+  │   │   ├── routes.py
+  │   │   └── utils.py
+  │   ├── config.py
+  │   └── main.py
+  ├── tests/
+  │   ├── test_models.py
+  │   ├── test_routes.py
+  │   └── conftest.py
+  ├── migrations/
+  │   └── versions/
+  ├── scripts/
+  │   ├── setup.sh
+  │   └── deploy.sh
+  ├── docker/
+  │   ├── Dockerfile
+  │   └── docker-compose.yml
+  ├── requirements.txt
+  └── pyproject.toml
+  ```
+
+  **2. GitFlow vs. GitHub Flow:**
+  **GitFlow**:
+  - **Struktur**: `main`, `develop`, `feature/*`, `release/*`, `hotfix/*`
+  - **Vorteile**: Klare Trennung, gut für große Teams, Release-Management
+  - **Nachteile**: Komplex, viele Branches, langsam
+  - **Anwendung**: Enterprise-Projekte, komplexe Releases, große Teams
+
+  **GitHub Flow**:
+  - **Struktur**: `main` + kurze Feature-Branches
+  - **Vorteile**: Einfach, schnell, kontinuierliche Integration
+  - **Nachteile**: Weniger Struktur für komplexe Projekte
+  - **Anwendung**: Startups, agile Teams, kontinuierliche Deployment
+
+  **Entscheidungshilfe**:
+  - **GitFlow**: Finanzprojekt mit quartalsweisen Releases
+  - **GitHub Flow**: SaaS-Startup mit wöchentlichen Deployment
+
+  **3. CI/CD-Pipeline:**
+  **GitHub Actions** (`.github/workflows/ci.yml`):
+  ```yaml
+  name: CI
+  on: [push, pull_request]
+  jobs:
+    test:
+      runs-on: ubuntu-latest
+      steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Install dependencies
+        run: |
+          pip install -r requirements.txt
+          pip install pytest pytest-cov flake8
+      - name: Run linting
+        run: flake8 src/
+      - name: Run tests
+        run: pytest --cov=src/ --cov-report=xml
+      - name: Upload coverage
+        uses: codecov/codecov-action@v3
+  ```
+
+  **CD-Pipeline** (`.github/workflows/cd.yml`):
+  ```yaml
+  name: CD
+  on:
+    push:
+      branches: [main]
+  jobs:
+    deploy:
+      runs-on: ubuntu-latest
+      steps:
+      - uses: actions/checkout@v4
+      - name: Deploy to server
+        env:
+          SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
+        run: |
+          # SSH-Verbindung und Deployment
+          echo "$SSH_PRIVATE_KEY" > key.pem
+          chmod 600 key.pem
+          rsync -avz -e "ssh -i key.pem" ./ user@server:/app/
+  ```
+
+  **Vorteile**:
+  - Automatisches Testen bei jedem Push
+  - Code Coverage messen
+  - Automatisches Deployment nach main
+  - Sicherheit durch Secrets
+solution_video: https://www.youtube.com/embed/4XpnKHJAok8?si=8z5X6V2L9YdRq0
+tip: Stellen Sie sich vor, Sie müssten ein Projekt für 100 Entwickler und 10 verschiedene Umgebungen (Dev, Test, Staging, Production) verwalten. Welche Strategie würden Sie wählen?

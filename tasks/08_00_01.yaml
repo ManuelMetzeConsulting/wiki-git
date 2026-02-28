@@ -1,0 +1,84 @@
+title: Projektdateien und .gitignore
+question: |
+  Basierend auf Projektdateien und .gitignore Konfiguration:
+
+  1. Erklären Sie, warum Abhängigkeiten (node_modules, venv) nicht versioniert werden sollten und wie man sie trotzdem reproduzierbar macht
+  2. Beschreiben Sie, wie Sie sensible Daten wie Passwörter in einem Git-Repository sicher verwalten würden
+  3. Erstellen Sie ein .gitignore für ein Python-Projekt mit Webanwendung, das Datenbankzugriff und API-Schlüssel verwendet
+
+  $$\text{Beispiel: Ein Team entwickelt eine Webanwendung mit Datenbank und externen APIs...}$$
+solution: |
+  **1. Abhängigkeiten nicht versionieren:**
+  **Warum nicht?**
+  - **Größe**: node_modules kann hunderte MB groß sein
+  - **Plattformabhängig**: Unterschiedliche Systeme haben unterschiedliche Binärdateien
+  - **Redundanz**: Werden durch Konfigurationsdateien reproduziert
+  - **Updates**: Schwierig, Abhängigkeiten zu aktualisieren
+
+  **Reproduzierbarkeit durch**:
+  - `package.json` (Node.js) oder `requirements.txt` (Python)
+  - `package-lock.json` oder `Pipfile.lock` für exakte Versionen
+  - CI/CD Pipeline installiert Abhängigkeiten automatisch
+
+  **2. Sensible Daten verwalten:**
+  **Falsch**:
+  ```yaml
+  # config.yaml (committed)
+  database:
+    password: "mein_passwort"  # ❌ SICHERHEITSRISIKO!
+  ```
+
+  **Richtig**:
+  ```
+  1. .env Datei erstellen (NIEMALS committen!)
+  2. .env.example als Vorlage committen
+  3. .gitignore: .env, .env.local, .env.*.local
+  4. Umgebungsvariablen in CI/CD setzen
+  5. Passwort-Manager für Team verwenden
+  ```
+
+  **3. .gitignore für Python-Webanwendung**:
+  ```gitignore
+  # Python
+  __pycache__/
+  *.py[cod]
+  *$py.class
+  venv/
+  .env
+  .env.local
+  .env.*.local
+
+  # Database
+  *.db
+  *.sqlite
+  *.sqlite3
+
+  # Logs
+  *.log
+  logs/
+
+  # Build
+  dist/
+  build/
+  *.egg-info/
+
+  # IDE
+  .vscode/
+  .idea/
+  *.swp
+  *.swo
+
+  # OS
+  .DS_Store
+  Thumbs.db
+
+  # API Keys (example)
+  # api_keys.json  # Falls Sie eine solche Datei haben
+  ```
+
+  **Zusätzliche Maßnahmen**:
+  - `.env.example` committen mit Platzhaltern
+  - `config.py` mit Umgebungsvariablen-Ladung
+  - Dokumentation für Team-Mitglieder
+solution_video: https://www.youtube.com/embed/4XpnKHJAok8?si=8z5X6V2L9YdRq0
+tip: Stellen Sie sich vor, Sie müssen ein Projekt für ein Finanzunternehmen erstellen. Welche zusätzlichen Sicherheitsmaßnahmen würden Sie ergreifen?
