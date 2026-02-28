@@ -19,10 +19,10 @@ theme:
   palette:
     # primary: blue
     # accent: green
-    primary: amber
-    accent: deep orange
-  logo: assets/logo.png
-  favicon: assets/favicon.png
+    primary: green
+    accent: light green
+  logo: assets/bfz_logo.svg
+  favicon: assets/bfz_favicon.png
   features:
     - navigation.tracking
     - navigation.path
@@ -72,16 +72,14 @@ plugins:
 
 extra:
   social:
-    - icon: fontawesome/solid/k
-      link: https://www.kununu.com/de/qualidy
     - icon: fontawesome/brands/linkedin
-      link: https://de.linkedin.com/company/qualidy
-    - icon: material/google
-      link: https://www.google.com/search?sca_esv=7e6ba2047fcb60f3&uds=AMwkrPtyB8MsmozA4Lwzqy2G2HCu-abqzc6moOG48q3gP5dtjTRzC2Ws0eSwcyLXDfZNuYCrZ7ByIreHLG9th3vKLekPoVeey0tumAbet4cVLQRLzdRFhUbOGbnyp3xo1V0hzzaNmkCN&si=AKbGX_rcuucMgom2rba1cdwsvM2SVoIkP2btyqGMV4t0GuHIs4sGV_1tpuqR0YHG4Rzd9SdJcL-lW6E-2aJA5azZLTKkIOrZ2j2aWwoBkVbdEJ0o0GPcQhs%3D&q=Qualidy+GmbH+Rezensionen&sa=X&ved=2ahUKEwibsbnSgcmFAxXNQvEDHaVYCiAQ3PALegQIRxAF
+      link: https://de.linkedin.com/company/bfz-ggmbh
     - icon: fontawesome/solid/globe
-      link: https://qualidy.de
+      link: https://www.bfz.de
+    - icon: fontawesome/solid/graduation-cap
+      link: https://www.bfz.de/ueber-uns
 
 watch:
   - tasks
 
-copyright: Copyright &copy; 2026 Qualidy GmbH
+copyright: Copyright &copy; 2026 BFZ gGmbH
