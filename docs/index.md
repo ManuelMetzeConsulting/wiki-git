@@ -35,7 +35,7 @@ Hier können weitere Inhalte rein.
 
 {{ link("externer Link", "https://google.com") }}
 
-{{ youtube_video("https://www.youtube.com/embed/chPCpYNJe_Q?si=frU_Z_VwSGnPWEPF") }}
+{{ youtube_video("https://www.youtube.com/embed/DEUTSCH_INDEX_001?si=index2024", "Einführung in Versionskontrolle") }}
 
 !!! tip "Schneller Navigieren"
 

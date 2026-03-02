@@ -80,5 +80,4 @@ solution: |
   - `.env.example` committen mit Platzhaltern
   - `config.py` mit Umgebungsvariablen-Ladung
   - Dokumentation für Team-Mitglieder
-solution_video: https://www.youtube.com/embed/4XpnKHJAok8?si=8z5X6V2L9YdRq0
 tip: Stellen Sie sich vor, Sie müssen ein Projekt für ein Finanzunternehmen erstellen. Welche zusätzlichen Sicherheitsmaßnahmen würden Sie ergreifen?

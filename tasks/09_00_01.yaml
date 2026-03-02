@@ -83,5 +83,4 @@ solution: |
   ```
 
   **Ergebnis**: Genauer Commit, der Bug eingeführt hat
-solution_video: https://www.youtube.com/embed/4XpnKHJAok8?si=8z5X6V2L9YdRq0
 tip: Stellen Sie sich vor, Sie haben 1000 Commits und ein neuer Bug ist aufgetreten. Wie würden Sie systematisch den fehlerhaften Commit finden?
